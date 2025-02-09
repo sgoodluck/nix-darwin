@@ -1,62 +1,43 @@
-# User-specific configurations (ZSH, Git, etc.)
-{ config, pkgs, ... }:
 {
-  home = {
-    username = "seth";
-    homeDirectory = "/Users/seth";
-    stateVersion = "24.11"; # Read the docs before changing
-  };
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
+  home.stateVersion = "24.11";
 
-  #
-  # PROGRAM-SPECIFIC CONFIGURATIONS
-  #
   programs = {
     home-manager.enable = true;
 
-    #
-    # GIT CONFIGURATION
-    #
     git = {
       enable = true;
-      userName = "Seth"; # Update with your name
-      userEmail = "your.email@example.com"; # Update with your email
+      userName = "Seth";
+      userEmail = "your.email@example.com";
       extraConfig = {
-        init.defaultBranch = "main"; # Default branch name
-        pull.rebase = true; # Use rebase for pulls
-        core.editor = "nvim"; # Default editor
+        init.defaultBranch = "main";
+        pull.rebase = true;
+        core.editor = "nvim";
       };
     };
 
-    #
-    # SHELL CONFIGURATION (ZSH)
-    #
     zsh = {
       enable = true;
-      enableCompletion = true; # Enable completion system
-      enableAutosuggestions = true; # Enable autosuggestions feature
+      enableCompletion = true;
+      enableAutosuggestions = true;
 
-      # Shell initialization
       initExtra = ''
         eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
       '';
 
-      # Environment variables
       sessionVariables = {
         XDG_CONFIG_HOME = "$HOME/.config";
         PATH = "$XDG_CONFIG_HOME/emacs/bin:$HOME/.emacs.d/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/llvm/bin:$PATH";
       };
 
-      # Shell aliases
       shellAliases = {
-        nxr = "darwin-rebuild switch --flake ~/.config/nix#m1air"; # Rebuild system
+        nixr = "darwin-rebuild switch --flake ~/.config/nix#m1air";
       };
     };
-  };
-
-  #
-  # DOTFILE MANAGEMENT
-  #
-  home.file = {
-    # Example: ".config/ohmyposh/zen.toml".source = ./dotfiles/oh-my-posh/zen.toml;
   };
 }
