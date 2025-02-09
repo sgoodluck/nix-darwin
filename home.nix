@@ -7,13 +7,22 @@
 {
   home.stateVersion = "24.11";
 
+  #
+  # SPECIFY DOT FILES
+  #
+  home.file = {
+    ".config/ohmyposh/zen.toml".source = ./dotfiles/zen.toml;
+  };
+
   programs = {
     home-manager.enable = true;
-
+    #
+    # CONFIGURE GIT
+    #
     git = {
       enable = true;
       userName = "Seth";
-      userEmail = "your.email@example.com";
+      userEmail = "sethgoodluck@pm.me";
       extraConfig = {
         init.defaultBranch = "main";
         pull.rebase = true;
@@ -21,10 +30,13 @@
       };
     };
 
+    #
+    # CONFIGURE ZSH
+    #
     zsh = {
       enable = true;
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
 
       initExtra = ''
         eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
@@ -36,8 +48,10 @@
       };
 
       shellAliases = {
-        nixr = "darwin-rebuild switch --flake ~/.config/nix#m1air";
+        nxr = "darwin-rebuild switch --flake ~/nix#m1air";
+        ls = "ls --color=auto";
       };
     };
   };
+
 }
