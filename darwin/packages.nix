@@ -68,6 +68,7 @@
     ];
 
     brews = [
+      "hugo" # blogging made easy
       "mas" # Mac App Store CLI
       "llvm" # Compiler infrastructure
       "bear" # Compilation database generator
@@ -88,7 +89,7 @@
           "with-xwidgets"
           "with-imagemagick"
           "with-native-comp"
-         "with-modern-black-variant-icon"
+          "with-modern-black-variant-icon"
         ];
       }
     ];
