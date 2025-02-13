@@ -37,7 +37,12 @@
       nix-darwin,
       nixpkgs,
       home-manager,
-      ...
+      nix-homebrew,
+      mac-app-util,
+      homebrew-core,
+      homebrew-cask,
+      homebrew-bundle,
+      homebrew-emacs-plus,
     }:
     let
       system = "aarch64-darwin";
@@ -48,13 +53,34 @@
         inherit system;
         modules = [
           ./darwin
+          mac-app-util.darwinModules.default
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = true;
+              user = "seth";
+              mutableTaps = false;
+              autoMigrate = true;
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-bundle" = homebrew-bundle;
+                "homebrew/homebrew-cask" = homebrew-cask;
+                "d12frosted/homebrew-emacs-plus" = homebrew-emacs-plus;
+              };
+            };
+          }
 
           {
             users.users.${username}.home = "/Users/${username}";
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.${username} = import ./home.nix;
+	          users.${username} = { pkgs, ... }: import ./home.nix {
+      inherit pkgs;
+      lib = nixpkgs.lib;
+      config = {};
+    };
             };
           }
 

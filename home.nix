@@ -4,14 +4,21 @@
   config,
   ...
 }:
+let
+  # Get the directory containing this file
+  configDir = builtins.toString ./.;
+in
 {
   home.stateVersion = "24.11";
 
   #
   # SPECIFY DOT FILES
   #
+
   home.file = {
-    ".config/ohmyposh/zen.toml".source = ./dotfiles/zen.toml;
+    ".config/ohmyposh/zen.toml".source = "${configDir}/dotfiles/zen.toml";
+    ".config/yabai/yabairc".source = "${configDir}/dotfiles/yabairc";
+    ".config/skhd/skhdrc".source = "${configDir}/dotfiles/skhdrc";
   };
 
   programs = {

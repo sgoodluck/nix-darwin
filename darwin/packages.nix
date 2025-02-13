@@ -7,6 +7,9 @@
     #
     # DEVELOPMENT TOOLS
     #
+    karabiner-elements # hyperkey magic
+    skhd # hotkeys for yabai
+    yabai # i3wm like wm
     git # Version control system
     curl # Data transfer tool
     wget # File download utility
@@ -98,7 +101,7 @@
       "zen-browser" # Web browser
       "protonvpn" # VPN client
       "proton-pass" # Password manager
-      "amethyst" # Tiling window manager
+      #"amethyst" # Tiling window manager
       "bambu-studio" # 3D printer software
       "tidal" # Music streaming service
     ];
