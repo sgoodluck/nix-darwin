@@ -14,7 +14,7 @@ in
     #
     # DEVELOPMENT TOOLS
     #
-    karabiner-elements # hyperkey magic
+    # karabiner-elements # hyperkey magic
     skhd # hotkeys for yabai
     yabai # i3wm like wm
     git # Version control system
