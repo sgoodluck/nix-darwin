@@ -4,5 +4,6 @@
   imports = [
     ./system.nix # System settings and fonts
     ./packages.nix # All packages and Homebrew config
+    ./services.nix # Various services
   ];
 }
