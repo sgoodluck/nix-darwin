@@ -11,6 +11,13 @@
   #
   system.stateVersion = 5; # System state version
 
+  # Symlink emacs
+  system.activationScripts.postActivation.text = ''
+    # Ensure the Applications directory exists
+    mkdir -p /Applications/Nix
+    # Create symlink for Emacs
+    ln -sf "$(brew --prefix)/opt/emacs-plus/Emacs.app" /Applications/
+  '';
   #
   # SECURITY AND AUTHENTICATION
   #

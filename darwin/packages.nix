@@ -80,6 +80,17 @@
       "clang-format" # C/C++ code formatter
       "pipenv" # Python dependency manager
       "shfmt" # Shell script formatter
+      {
+        name = "emacs-plus"; # The only editor you'll ever need
+        args = [
+          "with-ctags"
+          "with-mailutils"
+          "with-xwidgets"
+          "with-imagemagick"
+          "with-native-comp"
+         "with-modern-black-variant-icon"
+        ];
+      }
     ];
 
     casks = [
@@ -91,22 +102,11 @@
       "karabiner-elements" # Hyperkey magic
       "bambu-studio" # 3D printer software
       "tidal" # Music streaming service
-      {
-        name = "emacs-plus"; # Enhanced Emacs distribution
-        args = [
-          "with-ctags" # For code navigation
-          "with-mailutils" # For email support
-          "with-xwidgets" # For web browser support
-          "with-imagemagick" # For image processing
-          "with-native-comp" # For native compilation
-          "with-modern-black-variant-icon" # Modern styling
-        ];
-      }
-
     ];
 
     masApps = {
       Xcode = 497799835; # Apple's IDE for macOS/iOS development
     };
   };
+
 }
