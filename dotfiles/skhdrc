@@ -6,6 +6,7 @@
 hyper - y : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 # System commands (all these work with SIP enabled)
+cmd + shift - return : terminal-notifier -message "skhd is working!"
 cmd - escape : pmset displaysleepnow
 cmd + shift - e : osascript -e 'tell app "System Events" to log out'
 cmd + shift - p : osascript -e 'tell app "System Events" to shut down'
@@ -14,9 +15,9 @@ cmd + shift - s : osascript -e 'tell application "System Events" to sleep'
 
 # === Launch commands ===
 # All app launch commands work with SIP enabled
-cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-cmd + shift - return : open -na /Applications/Firefox.app
-cmd + ctrl - return : open -na /Applications/Visual\ Studio\ Code.app/
+#cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+#cmd + shift - return : open -na /Applications/Firefox.app
+#cmd + ctrl - return : open -na /Applications/Visual\ Studio\ Code.app/
 cmd - n : open `pwd`
 hyper - c : open "x-apple.systempreferences:"
 

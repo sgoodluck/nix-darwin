@@ -1,11 +1,4 @@
 { pkgs, ... }:
-let
-  karabiner-elements = pkgs.karabiner-elements.overrideAttrs (old: {
-    postInstall = ''
-      xattr -dr com.apple.quarantine $out/Applications/Karabiner-Elements.app || true
-    '';
-  });
-in
 {
   #
   # SYSTEM PACKAGES
@@ -14,7 +7,6 @@ in
     #
     # DEVELOPMENT TOOLS
     #
-    karabiner-elements # hyperkey magic
     skhd # hotkeys for yabai
     yabai # i3wm like wm
     git # Version control system
@@ -109,6 +101,7 @@ in
       "protonvpn" # VPN client
       "proton-pass" # Password manager
       #"amethyst" # Tiling window manager
+      "karabiner-elements" # Hyperkey magic
       "bambu-studio" # 3D printer software
       "tidal" # Music streaming service
     ];
