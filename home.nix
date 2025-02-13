@@ -17,9 +17,8 @@ in
 
   home.file = {
     ".config/ohmyposh/zen.toml".source = "${configDir}/dotfiles/zen.toml";
-    ".config/yabai/yabairc".source = "${configDir}/dotfiles/yabairc";
-    ".config/skhd/skhdrc".source = "${configDir}/dotfiles/skhdrc";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
+    ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
   };
 
   programs = {
