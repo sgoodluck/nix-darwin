@@ -1,4 +1,11 @@
 { pkgs, ... }:
+let
+  karabiner-elements = pkgs.karabiner-elements.overrideAttrs (old: {
+    postInstall = ''
+      xattr -dr com.apple.quarantine $out/Applications/Karabiner-Elements.app || true
+    '';
+  });
+in
 {
   #
   # SYSTEM PACKAGES
