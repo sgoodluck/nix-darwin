@@ -19,6 +19,9 @@ in
     ".config/ohmyposh/zen.toml".source = "${configDir}/dotfiles/zen.toml";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
+    ".doom.d/init.el".source = "${configDir}/dotfiles/doom/init.el";
+    ".doom.d/config.el".source = "${configDir}/dotfiles/doom/config.el";
+    ".doom.d/packages.el".source = "${configDir}/dotfiles/doom/packages.el";
   };
 
   programs = {
@@ -51,7 +54,16 @@ in
 
       sessionVariables = {
         XDG_CONFIG_HOME = "$HOME/.config";
-        PATH = "$XDG_CONFIG_HOME/emacs/bin:$HOME/.emacs.d/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/llvm/bin:$PATH";
+        DOOMDIR = "$XDG_CONFIG_HOME/doom";
+
+        # Individual PATH components
+        EMACS_BIN = "$XDG_CONFIG_HOME/emacs/bin";
+        HOMEBREW_BIN = "/opt/homebrew/bin";
+        HOMEBREW_SBIN = "/opt/homebrew/sbin";
+        LLVM_BIN = "/opt/homebrew/opt/llvm/bin";
+
+        # Assembled PATH with all components
+        PATH = "$EMACS_BIN:$HOMEBREW_BIN:$HOMEBREW_SBIN:$LLVM_BIN:$PATH";
       };
 
       shellAliases = {

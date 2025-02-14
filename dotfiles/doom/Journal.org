@@ -1,0 +1,9 @@
+
+* 2025
+** 2025-02 February
+*** 2025-02-07 Friday
+**** [2025-02-07 Fri 17:23] Finally have debugging working
+
+Dear god that was such a pain the ass. I spent literally 3 days I think trying to get "DAP" to work. I even subscribed to Claude pro to help me debug the damn thing (to no avail). Anyway, I eventually nuked the fucking thing and installed DAPE instead. Which is an utter pain in the ass because that means my previous configurations a couple of days may have worked.
+
+Oh well, that's life. Moving on. Other shit to do
