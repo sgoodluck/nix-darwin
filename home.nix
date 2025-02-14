@@ -19,13 +19,18 @@ in
     ".config/ohmyposh/zen.toml".source = "${configDir}/dotfiles/zen.toml";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
-    ".doom.d/init.el".source = "${configDir}/dotfiles/doom/init.el";
-    ".doom.d/config.el".source = "${configDir}/dotfiles/doom/config.el";
-    ".doom.d/packages.el".source = "${configDir}/dotfiles/doom/packages.el";
+    ".config/doom/init.el".source = "${configDir}/dotfiles/doom/init.el";
+    ".config/doom/config.el".source = "${configDir}/dotfiles/doom/config.el";
+    ".config/doom/packages.el".source = "${configDir}/dotfiles/doom/packages.el";
   };
 
   programs = {
+
     home-manager.enable = true;
+    #
+    # CONFIGURE SSH
+    #
+
     #
     # CONFIGURE GIT
     #
