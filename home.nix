@@ -30,7 +30,29 @@ in
     #
     # CONFIGURE SSH
     #
+    ssh = {
+      enable = true;
 
+      matchBlocks = {
+        "*" = {
+          # Put all global settings in one place
+          extraOptions = {
+            "AddKeysToAgent" = "yes";
+            "UseKeychain" = "yes";
+            "ForwardAgent" = "no";
+            "Compression" = "no";
+            "ServerAliveInterval" = "0";
+            "ServerAliveCountMax" = "3";
+            "UserKnownHostsFile" = "~/.ssh/known_hosts";
+          };
+        };
+        "github.com" = {
+          hostname = "github.com";
+          user = "git";
+          identityFile = "~/.ssh/id_ed25519";
+        };
+      };
+    };
     #
     # CONFIGURE GIT
     #
@@ -59,10 +81,10 @@ in
 
       sessionVariables = {
         XDG_CONFIG_HOME = "$HOME/.config";
-        DOOMDIR = "$XDG_CONFIG_HOME/doom";
+        DOOMDIR = "$HOME/.config/doom";
 
         # Individual PATH components
-        EMACS_BIN = "$XDG_CONFIG_HOME/emacs/bin";
+        EMACS_BIN = "$HOME/.config/emacs/bin";
         HOMEBREW_BIN = "/opt/homebrew/bin";
         HOMEBREW_SBIN = "/opt/homebrew/sbin";
         LLVM_BIN = "/opt/homebrew/opt/llvm/bin";
