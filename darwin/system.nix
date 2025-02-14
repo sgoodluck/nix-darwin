@@ -24,6 +24,11 @@
   security.pam.enableSudoTouchIdAuth = true; # Enable TouchID for sudo authentication
 
   #
+  #HOME MANAGER SETTINGS
+  #
+  home-manager.backupFileExtension = "backup";
+
+  #
   # NIXPKGS CONFIGURATION AND PLATFORM
   #
   nixpkgs = {
