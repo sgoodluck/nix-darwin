@@ -28,32 +28,6 @@ in
 
     home-manager.enable = true;
     #
-    # CONFIGURE SSH
-    #
-    ssh = {
-      enable = true;
-
-      matchBlocks = {
-        "*" = {
-          # Put all global settings in one place
-          extraOptions = {
-            "AddKeysToAgent" = "yes";
-            "UseKeychain" = "yes";
-            "ForwardAgent" = "no";
-            "Compression" = "no";
-            "ServerAliveInterval" = "0";
-            "ServerAliveCountMax" = "3";
-            "UserKnownHostsFile" = "~/.ssh/known_hosts";
-          };
-        };
-        "github.com" = {
-          hostname = "github.com";
-          user = "git";
-          identityFile = "~/.ssh/id_ed25519";
-        };
-      };
-    };
-    #
     # CONFIGURE GIT
     #
     git = {
