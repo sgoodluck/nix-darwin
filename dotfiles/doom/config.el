@@ -34,9 +34,11 @@
 (defun toggle-spacemacs-theme ()
   "Toggle between spacemacs-light and spacemacs-dark themes"
   (interactive)
-  (if (eq doom-theme 'spacemacs-light)
-      (setq doom-theme 'spacemacs-dark)
-    (setq doom-theme 'spacemacs-light))
+  (if (eq doom-theme 'spacemacs-dark)
+      (setq doom-theme 'spacemacs-light)
+    (if (eq doom-theme 'spacemacs-light)
+        (setq doom-theme 'spacemacs-dark)
+      (setq doom-theme 'spacemacs-light)))
   (doom/reload-theme))
 
 (map! :leader
