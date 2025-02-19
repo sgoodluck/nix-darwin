@@ -34,13 +34,15 @@
 (defun toggle-spacemacs-theme ()
   "Toggle between spacemacs-light and spacemacs-dark themes"
   (interactive)
-  (message "Current theme before toggle: %s" doom-theme)  ; Debug message
-  (setq doom-theme
-        (if (eq doom-theme 'spacemacs-light)
-            'spacemacs-dark
-          'spacemacs-light))
-  (message "New theme after toggle: %s" doom-theme)      ; Debug message
-  (doom/reload-theme))
+  (message "Current theme before toggle: %s" doom-theme)
+  (if (eq doom-theme 'spacemacs-light)
+      (progn
+        (setq doom-theme 'spacemacs-dark)
+        (load-theme 'spacemacs-dark t))
+    (progn
+      (setq doom-theme 'spacemacs-light)
+      (load-theme 'spacemacs-light t)))
+  (message "New theme after toggle: %s" doom-theme))
 
 (map! :leader
       :desc "Toggle Spacemacs theme"
