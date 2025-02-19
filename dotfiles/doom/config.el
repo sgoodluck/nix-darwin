@@ -138,3 +138,10 @@
 ;;
 (after! ox
   (require 'ox-hugo))
+
+
+;;;
+;;; Spell Checker
+;;;
+(setq ispell-program-name "aspell")
+(setq ispell-dictionary "en")
