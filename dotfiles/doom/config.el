@@ -1,8 +1,18 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;;
-;; UI Configuration
-;;
+;;;; System Configuration
+
+;; Set the basic doom dotfiles command
+(setq doom-user-dir "~/nix/dotfiles/doom/")
+
+;; Add minor outline mode for emacs
+(add-hook! 'emacs-lisp-mode-hook #'outline-minor-mode)
+
+;; Set the outline regexp for elisp files
+(setq outline-regexp ";;;\\(;*\\)[[:space:]]*")
+
+
+;;;; UI Configuration
 
 ;; Window and Frame Settings
 (add-to-list 'default-frame-alist '(undecorated . t))
@@ -20,9 +30,29 @@
 (setq doom-theme 'spacemacs-light
       display-line-numbers-type 'relative)
 
-;;
-;; Org Configuration
-;;
+;; Toggle Spacemacs themes
+(defun toggle-spacemacs-theme ()
+  "Toggle between spacemacs-light and spacemacs-dark themes"
+  (interactive)
+  (if (eq doom-theme 'spacemacs-light)
+      (setq doom-theme 'spacemacs-dark)
+    (setq doom-theme 'spacemacs-light))
+  (doom/reload-theme))
+
+(map! :leader
+      :desc "Toggle Spacemacs theme"
+      "t t" #'toggle-spacemacs-theme)
+
+;; Dashboard customization
+(custom-set-faces!
+  '(doom-dashboard-banner :inherit default)
+  '(doom-dashboard-footer :inherit default)
+  '(doom-dashboard-footer-icon :inherit default)
+  '(doom-dashboard-menu-title :inherit default)
+  '(doom-dashboard-menu-desc :inherit default))
+
+
+;;;; Org Configuration
 
 ;; Base Directory Setup
 (setq org-directory "~/Documents")
@@ -84,9 +114,8 @@
             "Changelog")
            "* %U %?\n%i\n%a" :prepend t))))
 
-;;
-;; EWW Configuration
-;;
+
+;;;; EWW Configuration
 
 ;; Set up EWW window behavior
 (set-popup-rules! '(("^\\*eww" :side right :size 0.50 :select t :quit nil)))
@@ -100,9 +129,7 @@
 (add-hook 'eww-mode-hook #'my-eww-padding)
 
 
-;;
-;; DAPE Debugger Configuration
-;;
+;;;; DAPE Debugger Configuration
 (use-package! dape
   :config
 
@@ -118,9 +145,8 @@
    :desc "Debug continue" "d c" #'dape-continue
    :desc "Toggle Breakpoint" "d b" #'dape-breakpoint-toggle))
 
-;;
-;; GPT Configuration
-;;
+
+;;;; GPT Configuration
 (use-package! gptel
   :config
   (setq gptel-backend
@@ -133,16 +159,13 @@
                 "FCg-VG_N0QAA"))
         gptel-model 'claude-3-5-sonnet-20241022))
 
-;;
-;; Blogging Configuration
-;;
+
+;;;; Writing Configuration
 (after! ox
   (require 'ox-hugo))
 
 (setq org-hugo-base-dir "~/Documents/Blog/")
 
-;;;
-;;; Spell Checker
-;;;
+
 (setq ispell-program-name "aspell")
 (setq ispell-dictionary "en")
