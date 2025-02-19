@@ -17,7 +17,7 @@
       nerd-icons-font-names '("Symbols Nerd Font Mono"))
 
 ;; Theme and Display Settings
-(setq doom-theme 'doom-xcode
+(setq doom-theme 'spacemacs-light
       display-line-numbers-type 'relative)
 
 ;;
@@ -139,6 +139,7 @@
 (after! ox
   (require 'ox-hugo))
 
+(setq org-hugo-base-dir "~/Documents/Blog/")
 
 ;;;
 ;;; Spell Checker

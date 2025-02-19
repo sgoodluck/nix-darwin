@@ -52,3 +52,4 @@
 (package! dape)      ;; only idiots don't use debuggers
 (package! gptel)     ;; claude in emacs
 (package! ox-hugo)   ;; blogging
+(package! spacemacs-theme) ;; easy on the eyes

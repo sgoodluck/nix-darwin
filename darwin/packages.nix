@@ -45,10 +45,6 @@
     # USER TOOLS
     #
     mkalias # Tool for creating macOS aliases
-    aspell # i lke too spel rite
-    aspellDicts.en # engwish pweese
-    aspellDicts.en-science
-    aspellDicts.en-computers
     oh-my-posh # Shell prompt customization
     obsidian # Note-taking application
   ];
@@ -72,6 +68,7 @@
     ];
 
     brews = [
+      "aspell" # i lke too spel rite
       "hugo" # blogging made easy
       "mas" # Mac App Store CLI
       "llvm" # Compiler infrastructure
