@@ -68,6 +68,35 @@
 (setq org-agenda-files
       (directory-files-recursively org-directory "\\.org$"))
 
+;; Org Modern Setup
+(use-package! org-modern
+  :hook
+  (org-mode . org-modern-mode)
+  (org-agenda-finalize . org-modern-agenda)
+  :config
+  (setq
+   ;; Edit settings
+   org-auto-align-tags nil
+   org-tags-column 0
+   org-catch-invisible-edits 'show-and-error
+   org-special-ctrl-a/e t
+   org-insert-heading-respect-content t
+
+   ;; Org Modern UI tweaks
+   org-modern-star '("◉" "○" "●" "○" "●" "○" "●")
+   org-modern-hide-stars nil              ; Show the leading stars
+   org-modern-checkbox nil                ; Don't use custom checkboxes
+   org-modern-tag t                       ; Use modern tags
+   org-modern-priority t                  ; Use modern priorities
+   org-modern-todo t                      ; Use modern todo keywords
+   org-modern-table nil                   ; Don't modify tables
+   org-modern-list nil                    ; Don't modify lists
+
+   ;; Margin settings
+   org-modern-block-fringe nil
+   org-modern-block-name nil
+   org-modern-keyword nil))
+
 (after! org
   ;; Default Capture Files - now pointing to Areas directory
   (setq +org-capture-todo-file (expand-file-name "Todo.org" org-main-dir)
@@ -120,7 +149,6 @@
             "Changelog")
            "* %U %?\n%i\n%a" :prepend t))))
 
-
 ;;;; EWW Configuration
 
 ;; Set up EWW window behavior
@@ -170,7 +198,7 @@
 (after! ox
   (require 'ox-hugo))
 
-(setq org-hugo-base-dir "~/Documents/Areas/Blog/")
+(setq org-hugo-base-dir "~/Documents/Projects/tgcg-blog/")
 
 
 (setq ispell-program-name "aspell")
