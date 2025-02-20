@@ -96,6 +96,7 @@
     ];
 
     casks = [
+      "calibre"	# ebook management 
       "the-unarchiver" # Archive extraction tool
       "zen-browser" # Web browser
       "protonvpn" # VPN client
@@ -108,6 +109,7 @@
 
     masApps = {
       Xcode = 497799835; # Apple's IDE for macOS/iOS development
+      Kindle = 302584613;
     };
   };
 

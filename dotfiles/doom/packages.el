@@ -53,3 +53,4 @@
 (package! gptel)     ;; claude in emacs
 (package! ox-hugo)   ;; blogging
 (package! spacemacs-theme) ;; easy on the eyes
+(package! org-modern) ;; niceties for org files

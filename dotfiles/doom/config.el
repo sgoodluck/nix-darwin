@@ -58,19 +58,21 @@
 
 
 ;;;; Org Configuration
-
 ;; Base Directory Setup
 (setq org-directory "~/Documents")
 
+;; Areas Directory for Main Org Files
+(setq org-main-dir (expand-file-name "Areas" org-directory))
+
 ;; Recursive Agenda File Discovery
 (setq org-agenda-files
-      (directory-files-recursively "~/Documents" "\\.org$"))
+      (directory-files-recursively org-directory "\\.org$"))
 
 (after! org
-  ;; Default Capture Files
-  (setq +org-capture-todo-file "Todo.org"
-        +org-capture-notes-file "Inbox.org"
-        +org-capture-journal-file "Journal.org"
+  ;; Default Capture Files - now pointing to Areas directory
+  (setq +org-capture-todo-file (expand-file-name "Todo.org" org-main-dir)
+        +org-capture-notes-file (expand-file-name "Inbox.org" org-main-dir)
+        +org-capture-journal-file (expand-file-name "Journal.org" org-main-dir)
         +org-capture-project-todo-file "todo.org"
         +org-capture-project-notes-file "notes.org"
         +org-capture-project-changelog-file "changelog.org")
@@ -92,7 +94,6 @@
           ("tj" "Journal" entry
            (file+olp+datetree +org-capture-journal-file)
            "* %U %?\n%i\n%a" :prepend t)
-
           ("p" "Project")
           ("pt" "Project todo" entry
            (file+headline
@@ -169,7 +170,7 @@
 (after! ox
   (require 'ox-hugo))
 
-(setq org-hugo-base-dir "~/Documents/Blog/")
+(setq org-hugo-base-dir "~/Documents/Areas/Blog/")
 
 
 (setq ispell-program-name "aspell")
