@@ -170,8 +170,8 @@
            ,(concat "#+TITLE: %^{Post title}\n"
                     "#+DATE: %<%Y-%m-%d %H:%M:%S %z>>\n"
                     "#+HUGO_DRAFT: true\n"
-                    "#+HUGO_CATEGORIES[]: %^{Categories}\n"
-                    "#+HUGO_TAGS[]: %^{Tags}\n"
+                    "#+HUGO_CATEGORIES: %^{Categories}\n"
+                    "#+HUGO_TAGS: %^{Tags}\n"
 
                     "\n"
                     "%?")
@@ -233,19 +233,19 @@
 (defun my/publish-blog ()
   "Export org blog posts and push changes to Hugo site repository."
   (interactive
-  (let* ((default-directory "~/Documents/Areas/Blog/")
-         (commit-msg (read-string "Commit message: " "Update blog content")))
-    ;; First export all blog posts
-    (org-hugo-export-wim-to-md t)
+   (let* ((default-directory "~/Documents/Areas/Blog/")
+          (commit-msg (read-string "Commit message: " "Update blog content")))
+     ;; First export all blog posts
+     (org-hugo-export-wim-to-md t)
 
-    ;; Then handle the Hugo site repository
-    (let ((default-directory org-hugo-base-dir))
-      (magit-status)  ; Show magit status buffer
-      (when (y-or-n-p "Proceed with git push? ")
-        (shell-command "git add content/")
-        (shell-command (format "git commit -m \"%s\"" commit-msg))
-        (shell-command "git push origin main")))))
+     ;; Then handle the Hugo site repository
+     (let ((default-directory org-hugo-base-dir))
+       (magit-status)  ; Show magit status buffer
+       (when (y-or-n-p "Proceed with git push? ")
+         (shell-command "git add content/")
+         (shell-command (format "git commit -m \"%s\"" commit-msg))
+         (shell-command "git push origin main")))))
 
-(map! :leader
-      (:prefix ("P" . "publishing")  ; Capital P is usually free
-       :desc "Publish blog" "b" #'my/publish-blog))
+  (map! :leader
+        (:prefix ("P" . "publishing")  ; Capital P is usually free
+         :desc "Publish blog" "b" #'my/publish-blog))
