@@ -11,6 +11,9 @@
 ;; Set the outline regexp for elisp files
 (setq outline-regexp ";;;\\(;*\\)[[:space:]]*")
 
+;; Set spell checker
+(setq ispell-program-name "aspell")
+(setq ispell-dictionary "en")
 
 ;;;; UI Configuration
 
@@ -78,7 +81,7 @@
    ;; Edit settings
    org-auto-align-tags nil
    org-tags-column 0
-   org-catch-invisible-edits 'show-and-error
+   org-fold-catch-invisible-edits 'show-and-error
    org-special-ctrl-a/e t
    org-insert-heading-respect-content t
 
@@ -111,9 +114,10 @@
     "Get project root or default to current directory."
     (or (project-root (project-current)) default-directory))
 
-  ;; Capture Templates
+  ;; Capture Templates - Combined into one list
   (setq org-capture-templates
-        `(("t" "Personal")
+        `(;; Personal Capture Templates
+          ("t" "Personal")
           ("tt" "Todo" entry
            (file+headline +org-capture-todo-file "Todos")
            "* TODO %?\n%i\n%a" :prepend t)
@@ -123,6 +127,8 @@
           ("tj" "Journal" entry
            (file+olp+datetree +org-capture-journal-file)
            "* %U %?\n%i\n%a" :prepend t)
+
+          ;; Project Capture Templates
           ("p" "Project")
           ("pt" "Project todo" entry
            (file+headline
@@ -147,7 +153,30 @@
                 (expand-file-name (format "%s-%s" project-name +org-capture-project-changelog-file)
                                   (my/project-root-or-default))))
             "Changelog")
-           "* %U %?\n%i\n%a" :prepend t))))
+           "* %U %?\n%i\n%a" :prepend t)
+
+          ;; Blog Capture Template
+          ("b" "Blog post" plain
+           (file (lambda ()
+                   (let* ((title (read-string "Post title: "))
+                          (slug (replace-regexp-in-string
+                                 " " "-"
+                                 (downcase (replace-regexp-in-string
+                                            "[^a-zA-Z0-9 ]" ""
+                                            title))))
+                          (filename (format "~/Documents/Areas/Blog/posts/%s.org"
+                                            slug)))
+                     filename)))
+           ,(concat "#+TITLE: %^{Post title}\n"
+                    "#+DATE: %<%Y-%m-%d %H:%M:%S %z>>\n"
+                    "#+HUGO_DRAFT: true\n"
+                    "#+HUGO_CATEGORIES[]: %^{Categories}\n"
+                    "#+HUGO_TAGS[]: %^{Tags}\n"
+
+                    "\n"
+                    "%?")
+           :immediate-finish nil
+           :unnarrowed t))))
 
 ;;;; EWW Configuration
 
@@ -194,12 +223,29 @@
         gptel-model 'claude-3-5-sonnet-20241022))
 
 
-;;;; Writing Configuration
+;;;; Blog Configuration
 (after! ox
   (require 'ox-hugo))
 
 (setq org-hugo-base-dir "~/Documents/Projects/tgcg-blog/")
 
 
-(setq ispell-program-name "aspell")
-(setq ispell-dictionary "en")
+(defun my/publish-blog ()
+  "Export org blog posts and push changes to Hugo site repository."
+  (interactive)
+  (let* ((default-directory "~/Documents/Areas/Blog/")
+         (commit-msg (read-string "Commit message: " "Update blog content")))
+    ;; First export all blog posts
+    (org-hugo-export-wim-to-md t)
+
+    ;; Then handle the Hugo site repository
+    (let ((default-directory org-hugo-base-dir))
+      (magit-status)  ; Show magit status buffer
+      (when (y-or-n-p "Proceed with git push? ")
+        (shell-command "git add content/")
+        (shell-command (format "git commit -m \"%s\"" commit-msg))
+        (shell-command "git push origin main")))))
+
+(map! :leader
+      (:prefix ("P" . "publishing")  ; Capital P is usually free
+       :desc "Publish blog" "b" #'my/publish-blog))
