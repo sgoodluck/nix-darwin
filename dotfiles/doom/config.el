@@ -232,7 +232,7 @@
 
 (defun my/publish-blog ()
   "Export org blog posts and push changes to Hugo site repository."
-  (interactive)
+  (interactive
   (let* ((default-directory "~/Documents/Areas/Blog/")
          (commit-msg (read-string "Commit message: " "Update blog content")))
     ;; First export all blog posts
