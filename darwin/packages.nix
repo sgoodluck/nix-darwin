@@ -96,6 +96,7 @@
     ];
 
     casks = [
+      "keycastr" # show keys
       "the-unarchiver" # Archive extraction tool
       "zen-browser" # Web browser
       "firefox" # for when I have to

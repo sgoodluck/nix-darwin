@@ -166,13 +166,13 @@
                                             title))))
                           (filename (format "~/Documents/Areas/Blog/posts/%s.org"
                                             slug)))
+                     (set-register ?t title)  ; Store the title in register t
                      filename)))
-           ,(concat "#+TITLE: %^{Post title}\n"
+           ,(concat "#+TITLE: %(get-register ?t)\n"  ; Use Lisp evaluation to get the title
                     "#+DATE: %<%Y-%m-%d %H:%M:%S %z>>\n"
                     "#+HUGO_DRAFT: true\n"
                     "#+HUGO_CATEGORIES: %^{Categories}\n"
                     "#+HUGO_TAGS: %^{Tags}\n"
-
                     "\n"
                     "%?")
            :immediate-finish nil
@@ -229,23 +229,23 @@
 
 (setq org-hugo-base-dir "~/Documents/Projects/tgcg-blog/")
 
-
 (defun my/publish-blog ()
   "Export org blog posts and push changes to Hugo site repository."
-  (interactive
-   (let* ((default-directory "~/Documents/Areas/Blog/")
-          (commit-msg (read-string "Commit message: " "Update blog content")))
-     ;; First export all blog posts
-     (org-hugo-export-wim-to-md t)
+  (interactive)
+  (let* ((default-directory "~/Documents/Areas/Blog/")
+         (commit-msg (read-string "Commit message: " "Update blog content")))
+    ;; First export all blog posts
+    (org-hugo-export-wim-to-md t)
 
-     ;; Then handle the Hugo site repository
-     (let ((default-directory org-hugo-base-dir))
-       (magit-status)  ; Show magit status buffer
-       (when (y-or-n-p "Proceed with git push? ")
-         (shell-command "git add content/")
-         (shell-command (format "git commit -m \"%s\"" commit-msg))
-         (shell-command "git push origin main")))))
+    ;; Then handle the Hugo site repository
+    (let ((default-directory org-hugo-base-dir))
+      (magit-status)  ; Show magit status buffer
+      (when (y-or-n-p "Proceed with git push? ")
+        (shell-command "git add content/")
+        (shell-command (format "git commit -m \"%s\"" commit-msg))
+        (shell-command "git push origin main")))))
 
-  (map! :leader
-        (:prefix ("P" . "publishing")  ; Capital P is usually free
-         :desc "Publish blog" "b" #'my/publish-blog))
+;; Key binding should be outside the function definition
+(map! :leader
+      (:prefix ("P" . "publishing")  ; Capital P is usually free
+       :desc "Publish blog" "b" #'my/publish-blog))
