@@ -44,6 +44,7 @@
     #
     # USER TOOLS
     #
+    alacritty # I like it fast and simple
     mkalias # Tool for creating macOS aliases
     oh-my-posh # Shell prompt customization
     obsidian # Note-taking application

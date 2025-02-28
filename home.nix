@@ -42,6 +42,23 @@ in
     };
 
     #
+    # CONFIGURE ALACRITTY
+    #
+    alacritty = {
+      enable = true;
+      settings = {
+        window = {
+          decorations = "none";
+          padding = {
+            x = 5;
+            y = 5;
+          };
+          opacity = .95;
+        };
+      };
+    };
+
+    #
     # CONFIGURE ZSH
     #
     zsh = {
@@ -68,7 +85,7 @@ in
       };
 
       shellAliases = {
-        nxr = "darwin-rebuild switch --flake ~/nix#m1air";
+        nxr = "darwin-rebuild switch --flake ~/nix#sgoodluck-m1air";
         ls = "ls --color=auto";
       };
     };

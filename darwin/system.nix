@@ -36,16 +36,22 @@
   system.defaults = {
 
     dock = {
-      dock.autohide = true;
-      dock.orientation = "right";
+      autohide = true;
+      orientation = "right";
       show-recents = false;
       tilesize = 48;
+      persistent-apps = [
+        "/Applications/Emacs.app/"
+        "/Applications/Zen.app/"
+        "/Applications/TIDAL.app/"
+        "/Applications/Nix Apps/Alacritty.app"
+      ];
     };
 
     finder = {
       FXPreferredViewStyle = "clmv"; # use column view as default finder view
       ShowPathbar = true;
-      ShowStatusbar = true;
+      ShowStatusBar = true;
     };
 
     screencapture = {
@@ -60,9 +66,41 @@
       AppleMeasurementUnits = "Centimeters"; # Use cm measurements by default
       AppleMetricUnits = 1; # Enable Metric
       AppleTemperatureUnit = "Celsius"; # Use Celsius
+      AppleICUForce24HourTime = true; # Use 24 hour time
+    };
+  };
+
+  #
+  # Launch at Login
+  #
+  launchd.user.agents = {
+    amethyst = {
+      serviceConfig = {
+        ProgramArguments = [
+          "/Applications/Amethyst.app/Contents/MacOS/Amethyst"
+        ];
+        KeepAlive = true;
+        RunAtLoad = true;
+        StandardOutPath = "/tmp/amethyst.log";
+        StandardErrorPath = "/tmp/amethyst.error.log";
+      };
+    };
+
+    emacs = {
+      serviceConfig = {
+        ProgramArguments = [
+          "/Applications/Emacs.app/Contents/MacOS/Emacs"
+          "--daemon"
+        ];
+        KeepAlive = true;
+        RunAtLoad = true;
+        StandardOutPath = "/tmp/emacs.log";
+        StandardErrorPath = "/tmp/emacs.error.log";
+      };
     };
 
   };
+
   #
   # NIXPKGS CONFIGURATION AND PLATFORM
   #
