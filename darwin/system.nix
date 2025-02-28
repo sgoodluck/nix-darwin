@@ -33,40 +33,43 @@
   #
   # Mac System Settings
   #
-  system.defaults = {
+  system = {
 
-    dock = {
-      autohide = true;
-      orientation = "right";
-      show-recents = false;
-      tilesize = 48;
-      persistent-apps = [
-        "/Applications/Emacs.app/"
-        "/Applications/Zen.app/"
-        "/Applications/TIDAL.app/"
-        "/Applications/Nix Apps/Alacritty.app"
-      ];
-    };
+    defaults = {
 
-    finder = {
-      FXPreferredViewStyle = "clmv"; # use column view as default finder view
-      ShowPathbar = true;
-      ShowStatusBar = true;
-    };
+      dock = {
+        autohide = true;
+        orientation = "right";
+        show-recents = false;
+        tilesize = 48;
+        persistent-apps = [
+          "/Applications/Emacs.app/"
+          "/Applications/Zen.app/"
+          "/Applications/TIDAL.app/"
+          "/Applications/Nix Apps/Alacritty.app"
+        ];
+      };
 
-    screencapture = {
-      location = "~/Pictures/screenshots";
-    };
+      finder = {
+        FXPreferredViewStyle = "clmv"; # use column view as default finder view
+        ShowPathbar = true;
+        ShowStatusBar = true;
+      };
 
-    NSGlobalDomain = {
-      AppleShowAllFiles = true; # show hidden files
-      AppleShowAllExtensions = true; # show file extensions
-      KeyRepeat = 2; # Faster key repeat rate
-      InitialKeyRepeat = 15; # Reduce delay to keyrepeat start
-      AppleMeasurementUnits = "Centimeters"; # Use cm measurements by default
-      AppleMetricUnits = 1; # Enable Metric
-      AppleTemperatureUnit = "Celsius"; # Use Celsius
-      AppleICUForce24HourTime = true; # Use 24 hour time
+      screencapture = {
+        location = "~/Pictures/screenshots";
+      };
+
+      NSGlobalDomain = {
+        AppleShowAllFiles = true; # show hidden files
+        AppleShowAllExtensions = true; # show file extensions
+        KeyRepeat = 2; # Faster key repeat rate
+        InitialKeyRepeat = 15; # Reduce delay to keyrepeat start
+        AppleMeasurementUnits = "Centimeters"; # Use cm measurements by default
+        AppleMetricUnits = 1; # Enable Metric
+        AppleTemperatureUnit = "Celsius"; # Use Celsius
+        AppleICUForce24HourTime = true; # Use 24 hour time
+      };
     };
   };
 
