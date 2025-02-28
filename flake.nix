@@ -46,10 +46,10 @@
     }:
     let
       system = "aarch64-darwin";
-      username = "seth";
+      username = "sgoodluck";
     in
     {
-      darwinConfigurations."m1air" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."sgoodluck-m1air" = nix-darwin.lib.darwinSystem {
         inherit system;
         modules = [
           ./darwin
@@ -59,7 +59,7 @@
             nix-homebrew = {
               enable = true;
               enableRosetta = true;
-              user = "seth";
+              user = "sgoodluck";
               mutableTaps = false;
               autoMigrate = true;
               taps = {

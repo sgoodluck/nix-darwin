@@ -10,6 +10,7 @@
   # SYSTEM CONFIGURATION AND STATE
   #
   system.stateVersion = 5; # System state version
+  nix.enable = false; # Rely on determinate systems to manae nix
 
   # Symlink emacs
   system.activationScripts.postActivation.text = ''
@@ -18,6 +19,7 @@
     # Create symlink for Emacs
     ln -sf "$(brew --prefix)/opt/emacs-plus/Emacs.app" /Applications/
   '';
+
   #
   # SECURITY AND AUTHENTICATION
   #
@@ -25,33 +27,48 @@
 
   #
   #HOME MANAGER SETTINGS
-  #
+  # .
   home-manager.backupFileExtension = "backup";
 
+  #
+  # Mac System Settings
+  #
+  system.defaults = {
+
+    dock = {
+      dock.autohide = true;
+      dock.orientation = "right";
+      show-recents = false;
+      tilesize = 48;
+    };
+
+    finder = {
+      FXPreferredViewStyle = "clmv"; # use column view as default finder view
+      ShowPathbar = true;
+      ShowStatusbar = true;
+    };
+
+    screencapture = {
+      location = "~/Pictures/screenshots";
+    };
+
+    NSGlobalDomain = {
+      AppleShowAllFiles = true; # show hidden files
+      AppleShowAllExtensions = true; # show file extensions
+      KeyRepeat = 2; # Faster key repeat rate
+      InitialKeyRepeat = 15; # Reduce delay to keyrepeat start
+      AppleMeasurementUnits = "Centimeters"; # Use cm measurements by default
+      AppleMetricUnits = 1; # Enable Metric
+      AppleTemperatureUnit = "Celsius"; # Use Celsius
+    };
+
+  };
   #
   # NIXPKGS CONFIGURATION AND PLATFORM
   #
   nixpkgs = {
     config.allowUnfree = true; # Allow installation of non-free packages
     hostPlatform = "aarch64-darwin"; # Set for Apple Silicon Macs
-  };
-
-  #
-  # NIX CONFIGURATION
-  #
-  nix = {
-    settings = {
-      experimental-features = "nix-command flakes"; # Enable flakes and new CLI
-      max-jobs = "auto"; # Parallel build jobs
-    };
-    optimise.automatic = true; # Safely optimize store
-    gc = {
-      automatic = true; # Enable automatic garbage collection
-      interval = {
-        Hour = 0;
-      }; # Run GC daily at midnight
-      options = "--delete-older-than 30d"; # Remove packages older than 30 days
-    };
   };
 
   #

@@ -89,7 +89,6 @@
           "with-mailutils"
           "with-xwidgets"
           "with-imagemagick"
-          "with-native-comp"
           "with-modern-black-variant-icon"
         ];
       }
