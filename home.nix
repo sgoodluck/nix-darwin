@@ -22,7 +22,7 @@ in
     ".config/doom/init.el".source = "${configDir}/dotfiles/doom/init.el";
     ".config/doom/config.el".source = "${configDir}/dotfiles/doom/config.el";
     ".config/doom/packages.el".source = "${configDir}/dotfiles/doom/packages.el";
-    #".config/nvim/init.lua".source = "${configDir}/dotfiles/nvim/init.lua";
+    ".config/nvim/init.lua".source = "${configDir}/dotfiles/nvim/init.lua";
   };
 
   programs = {

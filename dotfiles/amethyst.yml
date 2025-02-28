@@ -84,12 +84,12 @@ expand-main:
 # Increase the number of windows in the main pane. Note that not all layouts respond to this command.
 increase-main:
   mod: mod1
-  key: ','
+  key: ","
 
 # Decrease the number of windows in the main pane. Note that not all layouts respond to this command.
 decrease-main:
   mod: mod1
-  key: '.'
+  key: "."
 
 # General purpose command for custom layouts. Functionality is layout-dependent.
 # command1:
@@ -237,7 +237,8 @@ relaunch-amethyst:
 disable-padding-on-builtin-display: false
 
 # Boolean flag for whether or not to add margins between windows (default false).
-window-margins: false
+window-margins: true
+window-margin-size: 5
 
 # Boolean flag for whether or not to set window margins if there is only one window on the screen, assuming window margins are enabled (default false).
 smart-window-margins: false
@@ -265,7 +266,7 @@ floating: []
 floating-is-blacklist: true
 
 # true if screen frames should exclude the status bar. false if the screen frames should include the status bar (default false).
-ignore-menu-bar: false
+ignore-menu-bar: true
 
 # true if menu bar icon should be hidden (default false).
 hide-menu-bar-icon: false

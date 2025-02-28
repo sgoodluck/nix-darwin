@@ -61,6 +61,7 @@
       };
 
       NSGlobalDomain = {
+        _HIHideMenuBar = true;
         AppleShowAllFiles = true; # show hidden files
         AppleShowAllExtensions = true; # show file extensions
         KeyRepeat = 2; # Faster key repeat rate
