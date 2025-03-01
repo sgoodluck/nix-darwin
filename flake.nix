@@ -47,7 +47,7 @@
     let
       system = "aarch64-darwin";
       # Import the personal configuration
-      personalConfig = import ./personal.nix {
+      personalConfig = import ./darwin/personal.nix {
         inherit (nixpkgs) lib;
         pkgs = nixpkgs.legacyPackages.${system};
       };
