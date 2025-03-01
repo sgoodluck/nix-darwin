@@ -10,14 +10,7 @@
     githubUsername = "Seth";
   };
 
-  # Machine-specific settings
-  machine = {
-    name = "sgoodluck-m1air";
-    hostName = "sgoodluck-m1air";
-    isWork = false;
-  };
-
-  # Personal preferences
+  # Universal preferences that would apply across systems
   preferences = {
     # Editor preferences
     editor = {
@@ -26,29 +19,14 @@
       gui = "emacs";
     };
 
-    # Terminal preferences
-    terminal = {
-      app = "alacritty";
-      shell = "zsh";
-      promptTheme = "zen"; # Used by oh-my-posh
-    };
-
-    # UI preferences
+    # Text/UI preferences
     ui = {
       theme = "spacemacs-light"; # Base theme
       font = "AnonymicePro Nerd Font";
       fontSize = 12;
     };
 
-    # Web browser
-    browser = "Zen";
+    # Terminal shell preference
+    shell = "zsh";
   };
-
-  # Your favorite applications
-  favoriteApps = [
-    "/Applications/Emacs.app/"
-    "/Applications/Zen.app/"
-    "/Applications/TIDAL.app/"
-    "/Applications/Nix Apps/Alacritty.app"
-  ];
 }

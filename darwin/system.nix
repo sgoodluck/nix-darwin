@@ -6,6 +6,7 @@
   personal,
   ...
 }:
+
 {
   #
   # SYSTEM CONFIGURATION AND STATE
@@ -43,7 +44,12 @@
         orientation = "right";
         show-recents = false;
         tilesize = 48;
-        persistent-apps = personal.favoriteApps;
+        persistent-apps = [
+          "/Applications/Emacs.app/"
+          "/Applications/Zen.app/"
+          "/Applications/TIDAL.app/"
+          "/Applications/Nix Apps/Alacritty.app"
+        ];
       };
 
       finder = {

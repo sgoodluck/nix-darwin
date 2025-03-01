@@ -8,6 +8,12 @@
 let
   # Get the directory containing this file
   configDir = builtins.toString ./.;
+
+  # Machine name - still hardcoded here since it's Mac-specific
+  machineName = "sgoodluck-m1air";
+
+  # Theme name - still hardcoded here since it's Mac-specific
+  promptTheme = "zen";
 in
 {
   home.stateVersion = "24.11";
@@ -17,8 +23,7 @@ in
   #
 
   home.file = {
-    ".config/ohmyposh/${personal.preferences.terminal.promptTheme}.toml".source =
-      "${configDir}/dotfiles/zen.toml";
+    ".config/ohmyposh/${promptTheme}.toml".source = "${configDir}/dotfiles/zen.toml";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
     ".config/doom/init.el".source = "${configDir}/dotfiles/doom/init.el";
@@ -70,7 +75,7 @@ in
       autosuggestion.enable = true;
 
       initExtra = ''
-        eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/${personal.preferences.terminal.promptTheme}.toml)"
+        eval "$(oh-my-posh init ${personal.preferences.shell} --config ~/.config/ohmyposh/${promptTheme}.toml)"
       '';
 
       sessionVariables = {
@@ -88,7 +93,7 @@ in
       };
 
       shellAliases = {
-        nxr = "darwin-rebuild switch --flake ~/nix#${personal.machine.name}";
+        nxr = "darwin-rebuild switch --flake ~/nix#${machineName}";
         ls = "ls --color=auto";
       };
     };

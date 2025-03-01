@@ -46,14 +46,16 @@
     }:
     let
       system = "aarch64-darwin";
+      machineName = "sgoodluck-m1air";
+
       # Import the personal configuration
-      personalConfig = import ./darwin/personal.nix {
+      personalConfig = import ./personal.nix {
         inherit (nixpkgs) lib;
         pkgs = nixpkgs.legacyPackages.${system};
       };
     in
     {
-      darwinConfigurations."${personalConfig.machine.name}" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations.${machineName} = nix-darwin.lib.darwinSystem {
         inherit system;
         modules = [
           ./darwin
