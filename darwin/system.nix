@@ -3,6 +3,7 @@
   pkgs,
   config,
   lib,
+  personal,
   ...
 }:
 {
@@ -10,7 +11,7 @@
   # SYSTEM CONFIGURATION AND STATE
   #
   system.stateVersion = 5; # System state version
-  nix.enable = false; # Rely on determinate systems to manae nix
+  nix.enable = false; # Rely on determinate systems to manage nix
 
   # Symlink emacs
   system.activationScripts.postActivation.text = ''
@@ -42,12 +43,7 @@
         orientation = "right";
         show-recents = false;
         tilesize = 48;
-        persistent-apps = [
-          "/Applications/Emacs.app/"
-          "/Applications/Zen.app/"
-          "/Applications/TIDAL.app/"
-          "/Applications/Nix Apps/Alacritty.app"
-        ];
+        persistent-apps = personal.favoriteApps;
       };
 
       finder = {

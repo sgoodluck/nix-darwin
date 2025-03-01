@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  personal,
   ...
 }:
 let
@@ -16,7 +17,8 @@ in
   #
 
   home.file = {
-    ".config/ohmyposh/zen.toml".source = "${configDir}/dotfiles/zen.toml";
+    ".config/ohmyposh/${personal.preferences.terminal.promptTheme}.toml".source =
+      "${configDir}/dotfiles/zen.toml";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
     ".config/doom/init.el".source = "${configDir}/dotfiles/doom/init.el";
@@ -33,12 +35,12 @@ in
     #
     git = {
       enable = true;
-      userName = "Seth";
-      userEmail = "sethgoodluck@pm.me";
+      userName = personal.personal.fullName;
+      userEmail = personal.personal.email;
       extraConfig = {
         init.defaultBranch = "main";
         pull.rebase = true;
-        core.editor = "nvim";
+        core.editor = personal.preferences.editor.default;
       };
     };
 
@@ -68,7 +70,7 @@ in
       autosuggestion.enable = true;
 
       initExtra = ''
-        eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
+        eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/${personal.preferences.terminal.promptTheme}.toml)"
       '';
 
       sessionVariables = {
@@ -86,7 +88,7 @@ in
       };
 
       shellAliases = {
-        nxr = "darwin-rebuild switch --flake ~/nix#sgoodluck-m1air";
+        nxr = "darwin-rebuild switch --flake ~/nix#${personal.machine.name}";
         ls = "ls --color=auto";
       };
     };

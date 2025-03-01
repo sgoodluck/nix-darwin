@@ -46,10 +46,14 @@
     }:
     let
       system = "aarch64-darwin";
-      username = "sgoodluck";
+      # Import the personal configuration
+      personalConfig = import ./personal.nix {
+        inherit (nixpkgs) lib;
+        pkgs = nixpkgs.legacyPackages.${system};
+      };
     in
     {
-      darwinConfigurations."sgoodluck-m1air" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."${personalConfig.machine.name}" = nix-darwin.lib.darwinSystem {
         inherit system;
         modules = [
           ./darwin
@@ -59,7 +63,7 @@
             nix-homebrew = {
               enable = true;
               enableRosetta = true;
-              user = "sgoodluck";
+              user = personalConfig.personal.username;
               mutableTaps = false;
               autoMigrate = true;
               taps = {
@@ -72,15 +76,25 @@
           }
 
           {
-            users.users.${username}.home = "/Users/${username}";
+            # Make personal config available to all modules
+            _module.args.personal = personalConfig;
+
+            users.users.${personalConfig.personal.username}.home = "/Users/${personalConfig.personal.username}";
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-	          users.${username} = { pkgs, ... }: import ./home.nix {
-      inherit pkgs;
-      lib = nixpkgs.lib;
-      config = {};
-    };
+              users.${personalConfig.personal.username} =
+                { pkgs, ... }:
+                import ./home.nix {
+                  inherit pkgs;
+                  lib = nixpkgs.lib;
+                  personal = personalConfig;
+                  config = { };
+                };
+              # Make personal config available to home-manager modules
+              extraSpecialArgs = {
+                personal = personalConfig;
+              };
             };
           }
 
