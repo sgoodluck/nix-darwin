@@ -19,13 +19,6 @@
       gui = "emacs";
     };
 
-    # Text/UI preferences
-    ui = {
-      theme = "spacemacs-light"; # Base theme
-      font = "AnonymicePro Nerd Font";
-      fontSize = 12;
-    };
-
     # Terminal shell preference
     shell = "zsh";
   };

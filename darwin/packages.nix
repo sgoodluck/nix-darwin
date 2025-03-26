@@ -47,7 +47,6 @@
     alacritty # I like it fast and simple
     mkalias # Tool for creating macOS aliases
     oh-my-posh # Shell prompt customization
-    obsidian # Note-taking application
   ];
 
   #
@@ -96,6 +95,12 @@
     ];
 
     casks = [
+      "brave-browser" # when you need chrome...
+      "balenaetcher" # live iso
+      "transmission" # torrents babe
+      "visual-studio-code" #wimp
+      "gimp" #yay image editing
+      "orcaslicer" # 3d printers rock dude
       "keycastr" # show keys
       "the-unarchiver" # Archive extraction tool
       "zen-browser" # Web browser
@@ -104,8 +109,8 @@
       "proton-pass" # Password manager
       "amethyst" # Tiling window manager
       "karabiner-elements" # Hyperkey magic
-      "bambu-studio" # 3D printer software
       "tidal" # Music streaming service
+      "obsidian" # Note taking for sharing
     ];
 
     masApps = {

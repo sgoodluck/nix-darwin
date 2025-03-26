@@ -226,8 +226,11 @@
 ;;;; Blog Configuration
 (after! ox
   (require 'ox-hugo))
-
 (setq org-hugo-base-dir "~/Documents/Projects/tgcg-blog/")
+;; Add this line to change default image directory
+(setq org-hugo-default-static-subdirectory "images")
+;; Also enable automatic image copying
+(setq org-hugo-export-with-images t)
 
 (defun my/publish-blog ()
   "Export org blog posts and push changes to Hugo site repository."
@@ -236,12 +239,11 @@
          (commit-msg (read-string "Commit message: " "Update blog content")))
     ;; First export all blog posts
     (org-hugo-export-wim-to-md t)
-
     ;; Then handle the Hugo site repository
     (let ((default-directory org-hugo-base-dir))
       (magit-status)  ; Show magit status buffer
       (when (y-or-n-p "Proceed with git push? ")
-        (shell-command "git add content/")
+        (shell-command "git add content/ static/")  ;; Note the addition of static/ here
         (shell-command (format "git commit -m \"%s\"" commit-msg))
         (shell-command "git push origin main")))))
 

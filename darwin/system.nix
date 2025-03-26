@@ -72,6 +72,7 @@
         AppleMetricUnits = 1; # Enable Metric
         AppleTemperatureUnit = "Celsius"; # Use Celsius
         AppleICUForce24HourTime = true; # Use 24 hour time
+        "com.apple.swipescrolldirection" = false; # Inverse scrolling
       };
     };
   };
@@ -112,7 +113,6 @@
   #
   nixpkgs = {
     config.allowUnfree = true; # Allow installation of non-free packages
-    hostPlatform = "aarch64-darwin"; # Set for Apple Silicon Macs
   };
 
   #
