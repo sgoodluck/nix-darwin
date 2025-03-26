@@ -40,6 +40,7 @@
     nodePackages.typescript-language-server # Language server
     nodePackages.prettier # Code formatter
     nodePackages.eslint # JavaScript/TypeScript linter
+    vscode-js-debug
 
     #
     # USER TOOLS

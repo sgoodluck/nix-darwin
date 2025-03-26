@@ -14,6 +14,9 @@ let
 
   # Theme name - still hardcoded here since it's Mac-specific
   promptTheme = "zen";
+  
+  # Reference updated vscode-js-debug package
+  jsDebugPath = "${pkgs.vscode-js-debug}";
 in
 {
   home.stateVersion = "24.11";
@@ -23,6 +26,7 @@ in
   #
 
   home.file = {
+    ".vscode-js-debug".source = jsDebugPath;
     ".config/ohmyposh/${promptTheme}.toml".source = "${configDir}/dotfiles/zen.toml";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
@@ -87,9 +91,10 @@ in
         HOMEBREW_BIN = "/opt/homebrew/bin";
         HOMEBREW_SBIN = "/opt/homebrew/sbin";
         LLVM_BIN = "/opt/homebrew/opt/llvm/bin";
+        JS_DEBUG_BIN = "${pkgs.vscode-js-debug}/bin"; 
 
         # Assembled PATH with all components
-        PATH = "$EMACS_BIN:$HOMEBREW_BIN:$HOMEBREW_SBIN:$LLVM_BIN:$PATH";
+        PATH = "$EMACS_BIN:$HOMEBREW_BIN:$HOMEBREW_SBIN:$LLVM_BIN:$JS_DEBUG_BIN:$PATH";
       };
 
       shellAliases = {
