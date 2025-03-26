@@ -196,9 +196,6 @@
 (use-package! dape
   :config
 
-  ;; Specify the path to the JS debug adapter
-  (setq dap-node-debug-program "js-debug")
-
   ;; Optional: Global keybindings
   (map!
    :leader
