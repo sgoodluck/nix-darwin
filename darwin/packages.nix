@@ -7,6 +7,7 @@
     #
     # DEVELOPMENT TOOLS
     #
+    bun # superfast javascript fun
     git # Version control system
     curl # Data transfer tool
     wget # File download utility
