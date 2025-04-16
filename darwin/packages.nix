@@ -1,13 +1,18 @@
 { pkgs, ... }:
 {
   #
+  # NOTES
+  # 
+
+  # DOCKER DESKTOP was installed manually
+
+  #
   # SYSTEM PACKAGES
   #
   environment.systemPackages = with pkgs; [
     #
     # DEVELOPMENT TOOLS
     #
-    bun # superfast javascript fun
     git # Version control system
     curl # Data transfer tool
     wget # File download utility
@@ -42,6 +47,18 @@
     nodePackages.prettier # Code formatter
     nodePackages.eslint # JavaScript/TypeScript linter
     vscode-js-debug
+    pnpm
+
+   #
+   # GO DEVELOPMENT
+   #
+   go                # Go compiler and toolchain
+delve             # Debugger for Go (used with editors or CLI)
+gopls             # Go language server (autocomplete, lint, hover, etc.)
+golangci-lint     # Fast, configurable linter aggregator for Go
+go-tools          # Collection of official Go dev tools (includes vet, etc.)
+goperf
+
 
     #
     # USER TOOLS
