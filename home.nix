@@ -66,7 +66,63 @@ in
             x = 5;
             y = 5;
           };
-          opacity = .95;
+          opacity = 0.95;
+        };
+        
+        # Modus Vivendi Tinted color scheme
+        colors = {
+          primary = {
+            background = "#1d2235";  # Main background
+            foreground = "#ffffff";  # Main foreground
+          };
+          
+          cursor = {
+            text = "#1d2235";
+            cursor = "#ffffff";
+          };
+          
+          selection = {
+            text = "#ffffff";
+            background = "#5a5f7a";
+          };
+          
+          normal = {
+            black = "#1d2235";
+            red = "#ff5f59";
+            green = "#44bc44";
+            yellow = "#d0bc00";
+            blue = "#2fafff";
+            magenta = "#feacd0";
+            cyan = "#00d3d0";
+            white = "#989898";
+          };
+          
+          bright = {
+            black = "#4f5666";
+            red = "#ff6b55";
+            green = "#70c900";
+            yellow = "#fec43f";
+            blue = "#79a8ff";
+            magenta = "#f78fe7";
+            cyan = "#4ae2f0";
+            white = "#ffffff";
+          };
+        };
+        
+        font = {
+          normal = {
+            family = "AnonymicePro Nerd Font";
+            style = "Regular";
+          };
+          bold = {
+            family = "AnonymicePro Nerd Font";
+            style = "Bold";
+          };
+          italic = {
+            family = "AnonymicePro Nerd Font";
+            style = "Italic";
+          };
+          size = 12.0;
         };
       };
     };

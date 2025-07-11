@@ -30,26 +30,26 @@
       nerd-icons-font-names '("Symbols Nerd Font Mono"))
 
 ;; Theme and Display Settings
-(setq doom-theme 'spacemacs-light
+(setq doom-theme 'modus-vivendi-tinted
       display-line-numbers-type 'relative)
 
-;; Toggle Spacemacs themes
-(defun toggle-spacemacs-theme ()
-  "Toggle between spacemacs-light and spacemacs-dark themes"
+;; Toggle Modus themes
+(defun toggle-modus-theme ()
+  "Toggle between modus-vivendi-tinted and modus-operandi-tinted themes"
   (interactive)
   (message "Current theme before toggle: %s" doom-theme)
-  (if (eq doom-theme 'spacemacs-light)
+  (if (eq doom-theme 'modus-vivendi-tinted)
       (progn
-        (setq doom-theme 'spacemacs-dark)
-        (load-theme 'spacemacs-dark t))
+        (setq doom-theme 'modus-operandi-tinted)
+        (load-theme 'modus-operandi-tinted t))
     (progn
-      (setq doom-theme 'spacemacs-light)
-      (load-theme 'spacemacs-light t)))
+      (setq doom-theme 'modus-vivendi-tinted)
+      (load-theme 'modus-vivendi-tinted t)))
   (message "New theme after toggle: %s" doom-theme))
 
 (map! :leader
-      :desc "Toggle Spacemacs theme"
-      "t t" #'toggle-spacemacs-theme)
+      :desc "Toggle Modus theme"
+      "t t" #'toggle-modus-theme)
 
 ;; Dashboard customization
 (custom-set-faces!

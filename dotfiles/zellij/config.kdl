@@ -2,7 +2,38 @@
 // https://zellij.dev/documentation/configuration.html
 
 // Theme
-theme "tokyo-night"
+themes {
+    modus-vivendi-tinted {
+        // Background colors
+        bg "#1d2235"  // Main background
+        fg "#ffffff"  // Main foreground
+        
+        // ANSI colors based on Modus Vivendi Tinted
+        black "#1d2235"
+        red "#ff5f59"
+        green "#44bc44"
+        yellow "#d0bc00"
+        blue "#2fafff"
+        magenta "#feacd0"
+        cyan "#00d3d0"
+        white "#989898"
+        
+        // Bright variants
+        orange "#ef8b50"
+        
+        // UI elements
+        gray "#4f5666"      // Borders and inactive elements
+        silver "#a8a8a8"    // Secondary text
+        pink "#feacd0"      // Highlights
+        brown "#b06240"     // Additional accent
+        
+        // Status bar
+        black "#1d2235"
+        white "#ffffff"
+    }
+}
+
+theme "modus-vivendi-tinted"
 
 // Keybindings
 keybinds {
