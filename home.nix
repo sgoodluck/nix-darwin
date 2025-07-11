@@ -34,6 +34,7 @@ in
     ".config/doom/config.el".source = "${configDir}/dotfiles/doom/config.el";
     ".config/doom/packages.el".source = "${configDir}/dotfiles/doom/packages.el";
     ".config/nvim/init.lua".source = "${configDir}/dotfiles/nvim/init.lua";
+    ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
   };
 
   programs = {

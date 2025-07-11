@@ -2,7 +2,7 @@
 {
   #
   # NOTES
-  # 
+  #
 
   # DOCKER DESKTOP was installed manually
 
@@ -13,6 +13,7 @@
     #
     # DEVELOPMENT TOOLS
     #
+    tree # for seeing files man
     git # Version control system
     curl # Data transfer tool
     wget # File download utility
@@ -49,21 +50,21 @@
     vscode-js-debug
     pnpm
 
-   #
-   # GO DEVELOPMENT
-   #
-   go                # Go compiler and toolchain
-delve             # Debugger for Go (used with editors or CLI)
-gopls             # Go language server (autocomplete, lint, hover, etc.)
-golangci-lint     # Fast, configurable linter aggregator for Go
-go-tools          # Collection of official Go dev tools (includes vet, etc.)
-goperf
-
+    #
+    # GO DEVELOPMENT
+    #
+    go # Go compiler and toolchain
+    delve # Debugger for Go (used with editors or CLI)
+    gopls # Go language server (autocomplete, lint, hover, etc.)
+    golangci-lint # Fast, configurable linter aggregator for Go
+    go-tools # Collection of official Go dev tools (includes vet, etc.)
+    goperf
 
     #
     # USER TOOLS
     #
     alacritty # I like it fast and simple
+    zellij # Terminal multiplexer
     mkalias # Tool for creating macOS aliases
     oh-my-posh # Shell prompt customization
   ];
@@ -87,6 +88,10 @@ goperf
     ];
 
     brews = [
+      "uv" # new python goat
+      "nmap" # network mapping
+      "ffmpeg" # audioo
+      "poetry" # because python is
       "aspell" # i lke too spel rite
       "hugo" # blogging made easy
       "mas" # Mac App Store CLI
@@ -114,11 +119,13 @@ goperf
     ];
 
     casks = [
+      "raspberry-pi-imager" # who loves pi?
+      "appcleaner" # no
       "brave-browser" # when you need chrome...
       "balenaetcher" # live iso
       "transmission" # torrents babe
-      "visual-studio-code" #wimp
-      "gimp" #yay image editing
+      "visual-studio-code" # wimp
+      "gimp" # yay image editing
       "orcaslicer" # 3d printers rock dude
       "keycastr" # show keys
       "the-unarchiver" # Archive extraction tool
@@ -132,9 +139,9 @@ goperf
       "obsidian" # Note taking for sharing
     ];
 
-    masApps = {
-      Xcode = 497799835; # Apple's IDE for macOS/iOS development
-    };
+    #masApps = {
+    # Xcode = 497799835; # Apple's IDE for macOS/iOS development
+    #};
   };
 
 }

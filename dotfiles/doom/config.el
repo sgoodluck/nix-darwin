@@ -222,6 +222,36 @@
                 "FCg-VG_N0QAA"))
         gptel-model 'claude-3-5-sonnet-20241022))
 
+;;;; Eat Terminal Configuration
+(use-package! eat
+  :config
+  ;; Optional: Configure eat settings
+  (setq eat-kill-buffer-on-exit t)  ; Kill buffer when process exits
+  (setq eat-enable-yank-to-terminal t)  ; Enable yanking in terminal
+  
+  ;; Optional: Add keybindings for eat
+  (map! :leader
+        (:prefix ("e" . "eat terminal")
+         :desc "Open eat terminal" "e" #'eat
+         :desc "Open eat in project" "p" #'eat-project)))
+
+;;;; Claude Code Configuration
+(use-package! claude-code
+  :config
+  (setq claude-code-terminal-backend 'eat)  ; Use eat instead of vterm
+  
+  ;; Optional: Add leader key bindings for easier access
+  (map! :leader
+        (:prefix ("c" . "claude")
+         :desc "Start Claude Code" "c" #'claude-code
+         :desc "Send command" "s" #'claude-code-send-command
+         :desc "Send region" "r" #'claude-code-send-region
+         :desc "Fix error at point" "e" #'claude-code-fix-error-at-point
+         :desc "Toggle window" "t" #'claude-code-toggle
+         :desc "Kill session" "k" #'claude-code-kill
+         :desc "Continue conversation" "C" #'claude-code-continue
+         :desc "Claude transient menu" "m" #'claude-code-transient)))
+
 ;;;; Blog Configuration
 (after! ox
   (require 'ox-hugo))

@@ -54,3 +54,6 @@
 (package! ox-hugo)   ;; blogging
 (package! spacemacs-theme) ;; easy on the eyes
 (package! org-modern) ;; niceties for org files
+(package! eat)  ;; Terminal emulator for claude-code
+(package! claude-code
+  :recipe (:host github :repo "stevemolitor/claude-code.el"))
