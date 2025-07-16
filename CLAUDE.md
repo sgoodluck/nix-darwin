@@ -2,6 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Guiding Principle
+
+"Simplicity is the final achievement. After one has played a vast quantity of notes and more notes, it is simplicity that emerges as the crowning reward of art." 
+
+We want simple, clear, and concise. Always evaluate to remove unneeded things and simplify wherever possible!
+
+
 ## Repository Overview
 
 This is a Nix-based configuration repository for managing a macOS system (M1 MacBook Air) using Nix Darwin and Home Manager. The configuration is flake-based and combines both Nix packages and Homebrew (managed declaratively through nix-homebrew).

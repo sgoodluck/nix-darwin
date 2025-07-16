@@ -135,7 +135,7 @@ in
       enableCompletion = true;
       autosuggestion.enable = true;
 
-      initExtra = ''
+      initContent = ''
         eval "$(oh-my-posh init ${personal.preferences.shell} --config ~/.config/ohmyposh/${promptTheme}.toml)"
       '';
 
@@ -155,7 +155,7 @@ in
       };
 
       shellAliases = {
-        nxr = "darwin-rebuild switch --flake ~/nix#${machineName}";
+        nxr = "sudo darwin-rebuild switch --flake ~/nix#${machineName}";
         ls = "ls --color=auto";
       };
     };

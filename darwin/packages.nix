@@ -129,7 +129,7 @@
       "orcaslicer" # 3d printers rock dude
       "keycastr" # show keys
       "the-unarchiver" # Archive extraction tool
-      "zen-browser" # Web browser
+      "zen" # Web browser
       "firefox" # for when I have to
       "protonvpn" # VPN client
       "proton-pass" # Password manager
