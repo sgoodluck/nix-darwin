@@ -8,50 +8,34 @@
 }:
 
 {
-  #
-  # SYSTEM CONFIGURATION AND STATE
-  #
-  # Darwin system state version (don't change after initial install)
-  system.stateVersion = 5;
-  
-  # Primary user - used by various Darwin modules
+  # System configuration
+  system.stateVersion = 5; # Don't change after initial install
   system.primaryUser = personal.personal.username;
-  
-  # Disable Nix daemon management (handled by Determinate Systems installer)
-  nix.enable = false;
+  nix.enable = false; # Handled by Determinate Systems installer
 
-  # Create Application symlinks
-  # This ensures Homebrew-installed Emacs appears in /Applications
+  # Ensure Homebrew-installed Emacs appears in /Applications
   system.activationScripts.postActivation.text = ''
-    # Ensure the Applications directory exists
     mkdir -p /Applications/Nix
-    # Create symlink for Emacs (installed via Homebrew)
     ln -sf "/opt/homebrew/opt/emacs-plus/Emacs.app" /Applications/
   '';
 
-  #
-  # SECURITY AND AUTHENTICATION
-  #
-  security.pam.services.sudo_local.touchIdAuth = true; # Enable TouchID for sudo authentication
+  # Security
+  security.pam.services.sudo_local.touchIdAuth = true;
 
-  #
-  # HOME MANAGER SETTINGS
-  #
+  # Home Manager
   home-manager.backupFileExtension = "backup";
 
-  #
-  # MACOS SYSTEM PREFERENCES
-  #
+  # macOS preferences
   system = {
 
     defaults = {
 
       dock = {
-        autohide = true;           # Hide dock when not in use
-        orientation = "right";     # Position on right side of screen
-        show-recents = false;      # Don't show recent apps
-        tilesize = 48;             # Icon size in pixels
-        persistent-apps = [        # Pinned apps (in order)
+        autohide = true;
+        orientation = "right";
+        show-recents = false;
+        tilesize = 48;
+        persistent-apps = [
           "/Applications/Emacs.app/"
           "/Applications/Zen.app/"
           "/Applications/Ghostty.app"
@@ -69,68 +53,30 @@
       };
 
       NSGlobalDomain = {
-        _HIHideMenuBar = true; # Auto-hide menu bar
-        AppleShowAllFiles = true; # Show hidden files in Finder
-        AppleShowAllExtensions = true; # Always show file extensions
-        KeyRepeat = 2; # Fast key repeat rate
-        InitialKeyRepeat = 15; # Short delay before key repeat
-        AppleMeasurementUnits = "Centimeters"; # Metric measurements
-        AppleMetricUnits = 1; # Enable metric system
-        AppleTemperatureUnit = "Celsius"; # Celsius for temperature
-        AppleICUForce24HourTime = true; # 24-hour clock format
-        "com.apple.swipescrolldirection" = false; # Natural scrolling off
+        _HIHideMenuBar = true;
+        AppleShowAllFiles = true;
+        AppleShowAllExtensions = true;
+        KeyRepeat = 2;
+        InitialKeyRepeat = 15;
+        AppleMeasurementUnits = "Centimeters";
+        AppleMetricUnits = 1;
+        AppleTemperatureUnit = "Celsius";
+        AppleICUForce24HourTime = true;
+        "com.apple.swipescrolldirection" = false;
       };
     };
   };
 
-  #
-  # LAUNCH AGENTS - Services that start at login
-  #
-  launchd.user.agents = {
-    # Tiling window manager - starts automatically at login
-    amethyst = {
-      serviceConfig = {
-        ProgramArguments = [
-          "/Applications/Amethyst.app/Contents/MacOS/Amethyst"
-        ];
-        KeepAlive = true;
-        RunAtLoad = true;
-        StandardOutPath = "/tmp/amethyst.log";
-        StandardErrorPath = "/tmp/amethyst.error.log";
-      };
-    };
 
-    # Emacs daemon - provides fast client startup
-    emacs = {
-      serviceConfig = {
-        ProgramArguments = [
-          "/Applications/Emacs.app/Contents/MacOS/Emacs"
-          "--daemon"
-        ];
-        KeepAlive = true;
-        RunAtLoad = true;
-        StandardOutPath = "/tmp/emacs.log";
-        StandardErrorPath = "/tmp/emacs.error.log";
-      };
-    };
+  # Nixpkgs configuration
+  nixpkgs.config.allowUnfree = true;
 
-  };
-
-  #
-  # NIXPKGS CONFIGURATION AND PLATFORM
-  #
-  nixpkgs = {
-    config.allowUnfree = true; # Required for some packages (VSCode, etc.)
-  };
-
-  #
-  # FONT CONFIGURATION
-  #
+  # Fonts
   fonts.packages = with pkgs; [
-    nerd-fonts.anonymice # Primary font with nerd font patches
-    nerd-fonts.symbols-only # Just the nerd font symbols
-    nerd-fonts.fira-code # Popular programming font
-    nerd-fonts.jetbrains-mono # JetBrains' coding font
-    nerd-fonts.hack # Clean, readable coding font
+    nerd-fonts.anonymice
+    nerd-fonts.symbols-only
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
   ];
 }

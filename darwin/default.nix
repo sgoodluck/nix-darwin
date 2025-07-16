@@ -2,12 +2,14 @@
 # This module aggregates all macOS-specific system configuration
 #
 # Module structure:
-# - system.nix: Core macOS settings, fonts, launch agents, dock configuration
-# - packages.nix: Package management (Nix packages + Homebrew brews/casks)
+# - system.nix: Core macOS settings, preferences, and fonts
+# - packages.nix: Package management (Nix packages + Homebrew)
+# - services.nix: Launch agents and service configurations
 { config, pkgs, ... }:
 {
   imports = [
-    ./system.nix   # System settings, preferences, fonts, and services
+    ./system.nix   # System settings, preferences, and fonts
     ./packages.nix # Package declarations and Homebrew configuration
+    ./services.nix # Launch agents and services
   ];
 }

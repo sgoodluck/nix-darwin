@@ -1,122 +1,96 @@
 # Package management configuration for macOS
 # Combines Nix packages with declarative Homebrew management
-# 
-# Organization:
-# - Nix packages: Development tools, compilers, language servers
-# - Homebrew brews: CLI tools not available in Nix
-# - Homebrew casks: GUI applications
 { pkgs, ... }:
 {
   # NOTE: Docker Desktop was installed manually outside of Nix/Homebrew
-
-  #
-  # SYSTEM PACKAGES
-  #
   environment.systemPackages = with pkgs; [
-    #
-    # CORE DEVELOPMENT TOOLS
-    #
-    tree # Directory tree visualization
-    git # Version control (configured in home.nix)
-    curl # HTTP/HTTPS client
-    wget # Non-interactive network downloader
-    coreutils # Essential GNU utilities (ls, cat, etc.)
-    gnumake # Standard build tool
-    cmake # Cross-platform build system
-    ninja # High-performance build system
-    neovim # Modal text editor (vim successor)
-    nixfmt-rfc-style # Official Nix formatter
-    gnupg # GNU Privacy Guard for encryption
-    pinentry_mac # GPG password prompt for macOS
-    ncurses # Terminal control library and terminfo database
+    # Core development tools
+    tree
+    git
+    curl
+    wget
+    coreutils
+    gnumake
+    cmake
+    ninja
+    neovim
+    nixfmt-rfc-style
+    gnupg
+    pinentry_mac
+    ncurses
 
-    #
-    # PYTHON DEVELOPMENT ENVIRONMENT
-    #
+    # Python development
     (python3.withPackages (
       ps: with ps; [
-        black # Code formatter
-        pyflakes # Static code analyzer
-        isort # Import sorter
-        pytest # Testing framework
-        debugpy # Debugging tool
-        mypy # Static type checker
-        python-lsp-server # Language server for Python
-        rope # Refactoring library
+        black
+        pyflakes
+        isort
+        pytest
+        debugpy
+        mypy
+        python-lsp-server
+        rope
       ]
     ))
 
-    #
-    # NODE.JS DEVELOPMENT
-    #
-    nodePackages.typescript # TypeScript language support
-    nodePackages.typescript-language-server # Language server
-    nodePackages.prettier # Code formatter
-    nodePackages.eslint # JavaScript/TypeScript linter
-    vscode-js-debug # DAP-compliant debugger for JavaScript
-    pnpm # Fast, disk space efficient package manager
+    # Node.js development
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.prettier
+    nodePackages.eslint
+    vscode-js-debug
+    pnpm
 
-    #
-    # GO DEVELOPMENT
-    #
-    go # Go compiler and toolchain
-    delve # Debugger for Go (used with editors or CLI)
-    gopls # Go language server (autocomplete, lint, hover, etc.)
-    golangci-lint # Fast, configurable linter aggregator for Go
-    go-tools # Collection of official Go dev tools (includes vet, etc.)
-    goperf # Go performance analysis tool
+    # Go development
+    go
+    delve
+    gopls
+    golangci-lint
+    go-tools
+    goperf
 
-    #
-    # TERMINAL AND SHELL TOOLS
-    #
-    zellij # Modern terminal multiplexer (tmux alternative)
-    mkalias # macOS app alias creator for Nix apps
-    oh-my-posh # Cross-shell prompt theme engine
+    # Terminal and shell tools
+    zellij
+    mkalias
+    oh-my-posh
   ];
 
-  #
-  # HOMEBREW CONFIGURATION AND PACKAGES
-  #
+  # Homebrew configuration
   homebrew = {
     enable = true;
     
-    # Global Homebrew options
     global = {
-      autoUpdate = false; # Don't auto-update during installs
-      lockfiles = false; # Don't write lockfiles
+      autoUpdate = false;
+      lockfiles = false;
     };
     
-    # Activation behavior - runs during darwin-rebuild
     onActivation = {
-      cleanup = "zap"; # Remove anything not declared here
-      autoUpdate = true; # Update formulae definitions
-      upgrade = true; # Upgrade installed packages
+      cleanup = "zap";
+      autoUpdate = true;
+      upgrade = true;
     };
 
-    # Note: Homebrew taps are declared in flake.nix via nix-homebrew
-
-    # Command-line tools installed via Homebrew
     brews = [
-      "uv" # Ultra-fast Python package manager
-      "nmap" # Network exploration and security auditing
-      "ffmpeg" # Audio/video processing Swiss army knife
-      "poetry" # Python dependency management
-      "aspell" # Spell checker (used by Emacs)
-      "hugo" # Static site generator
-      "mas" # Mac App Store CLI
-      "llvm" # Compiler infrastructure
-      "bear" # Compilation database generator
-      "ccls" # C/C++ language server
-      "ripgrep" # Blazing fast grep alternative (rg)
-      "fd" # User-friendly find alternative
-      "markdown" # Markdown to HTML converter
-      "shellcheck" # Bash/shell script linter
-      "node" # JavaScript runtime (for npm packages)
-      "clang-format" # LLVM's code formatter
-      "pipenv" # Python virtual environment manager
-      "shfmt" # Go-based shell formatter
+      "uv"
+      "nmap"
+      "ffmpeg"
+      "poetry"
+      "aspell"
+      "hugo"
+      "mas"
+      "llvm"
+      "bear"
+      "ccls"
+      "ripgrep"
+      "fd"
+      "markdown"
+      "shellcheck"
+      "node"
+      "clang-format"
+      "pipenv"
+      "shfmt"
       {
-        name = "emacs-plus"; # The only editor you'll ever need
+        name = "emacs-plus";
         args = [
           "with-ctags"
           "with-mailutils"
@@ -127,37 +101,36 @@
       }
     ];
 
-    # GUI applications installed via Homebrew Cask
     casks = [
       # Utilities
-      "raspberry-pi-imager" # SD card writer for Raspberry Pi
-      "appcleaner" # Thorough app uninstaller
-      "balenaetcher" # USB/SD card image writer
-      "the-unarchiver" # Archive extraction tool
-      "keycastr" # Keystroke visualizer for screencasts
-      "ghostty" # Modern, fast terminal emulator
+      "raspberry-pi-imager"
+      "appcleaner"
+      "balenaetcher"
+      "the-unarchiver"
+      "keycastr"
+      "ghostty"
       
       # Web browsers
-      "brave-browser" # Privacy-focused Chromium browser
-      "firefox" # Mozilla's web browser
-      "zen" # Web browser
+      "brave-browser"
+      "firefox"
+      "zen"
       
       # Development tools
-      "visual-studio-code" # Microsoft's code editor
+      "visual-studio-code"
       
       # Creative tools
-      "gimp" # GNU Image Manipulation Program
-      "orcaslicer" # Advanced 3D printing slicer
-      "transmission" # BitTorrent client
+      "gimp"
+      "orcaslicer"
+      "transmission"
       
       # Privacy & security
-      "protonvpn" # Privacy-focused VPN service
-      "proton-pass" # Encrypted password manager
+      "protonvpn"
+      "proton-pass"
       
       # Window management & productivity
-      "amethyst" # Automatic tiling window manager
-      "karabiner-elements" # Keyboard customizer
-      "obsidian" # Markdown-based knowledge base
+      "amethyst"
+      "karabiner-elements"
+      "obsidian"
     ];
 
     # Mac App Store apps (uncomment to enable)
