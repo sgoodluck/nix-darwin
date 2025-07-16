@@ -26,6 +26,8 @@
     ninja # High-performance build system
     neovim # Modal text editor (vim successor)
     nixfmt-rfc-style # Official Nix formatter
+    gnupg # GNU Privacy Guard for encryption
+    pinentry_mac # GPG password prompt for macOS
 
     #
     # PYTHON DEVELOPMENT ENVIRONMENT

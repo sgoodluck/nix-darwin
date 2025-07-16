@@ -159,6 +159,9 @@ in
         # Homebrew configuration
         HOMEBREW_NO_AUTO_UPDATE = "1"; # Prevent auto-updates during installs
         HOMEBREW_NO_ENV_HINTS = "1"; # Suppress environment hints
+        
+        # API Keys - set your key here or use .authinfo.gpg instead
+        # ANTHROPIC_API_KEY = "your-api-key-here";
       };
       
       # PATH configuration - prepend custom directories
