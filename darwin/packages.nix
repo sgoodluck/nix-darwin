@@ -28,6 +28,7 @@
     nixfmt-rfc-style # Official Nix formatter
     gnupg # GNU Privacy Guard for encryption
     pinentry_mac # GPG password prompt for macOS
+    ncurses # Terminal control library and terminfo database
 
     #
     # PYTHON DEVELOPMENT ENVIRONMENT
@@ -135,6 +136,7 @@
       "balenaetcher" # USB/SD card image writer
       "the-unarchiver" # Archive extraction tool
       "keycastr" # Keystroke visualizer for screencasts
+      "ghostty" # Modern, fast terminal emulator
       
       # Web browsers
       "brave-browser" # Privacy-focused Chromium browser

@@ -22,8 +22,8 @@ let
   username = personal.personal.username;
 in
 {
-  # Home Manager state version - don't change after initial install
-  home.stateVersion = "24.11";
+  # Home Manager state version - matches the 25.05 release
+  home.stateVersion = "25.05";
 
   #
   # DOTFILE MANAGEMENT
@@ -43,6 +43,7 @@ in
     ".local/bin/doom-git-init".source = "${configDir}/scripts/doom-git-init.sh";
     ".config/nvim/init.lua".source = "${configDir}/dotfiles/nvim/init.lua";
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
+    ".config/ghostty/config".source = "${configDir}/dotfiles/ghostty/config";
   };
 
   # Program-specific configurations
@@ -70,6 +71,11 @@ in
     alacritty = {
       enable = true;
       settings = {
+        # Set TERM environment variable for proper terminfo
+        env = {
+          TERM = "alacritty";
+        };
+        
         window = {
           decorations = "none";
           padding = {
