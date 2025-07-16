@@ -2,13 +2,6 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Guiding Principle
-
-"Simplicity is the final achievement. After one has played a vast quantity of notes and more notes, it is simplicity that emerges as the crowning reward of art." 
-
-We want simple, clear, and concise. Always evaluate to remove unneeded things and simplify wherever possible!
-
-
 ## Repository Overview
 
 This is a Nix-based configuration repository for managing a macOS system (M1 MacBook Air) using Nix Darwin and Home Manager. The configuration is flake-based and combines both Nix packages and Homebrew (managed declaratively through nix-homebrew).
@@ -20,9 +13,17 @@ This is a Nix-based configuration repository for managing a macOS system (M1 Mac
 nxr  # Alias for: darwin-rebuild switch --flake ~/nix#sgoodluck-m1air
 ```
 
+### Doom Emacs Git Management
+```bash
+doom-commit "message"  # Stage all changes and commit
+doom-push             # Push to remote repository  
+doom-status           # Check git status of Doom config
+doom-git-init         # Initialize git repo for Doom config
+```
+
 ### Development Tools Available
-- **Python**: black, pyflakes, isort, pytest, mypy
-- **JavaScript/TypeScript**: prettier, eslint, typescript-language-server
+- **Python**: black, pyflakes, isort, pytest, mypy, debugpy
+- **JavaScript/TypeScript**: prettier, eslint, typescript-language-server, vscode-js-debug
 - **Go**: gopls, golangci-lint, delve
 - **Nix**: nixfmt-rfc-style
 - **Shell**: shellcheck, shfmt
@@ -53,5 +54,7 @@ The repository follows a modular structure with clear separation of concerns:
 
 - Default editor: nvim (terminal), emacs (GUI applications)
 - Shell: zsh with oh-my-posh prompt
-- State versions: Darwin (5), Home Manager (24.11)
+- State versions: Darwin (5), Home Manager (25.05)
 - TouchID enabled for sudo authentication
+- Emacs installed via Homebrew with: ctags, mailutils, xwidgets, imagemagick
+- Custom PATH includes: `~/.config/emacs/bin`, `/opt/homebrew/bin`, `/opt/homebrew/opt/llvm/bin`
