@@ -155,6 +155,10 @@ in
         
         # Doom Emacs configuration directory
         DOOMDIR = "$HOME/.config/doom";
+        
+        # Homebrew configuration
+        HOMEBREW_NO_AUTO_UPDATE = "1"; # Prevent auto-updates during installs
+        HOMEBREW_NO_ENV_HINTS = "1"; # Suppress environment hints
       };
       
       # PATH configuration - prepend custom directories

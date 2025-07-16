@@ -78,6 +78,12 @@
   homebrew = {
     enable = true;
     
+    # Global Homebrew options
+    global = {
+      autoUpdate = false; # Don't auto-update during installs
+      lockfiles = false; # Don't write lockfiles
+    };
+    
     # Activation behavior - runs during darwin-rebuild
     onActivation = {
       cleanup = "zap"; # Remove anything not declared here

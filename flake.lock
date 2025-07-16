@@ -106,22 +106,6 @@
         "type": "github"
       }
     },
-    "homebrew-core": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1752615548,
-        "narHash": "sha256-2LjspLhQ/h2AbscviyDEBQUzturFdYcpguZKO490F2Y=",
-        "owner": "homebrew",
-        "repo": "homebrew-core",
-        "rev": "9473b41d78ac9e47cf2c4f9c499fa42a45e07aef",
-        "type": "github"
-      },
-      "original": {
-        "owner": "homebrew",
-        "repo": "homebrew-core",
-        "type": "github"
-      }
-    },
     "homebrew-emacs-plus": {
       "flake": false,
       "locked": {
@@ -235,7 +219,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "homebrew-bundle": "homebrew-bundle",
-        "homebrew-core": "homebrew-core",
         "homebrew-emacs-plus": "homebrew-emacs-plus",
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",
