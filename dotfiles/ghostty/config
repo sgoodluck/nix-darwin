@@ -53,3 +53,6 @@ selection-foreground = #ffffff
 
 # Shell integration
 shell-integration = zsh
+
+# Disable auto-updates (managed via Nix/Homebrew)
+auto-update = off
