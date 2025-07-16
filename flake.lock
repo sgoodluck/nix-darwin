@@ -106,22 +106,6 @@
         "type": "github"
       }
     },
-    "homebrew-cask": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1752611311,
-        "narHash": "sha256-JIgATKOk1f4mzHkZEWOTzIFkfzg14/LhFu6GCCHVbuQ=",
-        "owner": "homebrew",
-        "repo": "homebrew-cask",
-        "rev": "0600c59a39d77d568f3b0a76fe641dcff536e333",
-        "type": "github"
-      },
-      "original": {
-        "owner": "homebrew",
-        "repo": "homebrew-cask",
-        "type": "github"
-      }
-    },
     "homebrew-core": {
       "flake": false,
       "locked": {
@@ -251,7 +235,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "homebrew-bundle": "homebrew-bundle",
-        "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "homebrew-emacs-plus": "homebrew-emacs-plus",
         "mac-app-util": "mac-app-util",
