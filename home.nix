@@ -1,3 +1,10 @@
+# Home Manager configuration for user-level settings
+# Manages dotfiles, shell configuration, and user programs
+#
+# Structure:
+# - Dotfile symlinks: Links config files from dotfiles/ to ~/.config/
+# - Program configurations: Git, Alacritty, Zsh with custom settings
+# - Shell environment: PATH, aliases, and environment variables
 {
   pkgs,
   lib,
@@ -9,39 +16,42 @@ let
   # Get the directory containing this file
   configDir = builtins.toString ./.;
 
-  # Machine name - still hardcoded here since it's Mac-specific
-  machineName = "sgoodluck-m1air";
-
-  # Theme name - still hardcoded here since it's Mac-specific
-  promptTheme = "zen";
-
-  # Reference updated vscode-js-debug package
-  jsDebugPath = "${pkgs.vscode-js-debug}";
+  # Extract values from personal config for convenience
+  machineName = personal.machine.name;
+  promptTheme = personal.preferences.promptTheme;
+  username = personal.personal.username;
 in
 {
+  # Home Manager state version - don't change after initial install
   home.stateVersion = "24.11";
 
   #
-  # SPECIFY DOT FILES
+  # DOTFILE MANAGEMENT
+  # Symlinks configuration files from dotfiles/ to user's home directory
   #
 
   home.file = {
-    #".vscode-js-debug".source = jsDebugPath;
+    # Shell prompt theme configuration
     ".config/ohmyposh/${promptTheme}.toml".source = "${configDir}/dotfiles/zen.toml";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
     ".config/doom/init.el".source = "${configDir}/dotfiles/doom/init.el";
     ".config/doom/config.el".source = "${configDir}/dotfiles/doom/config.el";
     ".config/doom/packages.el".source = "${configDir}/dotfiles/doom/packages.el";
+    ".config/doom/README.md".source = "${configDir}/dotfiles/doom/README.md";
+    ".config/doom/.gitignore".source = "${configDir}/dotfiles/doom/.gitignore";
+    ".local/bin/doom-git-init".source = "${configDir}/scripts/doom-git-init.sh";
     ".config/nvim/init.lua".source = "${configDir}/dotfiles/nvim/init.lua";
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
   };
 
+  # Program-specific configurations
   programs = {
-
+    # Enable Home Manager command
     home-manager.enable = true;
+    
     #
-    # CONFIGURE GIT
+    # GIT CONFIGURATION
     #
     git = {
       enable = true;
@@ -55,7 +65,7 @@ in
     };
 
     #
-    # CONFIGURE ALACRITTY
+    # ALACRITTY TERMINAL EMULATOR
     #
     alacritty = {
       enable = true;
@@ -128,7 +138,7 @@ in
     };
 
     #
-    # CONFIGURE ZSH
+    # ZSH SHELL CONFIGURATION
     #
     zsh = {
       enable = true;
@@ -140,23 +150,34 @@ in
       '';
 
       sessionVariables = {
+        # XDG base directory specification
         XDG_CONFIG_HOME = "$HOME/.config";
+        
+        # Doom Emacs configuration directory
         DOOMDIR = "$HOME/.config/doom";
-
-        # Individual PATH components
-        EMACS_BIN = "$HOME/.config/emacs/bin";
-        HOMEBREW_BIN = "/opt/homebrew/bin";
-        HOMEBREW_SBIN = "/opt/homebrew/sbin";
-        LLVM_BIN = "/opt/homebrew/opt/llvm/bin";
-        #JS_DEBUG_BIN = "${pkgs.vscode-js-debug}/bin";
-
-        # Assembled PATH with all components
-        PATH = "$EMACS_BIN:$HOMEBREW_BIN:$HOMEBREW_SBIN:$LLVM_BIN:$PATH";
       };
+      
+      # PATH configuration - prepend custom directories
+      envExtra = ''
+        # Build PATH from list of directories
+        CUSTOM_PATHS=(
+          "$HOME/.config/emacs/bin"     # Doom Emacs scripts
+          "/opt/homebrew/bin"            # Homebrew binaries
+          "/opt/homebrew/sbin"           # Homebrew system binaries
+          "/opt/homebrew/opt/llvm/bin"  # LLVM tools from Homebrew
+        )
+        
+        # Join paths with : and prepend to PATH
+        export PATH="$(IFS=:; echo "''${CUSTOM_PATHS[*]}"):$PATH"
+      '';
 
       shellAliases = {
         nxr = "sudo darwin-rebuild switch --flake ~/nix#${machineName}";
         ls = "ls --color=auto";
+        # Doom config git management
+        doom-commit = "cd ~/.config/doom && git add -A && git commit -m";
+        doom-push = "cd ~/.config/doom && git push";
+        doom-status = "cd ~/.config/doom && git status";
       };
     };
   };

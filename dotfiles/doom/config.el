@@ -1,63 +1,44 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;;;; System Configuration
+;; Personal configuration for Doom Emacs
+;; See https://github.com/doomemacs/doomemacs for documentation
 
-;; Set the basic doom dotfiles command
-(setq doom-user-dir "~/nix/dotfiles/doom/")
+;;;; Core Configuration
 
-;; Add minor outline mode for emacs
-(add-hook! 'emacs-lisp-mode-hook #'outline-minor-mode)
-
-;; Set the outline regexp for elisp files
-(setq outline-regexp ";;;\\(;*\\)[[:space:]]*")
-
-;; Set spell checker
-(setq ispell-program-name "aspell")
-(setq ispell-dictionary "en")
+(setq doom-user-dir "~/nix/dotfiles/doom/"
+      ;; Spell checker settings
+      ispell-program-name "aspell"
+      ispell-dictionary "en")
 
 ;;;; UI Configuration
 
 ;; Window and Frame Settings
 (add-to-list 'default-frame-alist '(undecorated . t))
+(add-to-list 'default-frame-alist '(alpha-background . 95))  ; Match alacritty's 95% opacity
 
 ;; Font Configuration
 (setq doom-font (font-spec :family "AnonymicePro Nerd Font" :size 12)
-      doom-variable-pitch-font (font-spec :family "AnonymicePro Nerd Font" :size 12)
-      doom-big-font (font-spec :family "AnonymicePro Nerd Font" :size 24))
-
-;; Nerd Icons Configuration
-(setq nerd-icons-font-family "Symbols Nerd Font Mono"
-      nerd-icons-font-names '("Symbols Nerd Font Mono"))
+      doom-variable-pitch-font doom-font  ; Use same font for consistency
+      doom-big-font (font-spec :family "AnonymicePro Nerd Font" :size 24)
+      ;; Nerd Icons
+      nerd-icons-font-family "Symbols Nerd Font Mono")
 
 ;; Theme and Display Settings
 (setq doom-theme 'modus-vivendi-tinted
       display-line-numbers-type 'relative)
 
-;; Toggle Modus themes
-(defun toggle-modus-theme ()
-  "Toggle between modus-vivendi-tinted and modus-operandi-tinted themes"
+;; Theme Toggle - Simplified
+(defun my/toggle-theme ()
+  "Toggle between dark and light Modus themes."
   (interactive)
-  (message "Current theme before toggle: %s" doom-theme)
-  (if (eq doom-theme 'modus-vivendi-tinted)
-      (progn
-        (setq doom-theme 'modus-operandi-tinted)
-        (load-theme 'modus-operandi-tinted t))
-    (progn
-      (setq doom-theme 'modus-vivendi-tinted)
-      (load-theme 'modus-vivendi-tinted t)))
-  (message "New theme after toggle: %s" doom-theme))
+  (let ((new-theme (if (eq doom-theme 'modus-vivendi-tinted)
+                       'modus-operandi-tinted
+                     'modus-vivendi-tinted)))
+    (setq doom-theme new-theme)
+    (load-theme new-theme t)
+    (message "Switched to %s" new-theme)))
 
-(map! :leader
-      :desc "Toggle Modus theme"
-      "t t" #'toggle-modus-theme)
-
-;; Dashboard customization
-(custom-set-faces!
-  '(doom-dashboard-banner :inherit default)
-  '(doom-dashboard-footer :inherit default)
-  '(doom-dashboard-footer-icon :inherit default)
-  '(doom-dashboard-menu-title :inherit default)
-  '(doom-dashboard-menu-desc :inherit default))
+;; Dashboard customization - removed redundant face settings
 
 
 ;;;; Org Configuration
@@ -71,36 +52,32 @@
 (setq org-agenda-files
       (directory-files-recursively org-directory "\\.org$"))
 
-;; Org Modern Setup
+;; Org Modern - Minimal UI enhancements
 (use-package! org-modern
-  :hook
-  (org-mode . org-modern-mode)
-  (org-agenda-finalize . org-modern-agenda)
+  :hook ((org-mode . org-modern-mode)
+         (org-agenda-finalize . org-modern-agenda))
   :config
-  (setq
-   ;; Edit settings
-   org-auto-align-tags nil
-   org-tags-column 0
-   org-fold-catch-invisible-edits 'show-and-error
-   org-special-ctrl-a/e t
-   org-insert-heading-respect-content t
-
-   ;; Org Modern UI tweaks
-   org-modern-star '("◉" "○" "●" "○" "●" "○" "●")
-   org-modern-hide-stars nil              ; Show the leading stars
-   org-modern-checkbox nil                ; Don't use custom checkboxes
-   org-modern-tag t                       ; Use modern tags
-   org-modern-priority t                  ; Use modern priorities
-   org-modern-todo t                      ; Use modern todo keywords
-   org-modern-table nil                   ; Don't modify tables
-   org-modern-list nil                    ; Don't modify lists
-
-   ;; Margin settings
-   org-modern-block-fringe nil
-   org-modern-block-name nil
-   org-modern-keyword nil))
+  (setq org-modern-star '("◉" "○" "●" "○" "●" "○" "●")
+        org-modern-hide-stars nil
+        org-modern-tag t
+        org-modern-priority t
+        org-modern-todo t
+        ;; Disable table/list/block modifications for simplicity
+        org-modern-table nil
+        org-modern-list nil
+        org-modern-checkbox nil
+        org-modern-block-fringe nil
+        org-modern-block-name nil
+        org-modern-keyword nil))
 
 (after! org
+  ;; Org edit settings
+  (setq org-auto-align-tags nil
+        org-tags-column 0
+        org-fold-catch-invisible-edits 'show-and-error
+        org-special-ctrl-a/e t
+        org-insert-heading-respect-content t)
+  
   ;; Default Capture Files - now pointing to Areas directory
   (setq +org-capture-todo-file (expand-file-name "Todo.org" org-main-dir)
         +org-capture-notes-file (expand-file-name "Inbox.org" org-main-dir)
@@ -109,10 +86,12 @@
         +org-capture-project-notes-file "notes.org"
         +org-capture-project-changelog-file "changelog.org")
 
-  ;; Project Root Helper Function
-  (defun my/project-root-or-default ()
-    "Get project root or default to current directory."
-    (or (project-root (project-current)) default-directory))
+  ;; Helper function for project captures
+  (defun my/project-capture-file (filename)
+    "Get project-specific capture file path."
+    (let* ((root (or (project-root (project-current)) default-directory))
+           (name (file-name-nondirectory (directory-file-name root))))
+      (expand-file-name (format "%s-%s" name filename) root)))
 
   ;; Capture Templates - Combined into one list
   (setq org-capture-templates
@@ -132,26 +111,17 @@
           ("p" "Project")
           ("pt" "Project todo" entry
            (file+headline
-            (lambda ()
-              (let ((project-name (file-name-nondirectory (directory-file-name (my/project-root-or-default)))))
-                (expand-file-name (format "%s-%s" project-name +org-capture-project-todo-file)
-                                  (my/project-root-or-default))))
+            (lambda () (my/project-capture-file +org-capture-project-todo-file))
             "Todos")
            "* TODO %?\n%i\n%a" :prepend t)
           ("pn" "Project note" entry
            (file+headline
-            (lambda ()
-              (let ((project-name (file-name-nondirectory (directory-file-name (my/project-root-or-default)))))
-                (expand-file-name (format "%s-%s" project-name +org-capture-project-notes-file)
-                                  (my/project-root-or-default))))
+            (lambda () (my/project-capture-file +org-capture-project-notes-file))
             "Notes")
            "* %U %?\n%i\n%a" :prepend t)
           ("pc" "Project changelog" entry
            (file+headline
-            (lambda ()
-              (let ((project-name (file-name-nondirectory (directory-file-name (my/project-root-or-default)))))
-                (expand-file-name (format "%s-%s" project-name +org-capture-project-changelog-file)
-                                  (my/project-root-or-default))))
+            (lambda () (my/project-capture-file +org-capture-project-changelog-file))
             "Changelog")
            "* %U %?\n%i\n%a" :prepend t)
 
@@ -164,11 +134,13 @@
                                  (downcase (replace-regexp-in-string
                                             "[^a-zA-Z0-9 ]" ""
                                             title))))
-                          (filename (format "~/Documents/Areas/Blog/posts/%s.org"
-                                            slug)))
-                     (set-register ?t title)  ; Store the title in register t
+                          (blog-dir (expand-file-name "Areas/Blog/posts" org-directory))
+                          (filename (format "%s/%s.org" blog-dir slug)))
+                     (unless (file-exists-p blog-dir)
+                       (make-directory blog-dir t))
+                     (set-register ?t title)
                      filename)))
-           ,(concat "#+TITLE: %(get-register ?t)\n"  ; Use Lisp evaluation to get the title
+           ,(concat "#+TITLE: %(get-register ?t)\n"
                     "#+DATE: %<%Y-%m-%d %H:%M:%S %z>>\n"
                     "#+HUGO_DRAFT: true\n"
                     "#+HUGO_CATEGORIES: %^{Categories}\n"
@@ -178,102 +150,103 @@
            :immediate-finish nil
            :unnarrowed t))))
 
-;;;; EWW Configuration
-
-;; Set up EWW window behavior
-(set-popup-rules! '(("^\\*eww" :side right :size 0.50 :select t :quit nil)))
-
-(defun my-eww-padding ()
-  "Add padding to EWW buffers."
-  (setq left-margin-width 2
-        right-margin-width 2)
-  (set-window-buffer nil (current-buffer)))
-
-(add-hook 'eww-mode-hook #'my-eww-padding)
+;; EWW configuration removed - module disabled in init.el
 
 
-;;;; DAPE Debugger Configuration
+;;;; Development Tools
+
+;; Debugger Configuration
 (use-package! dape
-  :config
-
-  ;; Optional: Global keybindings
-  (map!
-   :leader
-   :desc "Debug start/continue" "d d" #'dape
-   :desc "Debug stop" "d k" #'dape-stop
-   :desc "Debug restart" "d r" #'dape-restart
-   :desc "Debug next" "d n" #'dape-next
-   :desc "Debug step in" "d i" #'dape-step-in
-   :desc "Debug step out" "d o" #'dape-step-out
-   :desc "Debug continue" "d c" #'dape-continue
-   :desc "Toggle Breakpoint" "d b" #'dape-breakpoint-toggle))
+  :defer t)
 
 
-;;;; GPT Configuration
+;; AI Integration
 (use-package! gptel
+  :defer t
   :config
+  ;; Set API key from environment variable or auth-source
+  ;; Export ANTHROPIC_API_KEY in your shell or add to ~/.authinfo.gpg:
+  ;; machine api.anthropic.com login claude password YOUR_API_KEY
   (setq gptel-backend
         (gptel-make-anthropic "claude"
-          :key (concat
-                "sk-ant-api03-"
-                "PUcLM41l9VdAxbDyGMs5ViaV-"
-                "3NLTKqWTMpjQh8K9V4bKmniu9xCb-"
-                "ho4Dx1Bfb_yQeu0mAGr3vvMHGyww-"
-                "FCg-VG_N0QAA"))
+          :key (or (getenv "ANTHROPIC_API_KEY")
+                   (auth-source-pick-first-password :host "api.anthropic.com")))
         gptel-model 'claude-3-5-sonnet-20241022))
 
-;;;; Eat Terminal Configuration
-(use-package! eat
-  :config
-  ;; Optional: Configure eat settings
-  (setq eat-kill-buffer-on-exit t)  ; Kill buffer when process exits
-  (setq eat-enable-yank-to-terminal t)  ; Enable yanking in terminal
-  
-  ;; Optional: Add keybindings for eat
-  (map! :leader
-        (:prefix ("e" . "eat terminal")
-         :desc "Open eat terminal" "e" #'eat
-         :desc "Open eat in project" "p" #'eat-project)))
+;;;; Keybindings
+;; All custom keybindings in one place for clarity
 
-;;;; Claude Code Configuration
-(use-package! claude-code
-  :config
-  (setq claude-code-terminal-backend 'eat)  ; Use eat instead of vterm
-  
-  ;; Optional: Add leader key bindings for easier access
-  (map! :leader
-        (:prefix ("c" . "claude")
-         :desc "Start Claude Code" "c" #'claude-code
-         :desc "Send command" "s" #'claude-code-send-command
-         :desc "Send region" "r" #'claude-code-send-region
-         :desc "Fix error at point" "e" #'claude-code-fix-error-at-point
-         :desc "Toggle window" "t" #'claude-code-toggle
-         :desc "Kill session" "k" #'claude-code-kill
-         :desc "Continue conversation" "C" #'claude-code-continue
-         :desc "Claude transient menu" "m" #'claude-code-transient)))
-
-;;;; Blog Configuration
-(after! ox
-  (require 'ox-hugo))
-
-(setq org-hugo-base-dir "~/Documents/Projects/tgcg-blog/")
-
-(defun my/publish-blog ()
-  "Export the current Org blog post and push changes to Hugo site repository."
-  (interactive)
-  (let ((commit-msg (read-string "Commit message: " "Update blog content")))
-    ;; Export the current post
-    (org-hugo-export-wim-to-md t)
-
-    ;; Handle the Hugo site repository
-    (let ((default-directory org-hugo-base-dir))
-      (magit-status)  ; Show magit status buffer
-      (when (y-or-n-p "Proceed with git push? ")
-        (shell-command "git add .")
-        (shell-command (format "git commit -m \"%s\"" commit-msg))
-        (shell-command "git push origin main")))))
-
-;; Key binding should be outside the function definition
 (map! :leader
-      (:prefix ("P" . "publishing")  ; Capital P is usually free
+      ;; Theme
+      :desc "Toggle theme" "t t" #'my/toggle-theme
+      
+      ;; Claude
+      (:prefix ("c" . "claude")
+       :desc "Start Claude Code" "c" #'claude-code
+       :desc "Send command" "s" #'claude-code-send-command
+       :desc "Send region" "r" #'claude-code-send-region
+       :desc "Fix error at point" "e" #'claude-code-fix-error-at-point
+       :desc "Toggle window" "t" #'claude-code-toggle
+       :desc "Kill session" "k" #'claude-code-kill
+       :desc "Continue conversation" "C" #'claude-code-continue
+       :desc "Claude transient menu" "m" #'claude-code-transient)
+      
+      ;; Debugging
+      (:prefix ("d" . "debug")
+       :desc "Start/continue" "d" #'dape
+       :desc "Stop" "k" #'dape-stop
+       :desc "Restart" "r" #'dape-restart
+       :desc "Next" "n" #'dape-next
+       :desc "Step in" "i" #'dape-step-in
+       :desc "Step out" "o" #'dape-step-out
+       :desc "Continue" "c" #'dape-continue
+       :desc "Toggle breakpoint" "b" #'dape-breakpoint-toggle)
+      
+      ;; Terminal
+      (:prefix ("e" . "eat terminal")
+       :desc "Open terminal" "e" #'eat
+       :desc "Open in project" "p" #'eat-project)
+      
+      ;; Publishing
+      (:prefix ("P" . "publishing")
        :desc "Publish blog" "b" #'my/publish-blog))
+
+;; Terminal Emulator
+(use-package! eat
+  :defer t
+  :config
+  (setq eat-kill-buffer-on-exit t
+        eat-enable-yank-to-terminal t))
+
+;; Claude Code Integration
+(use-package! claude-code
+  :defer t
+  :config
+  (setq claude-code-terminal-backend 'eat))
+
+;;;; Blog & Publishing
+(defcustom my/hugo-base-dir "~/Documents/Projects/tgcg-blog/"
+  "Base directory for Hugo blog."
+  :type 'directory
+  :group 'my-config)
+
+(use-package! ox-hugo
+  :after ox
+  :config
+  (setq org-hugo-base-dir my/hugo-base-dir)
+  
+  (defun my/publish-blog ()
+    "Export the current Org blog post and push changes to Hugo site repository."
+    (interactive)
+    (unless (file-exists-p org-hugo-base-dir)
+      (error "Hugo base directory %s does not exist" org-hugo-base-dir))
+    (let ((commit-msg (read-string "Commit message: " "Update blog content")))
+      ;; Export the current post
+      (org-hugo-export-wim-to-md t)
+      ;; Handle the Hugo site repository
+      (let ((default-directory org-hugo-base-dir))
+        (magit-status)
+        (when (y-or-n-p "Proceed with git push? ")
+          (shell-command "git add .")
+          (shell-command (format "git commit -m \"%s\"" commit-msg))
+          (shell-command "git push origin main"))))))

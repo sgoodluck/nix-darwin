@@ -1,0 +1,33 @@
+# Compiled elisp files
+*.elc
+
+# Backup files
+*~
+\#*\#
+.\#*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Auth files - NEVER commit these!
+.authinfo*
+*-authinfo*
+authinfo*
+
+# Doom-specific files
+.local/
+auto-save-list/
+eln-cache/
+eshell/
+transient/
+
+# Personal/Private files
+personal.el
+private.el
+custom.el

@@ -1,18 +1,27 @@
 {
-  description = "Seth's Zen Nix Flake";
+  description = "Seth's Zen Nix Flake - macOS system configuration using Nix Darwin and Home Manager";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    # Main package set - using nixpkgs-unstable for macOS compatibility
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    
+    # macOS system configuration framework - using master branch
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-25.05";
+      url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    # User-level dotfile and package management
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Declarative Homebrew management
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    
+    # macOS app linking utility
     mac-app-util.url = "github:hraban/mac-app-util";
+    # Homebrew tap repositories (non-flake inputs)
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -45,22 +54,34 @@
       homebrew-emacs-plus,
     }:
     let
-      system = "aarch64-darwin";
-      machineName = "sgoodluck-m1air";
-
-      # Import the personal configuration
+      # Import the personal configuration to get machine details
       personalConfig = import ./personal.nix {
         inherit (nixpkgs) lib;
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
       };
+      
+      # Extract values from personal config
+      system = personalConfig.machine.system;
+      machineName = personalConfig.machine.name;
     in
     {
+      # Define Darwin system configuration for this specific machine
+      # The machine name comes from personal.nix, making it easy to manage multiple systems
       darwinConfigurations.${machineName} = nix-darwin.lib.darwinSystem {
         inherit system;
+        
+        # Modules are evaluated in order and compose the final system configuration
         modules = [
+          # Core Darwin system configuration (system settings, packages)
           ./darwin
+          
+          # Enable macOS app symlinking for GUI apps installed via Nix
           mac-app-util.darwinModules.default
+          
+          # Declarative Homebrew management module
           nix-homebrew.darwinModules.nix-homebrew
+          
+          # Configure nix-homebrew with our taps and settings
           {
             nix-homebrew = {
               enable = true;
@@ -77,14 +98,22 @@
             };
           }
 
+          # Configuration module for system-level settings and home-manager integration
           {
-            # Make personal config available to all modules
+            # Inject personal config into all Darwin and Home Manager modules
+            # This makes personal settings available everywhere without explicit imports
             _module.args.personal = personalConfig;
 
+            # Define user home directory (required for home-manager)
             users.users.${personalConfig.personal.username}.home = "/Users/${personalConfig.personal.username}";
+            
+            # Configure home-manager integration
             home-manager = {
+              # Use system-level nixpkgs instead of separate instance (saves resources)
               useGlobalPkgs = true;
+              # Install packages to user profile instead of system
               useUserPackages = true;
+              # Define home configuration for our user
               users.${personalConfig.personal.username} =
                 { pkgs, ... }:
                 import ./home.nix {
@@ -93,13 +122,15 @@
                   personal = personalConfig;
                   config = { };
                 };
-              # Make personal config available to home-manager modules
+              
+              # Pass personal config to all home-manager modules
               extraSpecialArgs = {
                 personal = personalConfig;
               };
             };
           }
 
+          # Load home-manager's Darwin integration module
           home-manager.darwinModules.home-manager
         ];
       };
