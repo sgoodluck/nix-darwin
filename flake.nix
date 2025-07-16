@@ -22,14 +22,6 @@
     # macOS app linking utility
     mac-app-util.url = "github:hraban/mac-app-util";
     # Homebrew tap repositories (non-flake inputs)
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
       flake = false;
@@ -48,8 +40,6 @@
       home-manager,
       nix-homebrew,
       mac-app-util,
-      homebrew-core,
-      homebrew-cask,
       homebrew-bundle,
       homebrew-emacs-plus,
     }:
@@ -87,11 +77,10 @@
               enable = true;
               enableRosetta = true;
               user = personalConfig.personal.username;
-              mutableTaps = false;
+              mutableTaps = true;
               autoMigrate = true;
               taps = {
-                "homebrew/homebrew-core" = homebrew-core;
-                "homebrew/homebrew-cask" = homebrew-cask;
+                # Only manage non-core taps
                 "homebrew/homebrew-bundle" = homebrew-bundle;
                 "d12frosted/homebrew-emacs-plus" = homebrew-emacs-plus;
               };
