@@ -26,10 +26,6 @@
       url = "github:homebrew/homebrew-core";
       flake = false;
     };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
       flake = false;
@@ -49,7 +45,6 @@
       nix-homebrew,
       mac-app-util,
       homebrew-core,
-      homebrew-cask,
       homebrew-bundle,
       homebrew-emacs-plus,
     }:
@@ -92,7 +87,6 @@
               taps = {
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-bundle" = homebrew-bundle;
-                "homebrew/homebrew-cask" = homebrew-cask;
                 "d12frosted/homebrew-emacs-plus" = homebrew-emacs-plus;
               };
             };
