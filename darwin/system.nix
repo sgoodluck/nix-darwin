@@ -54,8 +54,7 @@
         persistent-apps = [        # Pinned apps (in order)
           "/Applications/Emacs.app/"
           "/Applications/Zen.app/"
-          "/Applications/TIDAL.app/"
-          "/Applications/Nix Apps/Alacritty.app"
+          "/Applications/Ghostty.app"
         ];
       };
 

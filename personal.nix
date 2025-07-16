@@ -30,6 +30,9 @@
     # Terminal shell preference
     shell = "zsh";
     
+    # Terminal emulator preference
+    terminalEmulator = "ghostty";
+    
     # Theme configuration
     promptTheme = "zen";
   };

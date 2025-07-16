@@ -69,7 +69,6 @@
     #
     # TERMINAL AND SHELL TOOLS
     #
-    alacritty # GPU-accelerated terminal emulator
     zellij # Modern terminal multiplexer (tmux alternative)
     mkalias # macOS app alias creator for Nix apps
     oh-my-posh # Cross-shell prompt theme engine
@@ -159,9 +158,6 @@
       "amethyst" # Automatic tiling window manager
       "karabiner-elements" # Keyboard customizer
       "obsidian" # Markdown-based knowledge base
-      
-      # Entertainment
-      "tidal" # Hi-fi music streaming
     ];
 
     # Mac App Store apps (uncomment to enable)
