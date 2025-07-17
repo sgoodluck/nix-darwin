@@ -53,6 +53,8 @@
     zellij
     mkalias
     oh-my-posh
+    
+    # Claude Code from overlay
     claude-code
   ];
 

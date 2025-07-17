@@ -19,6 +19,9 @@
     # Declarative Homebrew management
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     
+    # Claude Code Nix overlay
+    claude-code-nix.url = "github:sadjow/claude-code-nix";
+    
     # macOS app linking utility
     mac-app-util.url = "github:hraban/mac-app-util";
     # Homebrew tap repositories (non-flake inputs)
@@ -42,6 +45,7 @@
       mac-app-util,
       homebrew-bundle,
       homebrew-emacs-plus,
+      claude-code-nix,
     }:
     let
       # Import the personal configuration to get machine details
@@ -59,6 +63,7 @@
       # The machine name comes from personal.nix, making it easy to manage multiple systems
       darwinConfigurations.${machineName} = nix-darwin.lib.darwinSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
         
         # Modules are evaluated in order and compose the final system configuration
         modules = [
