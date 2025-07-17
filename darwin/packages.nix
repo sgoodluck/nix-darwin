@@ -53,6 +53,7 @@
     zellij
     mkalias
     oh-my-posh
+    claude-code
   ];
 
   # Homebrew configuration

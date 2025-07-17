@@ -41,7 +41,7 @@ in
     ".config/doom/README.md".source = "${configDir}/dotfiles/doom/README.md";
     ".config/doom/.gitignore".source = "${configDir}/dotfiles/doom/.gitignore";
     ".local/bin/doom-git-init".source = "${configDir}/scripts/doom-git-init.sh";
-    ".config/nvim/init.lua".source = "${configDir}/dotfiles/nvim/init.lua";
+    ".config/nvim".source = "${configDir}/dotfiles/nvim";
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
     ".config/ghostty/config".source = "${configDir}/dotfiles/ghostty/config";
     ".claude/CLAUDE.md".source = "${configDir}/dotfiles/claude/CLAUDE.md";
