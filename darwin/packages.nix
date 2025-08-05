@@ -3,7 +3,7 @@
 { pkgs, lib, hostConfig, ... }:
 {
   imports = [
-    ../../modules/common/packages.nix
+    ../modules/common/packages.nix
   ];
   
   # Add host-specific brews if defined

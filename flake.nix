@@ -68,9 +68,6 @@
 
           # Modules are evaluated in order and compose the final system configuration
           modules = [
-            # Host-specific configuration
-            hostPath
-
             # Core Darwin system configuration (system settings, packages)
             ./darwin
 

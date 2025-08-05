@@ -3,14 +3,14 @@
   pkgs,
   config,
   lib,
-  personal,
+  hostConfig,
   ...
 }:
 
 {
   # System configuration
   system.stateVersion = 5; # Don't change after initial install
-  system.primaryUser = personal.personal.username;
+  system.primaryUser = hostConfig.username;
   nix.enable = false; # Handled by Determinate Systems installer
 
   # Ensure Homebrew-installed Emacs appears in /Applications
