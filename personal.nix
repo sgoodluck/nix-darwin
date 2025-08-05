@@ -4,16 +4,16 @@
 {
   # Personal identity information
   personal = {
-    username = "sgoodluck";
+    username = "seth.martin@firstresonance.io";
     fullName = "Seth";
-    email = "sethgoodluck@pm.me";
-    githubUsername = "Seth";
+    email = "seth.martin@firstresonance.io";
+    githubUsername = "smartin-firstresonance";
   };
 
   # Machine-specific configuration
   machine = {
     # Name used for darwin-rebuild switch command
-    name = "sgoodluck-m1air";
+    name = "Seths-MacBook-Pro";
     # System architecture
     system = "aarch64-darwin";
   };

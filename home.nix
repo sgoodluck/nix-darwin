@@ -32,6 +32,7 @@ in
 
   home.file = {
     # Shell prompt theme configuration
+    ".config/aerospace/aerospace.toml".source = "${configDir}/dotfiles/aerospace/aerospace.toml";
     ".config/ohmyposh/${promptTheme}.toml".source = "${configDir}/dotfiles/zen.toml";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
@@ -51,7 +52,7 @@ in
   programs = {
     # Enable Home Manager command
     home-manager.enable = true;
-    
+
     #
     # GIT CONFIGURATION
     #
@@ -65,7 +66,6 @@ in
         core.editor = personal.preferences.editor.default;
       };
     };
-
 
     #
     # ZSH SHELL CONFIGURATION
@@ -82,18 +82,18 @@ in
       sessionVariables = {
         # XDG base directory specification
         XDG_CONFIG_HOME = "$HOME/.config";
-        
+
         # Doom Emacs configuration directory
         DOOMDIR = "$HOME/.config/doom";
-        
+
         # Homebrew configuration
         HOMEBREW_NO_AUTO_UPDATE = "1"; # Prevent auto-updates during installs
         HOMEBREW_NO_ENV_HINTS = "1"; # Suppress environment hints
-        
+
         # API Keys - set your key here or use .authinfo.gpg instead
         # ANTHROPIC_API_KEY = "your-api-key-here";
       };
-      
+
       # PATH configuration - prepend custom directories
       envExtra = ''
         # Build PATH from list of directories
@@ -103,7 +103,7 @@ in
           "/opt/homebrew/sbin"           # Homebrew system binaries
           "/opt/homebrew/opt/llvm/bin"  # LLVM tools from Homebrew
         )
-        
+
         # Join paths with : and prepend to PATH
         export PATH="$(IFS=:; echo "''${CUSTOM_PATHS[*]}"):$PATH"
       '';
