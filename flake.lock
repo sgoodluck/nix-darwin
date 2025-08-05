@@ -127,6 +127,22 @@
         "type": "github"
       }
     },
+    "homebrew-aerospace": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1753091048,
+        "narHash": "sha256-qnZeUEgmwOcCIg1JCSVgQcgju7SYPUCq+4AwepvSc9I=",
+        "owner": "nikitabobko",
+        "repo": "homebrew-tap",
+        "rev": "047928badd7ccd03705646e8095f905994654d65",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nikitabobko",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "homebrew-bundle": {
       "flake": false,
       "locked": {
@@ -272,6 +288,7 @@
       "inputs": {
         "claude-code-nix": "claude-code-nix",
         "home-manager": "home-manager",
+        "homebrew-aerospace": "homebrew-aerospace",
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-emacs-plus": "homebrew-emacs-plus",
         "mac-app-util": "mac-app-util",

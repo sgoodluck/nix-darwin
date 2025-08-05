@@ -5,7 +5,7 @@
 # - system.nix: Core macOS settings, preferences, and fonts
 # - packages.nix: Package management (Nix packages + Homebrew)
 # - services.nix: Launch agents and service configurations
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, hostConfig, ... }:
 {
   imports = [
     ./system.nix   # System settings, preferences, and fonts

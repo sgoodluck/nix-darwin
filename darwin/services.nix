@@ -4,16 +4,16 @@
 {
   # Launch agents - Services that start at login
   launchd.user.agents = {
-    # Tiling window manager
-    amethyst = {
+    # i3-inspired tiling window manager
+    aerospace = {
       serviceConfig = {
         ProgramArguments = [
-          "/Applications/Amethyst.app/Contents/MacOS/Amethyst"
+          "/opt/homebrew/bin/aerospace"
         ];
         KeepAlive = true;
         RunAtLoad = true;
-        StandardOutPath = "/tmp/amethyst.log";
-        StandardErrorPath = "/tmp/amethyst.error.log";
+        StandardOutPath = "/tmp/aerospace.log";
+        StandardErrorPath = "/tmp/aerospace.error.log";
       };
     };
 

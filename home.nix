@@ -17,9 +17,9 @@ let
   configDir = builtins.toString ./.;
 
   # Extract values from personal config for convenience
-  machineName = personal.machine.name;
+  machineName = personal.machineName;
   promptTheme = personal.preferences.promptTheme;
-  username = personal.personal.username;
+  username = personal.username;
 in
 {
   # Home Manager state version - matches the 25.05 release
@@ -58,8 +58,8 @@ in
     #
     git = {
       enable = true;
-      userName = personal.personal.fullName;
-      userEmail = personal.personal.email;
+      userName = personal.fullName;
+      userEmail = personal.email;
       extraConfig = {
         init.defaultBranch = "main";
         pull.rebase = true;
@@ -110,6 +110,8 @@ in
 
       shellAliases = {
         nxr = "sudo darwin-rebuild switch --flake ~/nix#${machineName}";
+        nxr-work = "sudo darwin-rebuild switch --flake ~/nix#Seths-MacBook-Pro";
+        nxr-personal = "sudo darwin-rebuild switch --flake ~/nix#sgoodluck-m1air";
         ls = "ls --color=auto";
         # Doom config git management
         doom-commit = "cd ~/.config/doom && git add -A && git commit -m";
