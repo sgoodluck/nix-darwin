@@ -33,6 +33,10 @@
       url = "github:d12frosted/homebrew-emacs-plus";
       flake = false;
     };
+    homebrew-aerospace = {
+      url = "github:nikitabobko/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =
@@ -45,6 +49,7 @@
       mac-app-util,
       homebrew-bundle,
       homebrew-emacs-plus,
+      homebrew-aerospace,
       claude-code-nix,
     }:
     let
@@ -88,7 +93,7 @@
                 # Only manage non-core taps
                 "homebrew/homebrew-bundle" = homebrew-bundle;
                 "d12frosted/homebrew-emacs-plus" = homebrew-emacs-plus;
-                "nikitabobko/tap/aerospace" = aerospace;
+                "nikitabobko/tap" = homebrew-aerospace;
               };
             };
           }
