@@ -1,4 +1,5 @@
 # AeroSpace configuration - i3-inspired tiling window manager for macOS
+# Optimized for HHKB keyboard layout
 # Place this file at ~/.config/aerospace/aerospace.toml
 
 # Start AeroSpace at login
@@ -33,97 +34,135 @@ outer.bottom =     10
 outer.top =        10
 outer.right =      10
 
-# Define monitors. See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+# Main bindings - HHKB optimized
 [mode.main.binding]
 
-# All possible keys:
-# - Letters.        a, b, c, ..., z
-# - Numbers.        0, 1, 2, ..., 9
-# - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
-# - F-keys.         f1, f2, ..., f20
-# - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon, backtick,
-#                   leftSquareBracket, rightSquareBracket, space, enter, esc, backspace, tab
-# - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
-#                   keypadMinus, keypadMultiply, keypadPlus
-# - Arrows.         left, down, up, right
+# === Window Navigation (cmd + hjkl) ===
+cmd-h = 'focus left'
+cmd-j = 'focus down'
+cmd-k = 'focus up'
+cmd-l = 'focus right'
 
-# All possible modifiers: cmd, alt, ctrl, shift
+# === Window Movement (cmd + shift + hjkl) ===
+cmd-shift-h = 'move left'
+cmd-shift-j = 'move down'
+cmd-shift-k = 'move up'
+cmd-shift-l = 'move right'
 
-# All possible commands: https://nikitabobko.github.io/AeroSpace/commands
+# === Workspace Navigation ===
+cmd-1 = 'workspace 1'
+cmd-2 = 'workspace 2'
+cmd-3 = 'workspace 3'
+cmd-4 = 'workspace 4'
+cmd-5 = 'workspace 5'
+cmd-6 = 'workspace 6'
+cmd-7 = 'workspace 7'
+cmd-8 = 'workspace 8'
+cmd-9 = 'workspace 9'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#layout
-shift-cmd-ctrl-alt-slash = 'layout tiles horizontal vertical'
-shift-cmd-ctrl-alt-comma = 'layout accordion horizontal vertical'
+# Workspace switching
+cmd-tab = 'workspace --wrap-around next'
+cmd-shift-tab = 'workspace --wrap-around prev'
+cmd-x = 'workspace-back-and-forth'  # Recent workspace
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#focus
-shift-cmd-ctrl-alt-h = 'focus left'
-shift-cmd-ctrl-alt-j = 'focus down'
-shift-cmd-ctrl-alt-k = 'focus up'
-shift-cmd-ctrl-alt-l = 'focus right'
+# === Move Window to Workspace ===
+cmd-shift-1 = 'move-node-to-workspace 1'
+cmd-shift-2 = 'move-node-to-workspace 2'
+cmd-shift-3 = 'move-node-to-workspace 3'
+cmd-shift-4 = 'move-node-to-workspace 4'
+cmd-shift-5 = 'move-node-to-workspace 5'
+cmd-shift-6 = 'move-node-to-workspace 6'
+cmd-shift-7 = 'move-node-to-workspace 7'
+cmd-shift-8 = 'move-node-to-workspace 8'
+cmd-shift-x = 'move-node-to-workspace --wrap-around prev'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#move
-shift-cmd-ctrl-alt-left = 'move left'
-shift-cmd-ctrl-alt-down = 'move down'
-shift-cmd-ctrl-alt-up = 'move up'
-shift-cmd-ctrl-alt-right = 'move right'
+# === Move Window + Follow to Workspace ===
+cmd-ctrl-1 = ['move-node-to-workspace 1', 'workspace 1']
+cmd-ctrl-2 = ['move-node-to-workspace 2', 'workspace 2']
+cmd-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
+cmd-ctrl-4 = ['move-node-to-workspace 4', 'workspace 4']
+cmd-ctrl-m = ['move-node-to-workspace --wrap-around prev', 'workspace --wrap-around prev']
+cmd-ctrl-n = ['move-node-to-workspace --wrap-around next', 'workspace --wrap-around next']
+cmd-ctrl-p = ['move-node-to-workspace --wrap-around prev', 'workspace --wrap-around prev']
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#resize
-shift-cmd-ctrl-alt-minus = 'resize smart -50'
-shift-cmd-ctrl-alt-equal = 'resize smart +50'
+# === Layout and Window Management ===
+# Balance windows (hyper-e in skhd)
+shift-cmd-ctrl-alt-e = 'balance-sizes'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-shift-cmd-ctrl-alt-1 = 'workspace 1'
-shift-cmd-ctrl-alt-2 = 'workspace 2'
-shift-cmd-ctrl-alt-3 = 'workspace 3'
-shift-cmd-ctrl-alt-4 = 'workspace 4'
-shift-cmd-ctrl-alt-5 = 'workspace 5'
+# Enter resize mode (hyper-r in skhd)
+shift-cmd-ctrl-alt-r = 'mode resize'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-shift-cmd-ctrl-alt-f1 = 'move-node-to-workspace 1'
-shift-cmd-ctrl-alt-f2 = 'move-node-to-workspace 2'
-shift-cmd-ctrl-alt-f3 = 'move-node-to-workspace 3'
-shift-cmd-ctrl-alt-f4 = 'move-node-to-workspace 4'
-shift-cmd-ctrl-alt-f5 = 'move-node-to-workspace 5'
+# Toggle fullscreen
+alt-f = 'fullscreen'
+shift-alt-f = 'fullscreen --no-outer-gaps'  # Native fullscreen equivalent
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-shift-cmd-ctrl-alt-tab = 'workspace-back-and-forth'
+# Toggle float
+shift-alt-space = 'layout floating tiling'
+
+# Rotate windows (similar to yabai rotate)
+alt-r = 'layout tiles accordion'
+shift-alt-r = 'layout accordion tiles'
 
 # Monitor management
 shift-cmd-ctrl-alt-period = 'focus-monitor --wrap-around next'
-shift-cmd-ctrl-alt-semicolon = 'focus-monitor --wrap-around prev'
-shift-cmd-ctrl-alt-quote = 'move-workspace-to-monitor --wrap-around next'
-shift-cmd-ctrl-alt-leftSquareBracket = 'move-workspace-to-monitor --wrap-around prev'
+shift-cmd-ctrl-alt-comma = 'focus-monitor --wrap-around prev'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+# Service mode
 shift-cmd-ctrl-alt-space = 'mode service'
 
-# Open terminal (customize this to your preferred terminal)
-shift-cmd-ctrl-alt-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
+# === Application Launchers ===
+# Terminal (cmd-return in skhd)
+cmd-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
 
-# 'service' binding mode declaration.
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# === Resize Mode ===
+[mode.resize.binding]
+# Exit resize mode
+escape = 'mode main'
+enter = 'mode main'
+shift-cmd-ctrl-alt-r = 'mode main'
+
+# Resize with hjkl (matching skhd behavior)
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+
+# Arrow keys for resize (HHKB uses Fn+[;'/ for arrows)
+left = 'resize width -50'
+down = 'resize height +50'
+up = 'resize height -50'
+right = 'resize width +50'
+
+# Fine-tune resize with shift
+shift-h = 'resize width -10'
+shift-j = 'resize height +10'
+shift-k = 'resize height -10'
+shift-l = 'resize width +10'
+
+# === Service Mode ===
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+r = ['flatten-workspace-tree', 'mode main']  # reset layout
+f = ['layout floating tiling', 'mode main']  # Toggle floating
 backspace = ['close-all-windows-but-current', 'mode main']
 
+# Join with direction (similar to yabai insertion point)
 shift-cmd-ctrl-alt-h = ['join-with left', 'mode main']
-shift-cmd-ctrl-alt-j = ['join-with down', 'mode main']
+shift-cmd-ctrl-alt-j = ['join-with down', 'mode main']  
 shift-cmd-ctrl-alt-k = ['join-with up', 'mode main']
 shift-cmd-ctrl-alt-l = ['join-with right', 'mode main']
 
-# App-specific workspace assignments (similar to i3's assign)
+# === App-specific workspace assignments ===
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'  # Ghostty terminal
+if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'org.gnu.Emacs'  # Emacs
+if.app-id = 'org.gnu.Emacs'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'  # VS Code
+if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
@@ -131,25 +170,22 @@ if.app-id = 'com.todesktop.230313mzl4w4u92'  # Cursor
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'  # Firefox
+if.app-id = 'org.mozilla.firefox'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'  # Chrome
+if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-if.app-id = 'com.zen.Zen'  # Zen browser
+if.app-id = 'app.zen-browser.zen'
 run = 'move-node-to-workspace 4'
 
 # Communication and utilities go to workspace 5
 [[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'  # Slack
+if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.mail'  # Mail
+if.app-id = 'com.apple.mail'
 run = 'move-node-to-workspace 5'
-
-# You can add more app assignments here
-# To find app-id, use: aerospace list-apps
