@@ -37,53 +37,53 @@ outer.right =      10
 # Main bindings - HHKB optimized
 [mode.main.binding]
 
-# === Window Navigation (cmd + hjkl) ===
-cmd-h = 'focus left'
-cmd-j = 'focus down'
-cmd-k = 'focus up'
-cmd-l = 'focus right'
+# === Window Navigation (alt + hjkl) ===
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
 
-# === Window Movement (cmd + shift + hjkl) ===
-cmd-shift-h = 'move left'
-cmd-shift-j = 'move down'
-cmd-shift-k = 'move up'
-cmd-shift-l = 'move right'
+# === Window Movement (alt + shift + hjkl) ===
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
 
 # === Workspace Navigation ===
-cmd-1 = 'workspace 1'
-cmd-2 = 'workspace 2'
-cmd-3 = 'workspace 3'
-cmd-4 = 'workspace 4'
-cmd-5 = 'workspace 5'
-cmd-6 = 'workspace 6'
-cmd-7 = 'workspace 7'
-cmd-8 = 'workspace 8'
-cmd-9 = 'workspace 9'
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
 
 # Workspace switching
-cmd-tab = 'workspace --wrap-around next'
-cmd-shift-tab = 'workspace --wrap-around prev'
-cmd-x = 'workspace-back-and-forth'  # Recent workspace
+alt-tab = 'workspace --wrap-around next'
+alt-shift-tab = 'workspace --wrap-around prev'
+alt-x = 'workspace-back-and-forth'  # Recent workspace
 
 # === Move Window to Workspace ===
-cmd-shift-1 = 'move-node-to-workspace 1'
-cmd-shift-2 = 'move-node-to-workspace 2'
-cmd-shift-3 = 'move-node-to-workspace 3'
-cmd-shift-4 = 'move-node-to-workspace 4'
-cmd-shift-5 = 'move-node-to-workspace 5'
-cmd-shift-6 = 'move-node-to-workspace 6'
-cmd-shift-7 = 'move-node-to-workspace 7'
-cmd-shift-8 = 'move-node-to-workspace 8'
-cmd-shift-x = 'move-node-to-workspace --wrap-around prev'
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-x = 'move-node-to-workspace --wrap-around prev'
 
 # === Move Window + Follow to Workspace ===
-cmd-ctrl-1 = ['move-node-to-workspace 1', 'workspace 1']
-cmd-ctrl-2 = ['move-node-to-workspace 2', 'workspace 2']
-cmd-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
-cmd-ctrl-4 = ['move-node-to-workspace 4', 'workspace 4']
-cmd-ctrl-m = ['move-node-to-workspace --wrap-around prev', 'workspace --wrap-around prev']
-cmd-ctrl-n = ['move-node-to-workspace --wrap-around next', 'workspace --wrap-around next']
-cmd-ctrl-p = ['move-node-to-workspace --wrap-around prev', 'workspace --wrap-around prev']
+alt-ctrl-1 = ['move-node-to-workspace 1', 'workspace 1']
+alt-ctrl-2 = ['move-node-to-workspace 2', 'workspace 2']
+alt-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
+alt-ctrl-4 = ['move-node-to-workspace 4', 'workspace 4']
+alt-ctrl-m = ['move-node-to-workspace --wrap-around prev', 'workspace --wrap-around prev']
+alt-ctrl-n = ['move-node-to-workspace --wrap-around next', 'workspace --wrap-around next']
+alt-ctrl-p = ['move-node-to-workspace --wrap-around prev', 'workspace --wrap-around prev']
 
 # === Layout and Window Management ===
 # Balance windows (hyper-e in skhd)
@@ -117,7 +117,7 @@ cmd-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
 # === Resize Mode ===
 [mode.resize.binding]
 # Exit resize mode
-escape = 'mode main'
+esc = 'mode main'
 enter = 'mode main'
 shift-cmd-ctrl-alt-r = 'mode main'
 

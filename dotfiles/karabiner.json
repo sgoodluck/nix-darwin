@@ -53,11 +53,16 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Cmd + Shift + E → Logout",
+                                "description": "Hyper + L → Logout",
                                 "from": {
-                                    "key_code": "e",
+                                    "key_code": "l",
                                     "modifiers": {
-                                        "mandatory": ["command", "shift"],
+                                        "mandatory": [
+                                            "left_shift",
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ],
                                         "optional": []
                                     }
                                 },
@@ -69,11 +74,16 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Cmd + Shift + P → Power Down",
+                                "description": "Hyper + P → Power Down",
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
-                                        "mandatory": ["command", "shift"],
+                                        "mandatory": [
+                                            "left_shift",
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ],
                                         "optional": []
                                     }
                                 },
@@ -85,11 +95,16 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Cmd + Shift + B → Reboot",
+                                "description": "Hyper + B → Reboot",
                                 "from": {
                                     "key_code": "b",
                                     "modifiers": {
-                                        "mandatory": ["command", "shift"],
+                                        "mandatory": [
+                                            "left_shift",
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ],
                                         "optional": []
                                     }
                                 },
@@ -101,11 +116,16 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Cmd + Shift + S → Sleep",
+                                "description": "Hyper + S → Sleep",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
-                                        "mandatory": ["command", "shift"],
+                                        "mandatory": [
+                                            "left_shift",
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ],
                                         "optional": []
                                     }
                                 },
