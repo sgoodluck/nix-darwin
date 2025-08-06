@@ -68,6 +68,20 @@ in
     };
 
     #
+    # SSH CONFIGURATION
+    #
+    ssh = {
+      enable = true;
+      matchBlocks = {
+        "github.com" = {
+          hostname = "github.com";
+          user = "git";
+          identityFile = "~/.ssh/id_ed25519";
+        };
+      };
+    };
+
+    #
     # ZSH SHELL CONFIGURATION
     #
     zsh = {
