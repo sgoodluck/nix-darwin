@@ -1,0 +1,19 @@
+# Nix build outputs
+result
+result-*
+
+# Secrets - never commit these!
+secrets/
+*.secret
+*.key
+*.pem
+
+# macOS
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

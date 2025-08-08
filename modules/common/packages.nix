@@ -39,6 +39,7 @@
     nodePackages.eslint                        # JavaScript/TypeScript linter
     vscode-js-debug                           # JavaScript debugger
     pnpm                                      # Fast package manager for Node.js
+    fnm                                       # Fast Node Manager - Rust-based nvm alternative
     
     # Go development
     go                # Go programming language
@@ -88,6 +89,7 @@
       "markdown"        # Markdown processor
       "shellcheck"      # Shell script static analysis tool
       "node"            # Node.js JavaScript runtime
+      "nvm"             # Node Version Manager
       "clang-format"    # C/C++/Java/JavaScript code formatter
       "pipenv"          # Python virtual environment and dependency manager
       "shfmt"           # Shell script formatter

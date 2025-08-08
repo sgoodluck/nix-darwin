@@ -131,6 +131,8 @@ in
         doom-commit = "cd ~/.config/doom && git add -A && git commit -m";
         doom-push = "cd ~/.config/doom && git push";
         doom-status = "cd ~/.config/doom && git status";
+        # NPM authentication - set token from clipboard
+        npm-auth = "export GH_NPM_TOKEN=\"$(pbpaste)\" && echo \"✓ NPM token set\"";
       };
     };
   };

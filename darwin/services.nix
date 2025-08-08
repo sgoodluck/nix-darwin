@@ -8,15 +8,7 @@
     aerospace = {
       serviceConfig = {
         ProgramArguments = [
-          "/bin/sh"
-          "-c"
-          ''
-            # Kill any existing AeroSpace.app processes first
-            pkill -f "AeroSpace.app" || true
-            sleep 1
-            # Start aerospace CLI with the correct config
-            exec /opt/homebrew/bin/aerospace
-          ''
+          "/Applications/AeroSpace.app/Contents/MacOS/AeroSpace"
         ];
         KeepAlive = true;
         RunAtLoad = true;
