@@ -36,9 +36,9 @@
         show-recents = false;
         tilesize = 48;
         persistent-apps = [
-          "/Applications/Emacs.app/"
-          "/Applications/Zen.app/"
           "/Applications/Alacritty.app"
+          "/Applications/Zen.app/"
+          "/Applications/Emacs.app/"
         ];
       };
 
@@ -66,7 +66,6 @@
       };
     };
   };
-
 
   # Nixpkgs configuration
   nixpkgs.config.allowUnfree = true;
