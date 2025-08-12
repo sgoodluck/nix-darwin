@@ -110,13 +110,29 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 # App-specific workspace assignments (similar to i3's assign)
+
+# Terminal First
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'  # Ghostty terminal
 run = 'move-node-to-workspace 1'
 
+# Browsers Next
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'  # Firefox
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'  # Chrome
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'  # Zen browser
+run = 'move-node-to-workspace 2'
+
+# Editors
 [[on-window-detected]]
 if.app-id = 'org.gnu.Emacs'  # Emacs
-run = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'  # VS Code
@@ -126,26 +142,14 @@ run = 'move-node-to-workspace 3'
 if.app-id = 'com.todesktop.230313mzl4w4u92'  # Cursor
 run = 'move-node-to-workspace 3'
 
-[[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'  # Firefox
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'  # Chrome
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'  # Zen browser
-run = 'move-node-to-workspace 4'
-
-# Communication and utilities go to workspace 5
+# Comms last
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'  # Slack
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'  # Mail
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 4'
 
 # You can add more app assignments here
 # To find app-id, use: aerospace list-apps

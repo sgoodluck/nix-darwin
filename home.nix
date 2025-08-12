@@ -60,6 +60,10 @@ in
       enable = true;
       userName = personal.fullName;
       userEmail = personal.email;
+      signing = {
+        key = personal.gpgKey;
+        signByDefault = true;
+      };
       extraConfig = {
         init.defaultBranch = "main";
         pull.rebase = true;

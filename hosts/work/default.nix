@@ -7,6 +7,7 @@
   fullName = "Seth";
   email = "seth.martin@firstresonance.io";
   githubUsername = "smartin-firstresonance";
+  gpgKey = "0727CB23E7713CFB";
   
   # Machine details
   machineName = "Seths-MacBook-Pro";
