@@ -34,7 +34,7 @@
       flake = false;
     };
     homebrew-aerospace = {
-      url = "github:nikitabobko/homebrew-tap";
+      url = "github:nikitabobko/homebrew-aerospace";
       flake = false;
     };
   };
@@ -89,7 +89,7 @@
                   # Only manage non-core taps
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "d12frosted/homebrew-emacs-plus" = homebrew-emacs-plus;
-                  "nikitabobko/tap" = homebrew-aerospace;
+                  "nikitabobko/aerospace" = homebrew-aerospace;
                 };
               };
             }
@@ -109,6 +109,8 @@
                 useGlobalPkgs = true;
                 # Install packages to user profile instead of system
                 useUserPackages = true;
+                # Set backup file extension to avoid conflicts
+                backupFileExtension = "backup";
                 # Define home configuration for our user
                 users.${hostConfig.username} =
                   { pkgs, ... }:

@@ -27,9 +27,6 @@
   # Security
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  # Home Manager
-  home-manager.backupFileExtension = "backup";
-
   # macOS preferences
   system = {
 
