@@ -4,19 +4,6 @@
 {
   # Launch agents - Services that start at login
   launchd.user.agents = {
-    # i3-inspired tiling window manager
-    aerospace = {
-      serviceConfig = {
-        ProgramArguments = [
-          "/Applications/AeroSpace.app/Contents/MacOS/AeroSpace"
-        ];
-        KeepAlive = true;
-        RunAtLoad = true;
-        StandardOutPath = "/tmp/aerospace.log";
-        StandardErrorPath = "/tmp/aerospace.error.log";
-      };
-    };
-
     # Emacs daemon for fast client startup
     emacs = {
       serviceConfig = {
