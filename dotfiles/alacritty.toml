@@ -58,6 +58,6 @@ cursor.text = "#1d2235"
 selection.background = "#5a5f7a"
 selection.text = "#ffffff"
 
-[shell]
+[terminal.shell]
 # Use default shell (zsh)
 program = "/bin/zsh"
