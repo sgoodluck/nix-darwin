@@ -32,7 +32,7 @@
       gui = "emacs";
     };
     shell = "zsh";
-    terminalEmulator = "ghostty";
+    terminalEmulator = "alacritty";
     promptTheme = "zen";
   };
 }

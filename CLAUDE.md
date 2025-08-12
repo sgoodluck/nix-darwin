@@ -64,7 +64,7 @@ The repository follows a modular structure with clear separation of concerns:
 
 - Default editor: nvim (terminal), emacs (GUI applications)
 - Shell: zsh with oh-my-posh prompt (zen theme)
-- Terminal: Ghostty
+- Terminal: Alacritty
 - Window Manager: Aerospace (i3-inspired tiling WM)
 - State versions: Darwin (5), Home Manager (25.05)
 - TouchID enabled for sudo authentication

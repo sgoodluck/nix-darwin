@@ -44,7 +44,7 @@ in
     ".local/bin/doom-git-init".source = "${configDir}/scripts/doom-git-init.sh";
     ".config/nvim".source = "${configDir}/dotfiles/nvim";
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
-    ".config/ghostty/config".source = "${configDir}/dotfiles/ghostty/config";
+    ".config/alacritty/alacritty.toml".source = "${configDir}/dotfiles/alacritty.toml";
     ".claude/CLAUDE.md".source = "${configDir}/dotfiles/claude/CLAUDE.md";
   };
 

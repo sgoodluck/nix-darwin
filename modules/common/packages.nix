@@ -110,7 +110,7 @@
       "appcleaner"        # Application uninstaller and cleanup tool
       "the-unarchiver"    # Archive extraction utility
       "keycastr"          # Keystroke visualizer for presentations
-      "ghostty"           # Modern terminal emulator
+      "alacritty"         # GPU-accelerated terminal emulator
       
       # Web browsers
       "firefox"           # Mozilla Firefox web browser
