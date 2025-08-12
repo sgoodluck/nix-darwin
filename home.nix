@@ -76,6 +76,11 @@ in
     #
     ssh = {
       enable = true;
+      addKeysToAgent = "yes";
+      extraConfig = ''
+        UseKeychain yes
+        AddKeysToAgent yes
+      '';
       matchBlocks = {
         "github.com" = {
           hostname = "github.com";
