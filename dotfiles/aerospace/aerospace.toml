@@ -94,7 +94,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 # Open terminal (customize this to your preferred terminal)
-alt-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
+alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -113,7 +113,7 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # Terminal First
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'  # Ghostty terminal
+if.app-id = 'io.alacritty'  # Alacritty terminal
 run = 'move-node-to-workspace 1'
 
 # Browsers Next
