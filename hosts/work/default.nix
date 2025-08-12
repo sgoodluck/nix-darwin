@@ -21,7 +21,8 @@
     
     # Google Workspace
     "google-drive"  # File sync
-    
+    "cursor" # cursed
+    "google-chrome" # meh
     # Already included in common: google-chrome, cursor
   ];
   

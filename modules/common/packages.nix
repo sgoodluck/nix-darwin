@@ -115,11 +115,9 @@
       # Web browsers
       "firefox"           # Mozilla Firefox web browser
       "zen"               # Privacy-focused Firefox-based browser
-      "google-chrome"     # Google Chrome web browser
       
       # Development tools
       "visual-studio-code" # Microsoft's code editor
-      "cursor"            # AI-powered code editor
  
       # Creative tools
       "gimp"              # GNU Image Manipulation Program
