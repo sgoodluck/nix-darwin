@@ -17,6 +17,11 @@
   system.activationScripts.postActivation.text = ''
     mkdir -p /Applications/Nix
     ln -sf "/opt/homebrew/opt/emacs-plus/Emacs.app" /Applications/
+    
+    # Reload Aerospace config if it's running
+    if pgrep -x "AeroSpace" > /dev/null; then
+      /opt/homebrew/bin/aerospace reload-config
+    fi
   '';
 
   # Security
