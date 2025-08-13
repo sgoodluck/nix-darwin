@@ -133,13 +133,13 @@
         "lastModified": 1753091048,
         "narHash": "sha256-qnZeUEgmwOcCIg1JCSVgQcgju7SYPUCq+4AwepvSc9I=",
         "owner": "nikitabobko",
-        "repo": "homebrew-tap",
+        "repo": "homebrew-aerospace",
         "rev": "047928badd7ccd03705646e8095f905994654d65",
         "type": "github"
       },
       "original": {
         "owner": "nikitabobko",
-        "repo": "homebrew-tap",
+        "repo": "homebrew-aerospace",
         "type": "github"
       }
     },

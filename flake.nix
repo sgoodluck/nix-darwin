@@ -89,7 +89,7 @@
                   # Only manage non-core taps
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "d12frosted/homebrew-emacs-plus" = homebrew-emacs-plus;
-                  "nikitabobko/aerospace" = homebrew-aerospace;
+                  "nikitabobko/tap" = homebrew-aerospace;
                 };
               };
             }
