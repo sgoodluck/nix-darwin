@@ -27,13 +27,7 @@ This repository contains a complete system configuration for macOS (M1 MacBook A
    cd ~/nix
    ```
 
-2. Update `personal.nix` with your information:
-   - Username
-   - Full name
-   - Email
-   - Machine name
-
-3. Build and activate the configuration:
+2. Build and activate the configuration:
    ```bash
    darwin-rebuild switch --flake ~/nix#<machine-name>
    ```
@@ -52,7 +46,9 @@ nxr  # Rebuilds the system configuration
 .
 ├── flake.nix           # Entry point - defines inputs and system configuration
 ├── flake.lock          # Locked dependencies for reproducibility
-├── personal.nix        # User-specific settings (username, email, preferences)
+├── hosts/              # Machine-specific configurations
+│   ├── personal/       # Personal machine settings
+│   └── work/           # Work machine settings
 ├── home.nix            # Home Manager configuration (dotfiles, shell, user programs)
 ├── darwin/             # macOS system configuration
 │   ├── default.nix     # Module entry point
@@ -73,12 +69,16 @@ This configuration uses both Nix and Homebrew:
 - **Homebrew brews**: CLI tools not available in Nix
 - **Homebrew casks**: GUI applications
 
-### Personal Configuration
+### Machine-Specific Configuration
 
-All personal settings are centralized in `personal.nix`, making it easy to:
-- Manage multiple machines with different names
-- Keep sensitive information in one place
-- Share the configuration while keeping personal details separate
+Each machine has its own configuration in the `hosts/` directory:
+- `hosts/personal/default.nix`: Personal machine settings (username, email, packages)
+- `hosts/work/default.nix`: Work machine settings with work-specific tools
+
+This structure allows you to:
+- Manage multiple machines with different identities and packages
+- Keep work and personal configurations separate
+- Share common settings while customizing per-machine needs
 
 ### Automatic Setup
 

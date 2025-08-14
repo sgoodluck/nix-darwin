@@ -7,6 +7,7 @@
   fullName = "Seth";
   email = "sethgoodluck@pm.me";
   githubUsername = "Seth";
+  gpgKey = ""; # Add your GPG key ID here if you have one
   
   # Machine details
   machineName = "sgoodluck-m1air";
