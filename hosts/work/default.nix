@@ -13,7 +13,9 @@
   machineName = "Seths-MacBook-Pro";
   
   # Work-specific packages
-  extraBrews = [];
+  extraBrews = [
+    "postgresql@16"  # PostgreSQL version 16 for specific project requirements
+  ];
   
   extraCasks = [
     # Communication tools

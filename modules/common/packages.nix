@@ -48,6 +48,10 @@
     golangci-lint     # Go linter aggregator
     go-tools          # Go development tools (goimports, gorename, etc.)
     goperf            # Go performance analysis tools
+
+    # Rust development
+    rustc
+    cargo
     
     # Terminal and shell tools
     zellij            # Terminal multiplexer (alternative to tmux)
