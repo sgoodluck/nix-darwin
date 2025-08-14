@@ -24,7 +24,6 @@
     "google-drive"  # File sync
     "cursor" # cursed
     "google-chrome" # meh
-    # Already included in common: google-chrome, cursor
   ];
   
   # Universal preferences (inherited from common)
