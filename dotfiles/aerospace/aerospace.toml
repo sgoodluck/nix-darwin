@@ -96,6 +96,12 @@ alt-shift-semicolon = 'mode service'
 # Open terminal (customize this to your preferred terminal)
 alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app'
 
+# Open browser (Zen)
+alt-b = 'exec-and-forget open -n /Applications/Zen.app'
+
+# Open Emacs
+alt-shift-enter = 'exec-and-forget open -n /Applications/Emacs.app'
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]

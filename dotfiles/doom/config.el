@@ -17,9 +17,9 @@
 (add-to-list 'default-frame-alist '(alpha-background . 95))  ; Match alacritty's 95% opacity
 
 ;; Font Configuration
-(setq doom-font (font-spec :family "AnonymicePro Nerd Font" :size 12)
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 12)
       doom-variable-pitch-font doom-font  ; Use same font for consistency
-      doom-big-font (font-spec :family "AnonymicePro Nerd Font" :size 24)
+      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 24)
       ;; Nerd Icons
       nerd-icons-font-family "Symbols Nerd Font Mono")
 
