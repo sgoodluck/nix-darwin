@@ -46,6 +46,8 @@ in
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
     ".config/alacritty/alacritty.toml".source = "${configDir}/dotfiles/alacritty.toml";
     ".claude/CLAUDE.md".source = "${configDir}/dotfiles/claude/CLAUDE.md";
+    # VS Code settings - symlinked to Application Support
+    "Library/Application Support/Code/User/settings.json".source = "${configDir}/dotfiles/vscode/settings.json";
   };
 
   # Program-specific configurations
@@ -100,6 +102,7 @@ in
 
       initContent = ''
         eval "$(oh-my-posh init ${personal.preferences.shell} --config ~/.config/ohmyposh/${promptTheme}.toml)"
+        eval "$(zoxide init zsh)"
       '';
 
       sessionVariables = {
@@ -132,14 +135,28 @@ in
       '';
 
       shellAliases = {
+        # Nix rebuild commands
         nxr = "sudo darwin-rebuild switch --flake ~/nix#${machineName}";
         nxr-work = "sudo darwin-rebuild switch --flake ~/nix#Seths-MacBook-Pro";
         nxr-personal = "sudo darwin-rebuild switch --flake ~/nix#sgoodluck-m1air";
-        ls = "ls --color=auto";
+        
+        # Modern CLI replacements
+        cat = "bat";
+        ls = "eza --icons";
+        ll = "eza -la --icons --git";
+        tree = "eza --tree --icons";
+        du = "dust";
+        ps = "procs";
+        top = "htop";
+        find = "fd";
+        grep = "rg";
+        cd = "z";
+        
         # Doom config git management
         doom-commit = "cd ~/.config/doom && git add -A && git commit -m";
         doom-push = "cd ~/.config/doom && git push";
         doom-status = "cd ~/.config/doom && git status";
+        
         # NPM authentication - set token from clipboard
         npm-auth = "export GH_NPM_TOKEN=\"$(pbpaste)\" && echo \"✓ NPM token set\"";
       };

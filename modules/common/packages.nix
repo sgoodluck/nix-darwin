@@ -4,11 +4,9 @@
   # NOTE: Docker Desktop was installed manually outside of Nix/Homebrew
   environment.systemPackages = with pkgs; [
     # Core development tools
-    tree              # Directory tree visualization
     git               # Version control system
-    curl              # HTTP client for API requests and downloads
-    wget              # File downloader
-    coreutils         # GNU core utilities (ls, cp, mv, etc.)
+    curl              # HTTP client for API requests and REST calls
+    wget              # Simple file downloader for scripts and automation
     gnumake           # Build automation tool
     cmake             # Cross-platform build system generator
     ninja             # Small build system focused on speed
@@ -18,7 +16,40 @@
     pinentry_mac      # macOS GUI for GPG passphrase entry
     ncurses           # Terminal control library
     
+    # Modern CLI tools (Rust-based alternatives)
+    ripgrep           # Fast text search tool (grep replacement)
+    fd                # Fast and user-friendly find alternative
+    eza               # Modern ls replacement with colors and icons
+    bat               # Cat with syntax highlighting and Git integration
+    fzf               # Fuzzy finder for interactive file/command selection
+    zoxide            # Smart cd replacement that learns your habits
+    dust              # Modern du disk usage analyzer with tree view
+    procs             # Modern ps process viewer with colored output
+    
+    # Essential utilities
+    jq                # JSON processor for parsing and manipulating JSON data
+    yq                # YAML processor, pairs well with jq
+    htop              # Interactive process viewer (better than top)
+    direnv            # Automatic environment switching per directory
+    just              # Modern alternative to make for running project commands
+    
+    # System utilities and development tools
+    nmap              # Network discovery and security auditing tool
+    ffmpeg            # Multimedia framework for audio/video processing
+    aspell            # Spell checker for text processing
+    hugo              # Static site generator for websites
+    llvm              # Compiler infrastructure and toolchain
+    bear              # Build tool for generating compilation databases
+    ccls              # C/C++/Objective-C language server
+    markdown          # Markdown processor for documentation
+    shellcheck        # Shell script static analysis tool
+    clang-tools       # C/C++ development tools (includes clang-format)
+    shfmt             # Shell script formatter
+    gh                # GitHub CLI for repository management and workflows
+    
     # Python development
+    uv                # Extremely fast Python package installer and resolver
+    poetry            # Python dependency management and packaging
     (python3.withPackages (
       ps: with ps; [
         black                # Python code formatter
@@ -28,30 +59,29 @@
         debugpy              # Python debugger protocol implementation
         mypy                 # Static type checker for Python
         python-lsp-server    # Language server for Python
-        rope                 # Python refactoring library
       ]
     ))
     
     # Node.js development
+    nodejs                                     # Node.js JavaScript runtime
     nodePackages.typescript                    # TypeScript compiler
     nodePackages.typescript-language-server    # TypeScript language server
     nodePackages.prettier                      # Code formatter for JS/TS
     nodePackages.eslint                        # JavaScript/TypeScript linter
-    vscode-js-debug                           # JavaScript debugger
+    vscode-js-debug                           # JavaScript debugger for editors (check if needed for Emacs DAP)
     pnpm                                      # Fast package manager for Node.js
     fnm                                       # Fast Node Manager - Rust-based nvm alternative
     
     # Go development
     go                # Go programming language
-    delve             # Go debugger
+    delve             # Go debugger (dlv command)
     gopls             # Go language server
     golangci-lint     # Go linter aggregator
     go-tools          # Go development tools (goimports, gorename, etc.)
-    goperf            # Go performance analysis tools
 
     # Rust development
-    rustc
-    cargo
+    rustc             # Rust compiler
+    cargo             # Rust package manager and build system
     
     # Terminal and shell tools
     zellij            # Terminal multiplexer (alternative to tmux)
@@ -67,36 +97,19 @@
     enable = true;
     
     global = {
-      autoUpdate = false;
-      lockfiles = false;
+      autoUpdate = false;   # Disable automatic updates
+      lockfiles = false;    # Don't create lockfiles
     };
     
     onActivation = {
-      cleanup = "zap";
-      autoUpdate = true;
-      upgrade = true;
+      cleanup = "zap";      # Remove all formulae not listed
+      autoUpdate = true;    # Update homebrew on activation
+      upgrade = true;       # Upgrade existing packages
     };
     
     brews = [
-      "uv"              # Fast Python package installer and resolver
-      "nmap"            # Network discovery and security auditing tool
-      "ffmpeg"          # Multimedia framework for audio/video processing
-      "poetry"          # Python dependency management and packaging
-      "aspell"          # Spell checker
-      "hugo"            # Static site generator
       "mas"             # Mac App Store command line interface
-      "llvm"            # Compiler infrastructure and toolchain
-      "bear"            # Build tool for generating compilation databases
-      "ccls"            # C/C++/Objective-C language server
-      "ripgrep"         # Fast text search tool (grep alternative)
-      "fd"              # Fast and user-friendly find alternative
-      "markdown"        # Markdown processor
-      "shellcheck"      # Shell script static analysis tool
-      "node"            # Node.js JavaScript runtime
-      "nvm"             # Node Version Manager
-      "clang-format"    # C/C++/Java/JavaScript code formatter
-      "pipenv"          # Python virtual environment and dependency manager
-      "shfmt"           # Shell script formatter
+      "nvm"             # Node Version Manager (better shell integration than fnm)
       {
         name = "emacs-plus";  # Enhanced Emacs build with additional features
         args = [

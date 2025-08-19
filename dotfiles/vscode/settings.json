@@ -1,0 +1,97 @@
+{
+  // Editor Font Settings
+  "editor.fontFamily": "AnonymicePro Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 12,
+  "editor.fontLigatures": false,
+  "terminal.integrated.fontFamily": "AnonymicePro Nerd Font",
+  "terminal.integrated.fontSize": 12,
+  
+  // Theme Settings - Modus Vivendi matches available VS Code themes
+  "workbench.colorTheme": "Modus Vivendi",
+  
+  // Editor Settings to match Doom Emacs
+  "editor.lineNumbers": "relative",
+  "editor.renderWhitespace": "selection",
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": false,
+  "editor.cursorBlinking": "smooth",
+  
+  // Window Settings to match Alacritty
+  "window.titleBarStyle": "custom",
+  "window.density.editorTabHeight": "compact",
+  
+  // Terminal Settings
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.cursorStyle": "block",
+  
+  // File Explorer
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  
+  // Formatting
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  
+  // Language Specific Settings
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+  
+  // Git Settings
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  
+  // Telemetry
+  "telemetry.telemetryLevel": "off",
+  
+  // Extensions
+  "extensions.ignoreRecommendations": true,
+  
+  // Custom Colors to better match Modus Vivendi Tinted
+  "workbench.colorCustomizations": {
+    "terminal.background": "#1d2235",
+    "terminal.foreground": "#ffffff",
+    "terminalCursor.background": "#ffffff",
+    "terminalCursor.foreground": "#1d2235",
+    "terminal.ansiBlack": "#1d2235",
+    "terminal.ansiRed": "#ff5f59",
+    "terminal.ansiGreen": "#44bc44",
+    "terminal.ansiYellow": "#d0bc00",
+    "terminal.ansiBlue": "#2fafff",
+    "terminal.ansiMagenta": "#feacd0",
+    "terminal.ansiCyan": "#00d3d0",
+    "terminal.ansiWhite": "#989898",
+    "terminal.ansiBrightBlack": "#4f5666",
+    "terminal.ansiBrightRed": "#ff6b55",
+    "terminal.ansiBrightGreen": "#70c900",
+    "terminal.ansiBrightYellow": "#fec43f",
+    "terminal.ansiBrightBlue": "#79a8ff",
+    "terminal.ansiBrightMagenta": "#f78fe7",
+    "terminal.ansiBrightCyan": "#4ae2f0",
+    "terminal.ansiBrightWhite": "#ffffff"
+  }
+}
