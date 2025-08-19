@@ -41,7 +41,6 @@
     llvm              # Compiler infrastructure and toolchain
     bear              # Build tool for generating compilation databases
     ccls              # C/C++/Objective-C language server
-    markdown          # Markdown processor for documentation
     shellcheck        # Shell script static analysis tool
     clang-tools       # C/C++ development tools (includes clang-format)
     shfmt             # Shell script formatter
@@ -110,6 +109,7 @@
     brews = [
       "mas"             # Mac App Store command line interface
       "nvm"             # Node Version Manager (better shell integration than fnm)
+      "markdown"        # Markdown processor for documentation
       {
         name = "emacs-plus";  # Enhanced Emacs build with additional features
         args = [
