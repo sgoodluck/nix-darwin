@@ -18,13 +18,16 @@
   ];
   
   extraCasks = [
+    #Dev tools
+    "cursor" # cursed
+    "aws-vpn-client" # don't drop tables
+
     # Communication tools
     "zoom"          # Video conferencing
     "slack"         # Team communication
     
-    # Google Workspace
+    # Google Stuff
     "google-drive"  # File sync
-    "cursor" # cursed
     "google-chrome" # meh
   ];
   
