@@ -33,7 +33,9 @@ in
   home.file = {
     # Shell prompt theme configuration
     ".config/aerospace/aerospace.toml".source = "${configDir}/dotfiles/aerospace/aerospace.toml";
-    ".config/ohmyposh/${promptTheme}.toml".source = "${configDir}/dotfiles/zen-with-vpn.toml";
+    ".config/ohmyposh/${promptTheme}.toml".source = "${configDir}/dotfiles/zen.toml";
+    ".config/dotfiles/vpn-status.sh".source = "${configDir}/dotfiles/vpn-status.sh";
+    ".config/dotfiles/aws-profile-status.sh".source = "${configDir}/dotfiles/aws-profile-status.sh";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
     ".config/doom/init.el".source = "${configDir}/dotfiles/doom/init.el";
@@ -103,6 +105,10 @@ in
       initContent = ''
         eval "$(oh-my-posh init ${personal.preferences.shell} --config ~/.config/ohmyposh/${promptTheme}.toml)"
         eval "$(zoxide init zsh)"
+        
+        # Add a blank line before each prompt (except the first)
+        # This self-redefining function is elegant and minimal
+        precmd() { precmd() { echo } }
       '';
 
       sessionVariables = {

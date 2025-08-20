@@ -6,7 +6,10 @@
     ../modules/common/packages.nix
   ];
 
-  # Merge host-specific packages
+  # Add host-specific Nix packages
+  environment.systemPackages = if (hostConfig ? extraPackages) then (hostConfig.extraPackages pkgs) else [];
+
+  # Merge host-specific Homebrew packages
   homebrew = {
     brews = hostConfig.extraBrews or [];
     casks = hostConfig.extraCasks or [];

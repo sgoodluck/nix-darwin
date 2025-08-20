@@ -13,6 +13,10 @@
   machineName = "Seths-MacBook-Pro";
   
   # Work-specific packages
+  extraPackages = pkgs: [
+    pkgs.awscli2  # AWS Command Line Interface version 2
+  ];
+  
   extraBrews = [
     "postgresql@16"  # PostgreSQL version 16 for specific project requirements
   ];

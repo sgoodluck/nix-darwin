@@ -37,6 +37,26 @@ final_space = true
   type = 'rprompt'
   overflow = 'hidden'
   [[blocks.segments]]
+    template = '{{ if .Output }}🔒 {{ .Output }} {{ end }}'
+    foreground = 'green'
+    background = 'transparent'
+    type = 'command'
+    style = 'plain'
+    [blocks.segments.properties]
+      cache_duration = '10s'
+      shell = 'bash'
+      command = '~/.config/dotfiles/vpn-status.sh'
+  [[blocks.segments]]
+    template = '{{ if .Output }}☁️  {{ .Output }} {{ end }}'
+    foreground = 'yellow'
+    background = 'transparent'
+    type = 'command'
+    style = 'plain'
+    [blocks.segments.properties]
+      cache_duration = '10s'
+      shell = 'bash'
+      command = '~/.config/dotfiles/aws-profile-status.sh'
+  [[blocks.segments]]
     template = '{{ .FormattedMs }}'
     foreground = 'yellow'
     background = 'transparent'
