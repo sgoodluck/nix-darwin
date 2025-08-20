@@ -159,7 +159,7 @@ in
         
         # NPM authentication - set token from clipboard
         npm-auth = "export GH_NPM_TOKEN=\"$(pbpaste)\" && echo \"✓ NPM token set\"";
-      };
+      } // (personal.extraAliases or {});
     };
   };
 

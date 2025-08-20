@@ -28,6 +28,15 @@
     "google-chrome" # meh
   ];
   
+  # Work-specific shell aliases
+  extraAliases = {
+    # Privileges CLI shortcuts (for managing admin privileges)
+    priv = "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI";
+    priv-add = "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --add";
+    priv-remove = "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --remove";
+    priv-status = "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --status";
+  };
+  
   # Universal preferences (inherited from common)
   preferences = {
     editor = {
