@@ -47,7 +47,7 @@ final_space = true
       shell = 'bash'
       command = '~/.config/dotfiles/vpn-status.sh'
   [[blocks.segments]]
-    template = '{{ if .Output }}☁️  {{ .Output }} {{ end }}'
+    template = '{{ if .Output }}👤 {{ .Output }} {{ end }}'
     foreground = 'yellow'
     background = 'transparent'
     type = 'command'
