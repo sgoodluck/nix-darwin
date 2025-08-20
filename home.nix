@@ -33,7 +33,7 @@ in
   home.file = {
     # Shell prompt theme configuration
     ".config/aerospace/aerospace.toml".source = "${configDir}/dotfiles/aerospace/aerospace.toml";
-    ".config/ohmyposh/${promptTheme}.toml".source = "${configDir}/dotfiles/zen.toml";
+    ".config/ohmyposh/${promptTheme}.toml".source = "${configDir}/dotfiles/zen-with-vpn.toml";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
     ".config/doom/init.el".source = "${configDir}/dotfiles/doom/init.el";

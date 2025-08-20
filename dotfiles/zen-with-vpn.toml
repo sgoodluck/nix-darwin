@@ -1,0 +1,94 @@
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
+[secondary_prompt]
+  template = '❯❯ '
+  foreground = 'magenta'
+  background = 'transparent'
+[transient_prompt]
+  template = '❯ '
+  background = 'transparent'
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+  [[blocks.segments]]
+    template = '{{ .Path }}'
+    foreground = 'blue'
+    background = 'transparent'
+    type = 'path'
+    style = 'plain'
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      style = 'full'
+  [[blocks.segments]]
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+    foreground = 'p:grey'
+    background = 'transparent'
+    type = 'git'
+    style = 'plain'
+    [blocks.segments.properties]
+      branch_icon = ''
+      cache_duration = 'none'
+      commit_icon = '@'
+      fetch_status = true
+  [[blocks.segments]]
+    template = '{{ if .Output }} 🔒 {{ .Output }}{{ end }}'
+    foreground = 'green'
+    background = 'transparent'
+    type = 'command'
+    style = 'plain'
+    [blocks.segments.properties]
+      cache_duration = '10s'
+      shell = 'bash'
+      command = '''
+        # Check AWS VPN Client
+        if /Applications/AWS\ VPN\ Client/AWS\ VPN\ Client.app/Contents/Resources/AWS\ VPN\ Client/Contents/MacOS/ACVCHelperTool --isAlive 2>/dev/null | grep -q "OK"; then
+          # Try to get the profile name from the active log file
+          LOG_DIR="$HOME/Library/Application Support/OpenVPN/log"
+          if [[ -d "$LOG_DIR" ]]; then
+            # Find the most recently modified log file (likely the active connection)
+            ACTIVE_LOG=$(ls -t "$LOG_DIR"/*.log 2>/dev/null | head -1)
+            if [[ -n "$ACTIVE_LOG" ]]; then
+              # Extract profile name from log filename (remove path and .log extension)
+              PROFILE=$(basename "$ACTIVE_LOG" .log)
+              echo "AWS: $PROFILE"
+            else
+              echo "AWS"
+            fi
+          else
+            echo "AWS"
+          fi
+        # Check ProtonVPN (creates utun interface)
+        elif pgrep -q "ProtonVPN" && ifconfig | grep -q "^utun[0-9]:"; then
+          echo "Proton"
+        # Generic VPN check (any utun or ppp interface)
+        elif ifconfig | grep -q "^utun[0-9]:" || ifconfig | grep -q "^ppp[0-9]:"; then
+          echo "VPN"
+        fi
+      '''
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+  [[blocks.segments]]
+    template = '{{ .FormattedMs }}'
+    foreground = 'yellow'
+    background = 'transparent'
+    type = 'executiontime'
+    style = 'plain'
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      threshold = 5000
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+  [[blocks.segments]]
+    template = '❯'
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+    [blocks.segments.properties]
+      cache_duration = 'none'
