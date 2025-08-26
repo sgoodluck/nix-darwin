@@ -5,6 +5,7 @@
 ;; Development Tools
 (package! dape)         ; Debugger
 (package! eat)          ; Terminal emulator
+(package! just-mode)    ; Justfile syntax highlighting
 
 ;; AI Integration
 (package! gptel)        ; Claude/GPT interface

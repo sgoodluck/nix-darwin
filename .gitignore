@@ -17,3 +17,6 @@ secrets/
 *.swp
 *.swo
 *~
+
+# Claude Code screenshots
+screenshots/

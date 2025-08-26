@@ -34,9 +34,10 @@ in
     # Shell prompt theme configuration
     ".config/aerospace/aerospace.toml".source = "${configDir}/dotfiles/aerospace/aerospace.toml";
     ".config/ohmyposh/${promptTheme}.toml".source = "${configDir}/dotfiles/zen.toml";
-    ".config/dotfiles/vpn-status.sh".source = "${configDir}/dotfiles/vpn-status.sh";
-    ".config/dotfiles/venv-status.sh".source = "${configDir}/dotfiles/venv-status.sh";
-    ".config/dotfiles/aws-profile-status.sh".source = "${configDir}/dotfiles/aws-profile-status.sh";
+    # Status scripts for oh-my-posh prompt
+    ".config/dotfiles/vpn-status.sh".source = "${configDir}/scripts/prompt/vpn-status.sh";
+    ".config/dotfiles/venv-status.sh".source = "${configDir}/scripts/prompt/venv-status.sh";
+    ".config/dotfiles/aws-profile-status.sh".source = "${configDir}/scripts/prompt/aws-profile-status.sh";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
     ".config/doom/init.el".source = "${configDir}/dotfiles/doom/init.el";
@@ -48,7 +49,15 @@ in
     ".config/nvim".source = "${configDir}/dotfiles/nvim";
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
     ".config/alacritty/alacritty.toml".source = "${configDir}/dotfiles/alacritty.toml";
+    
+    # Claude Code configuration and commands
     ".claude/CLAUDE.md".source = "${configDir}/dotfiles/claude/CLAUDE.md";
+    ".claude/commands/screenshot.md".source = "${configDir}/dotfiles/claude/commands/screenshot.md";
+    ".claude/commands/pr-review.md".source = "${configDir}/dotfiles/claude/commands/pr-review.md";
+    
+    # Claude helper scripts in PATH
+    ".local/bin/screenshot-capture".source = "${configDir}/scripts/claude/screenshot-capture.sh";
+    ".local/bin/pr-review".source = "${configDir}/scripts/claude/pr-review.sh";
     # VS Code settings - symlinked to Application Support
     "Library/Application Support/Code/User/settings.json".source = "${configDir}/dotfiles/vscode/settings.json";
   };
@@ -163,6 +172,10 @@ in
         # Doom config git management
         doom-commit = "cd ~/.config/doom && git add -A && git commit -m";
         doom-push = "cd ~/.config/doom && git push";
+        
+        # Claude Code helpers
+        screenshot = "screenshot-capture";
+        pr-data = "pr-review";
         doom-status = "cd ~/.config/doom && git status";
         
         # NPM authentication - set token from clipboard

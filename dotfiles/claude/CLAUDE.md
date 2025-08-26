@@ -161,6 +161,26 @@ results = [process_complex_data(item, config) for item in items
 
 **Follow the modular structure established in this repository**
 
+## Command Line Tools
+
+**Important: This system uses modern CLI tool replacements via shell aliases:**
+
+- `find` → `fd` (fd-find): More intuitive file finding with better syntax
+- `grep` → `rg` (ripgrep): Faster searching with better defaults
+- `cat` → `bat`: Syntax highlighting and line numbers
+- `ls` → `eza`: Icons, colors, and git integration
+- `tree` → `eza --tree`: Tree view with icons
+- `du` → `dust`: Visual disk usage analyzer
+- `ps` → `procs`: Modern process viewer
+- `top` → `htop`: Interactive process viewer
+- `cd` → `z` (zoxide): Smart directory jumping
+
+**When writing scripts or commands:**
+- Be aware these are aliases in the shell
+- Use the modern tool syntax, not traditional Unix syntax
+- For example: use `fd pattern` instead of `find . -name "pattern"`
+- For searching: use `rg pattern` instead of `grep pattern`
+
 ## Remember
 
 Good code is not just working code—it's code that can be easily understood, modified, and maintained by others (including your future self).
