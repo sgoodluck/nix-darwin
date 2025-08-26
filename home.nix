@@ -35,6 +35,7 @@ in
     ".config/aerospace/aerospace.toml".source = "${configDir}/dotfiles/aerospace/aerospace.toml";
     ".config/ohmyposh/${promptTheme}.toml".source = "${configDir}/dotfiles/zen.toml";
     ".config/dotfiles/vpn-status.sh".source = "${configDir}/dotfiles/vpn-status.sh";
+    ".config/dotfiles/venv-status.sh".source = "${configDir}/dotfiles/venv-status.sh";
     ".config/dotfiles/aws-profile-status.sh".source = "${configDir}/dotfiles/aws-profile-status.sh";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
@@ -134,6 +135,7 @@ in
           "/opt/homebrew/bin"            # Homebrew binaries
           "/opt/homebrew/sbin"           # Homebrew system binaries
           "/opt/homebrew/opt/llvm/bin"  # LLVM tools from Homebrew
+          "/opt/homebrew/opt/postgresql@16/bin"  # PostgreSQL tools
         )
 
         # Join paths with : and prepend to PATH

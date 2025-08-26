@@ -15,6 +15,7 @@
     gnupg             # GNU Privacy Guard for encryption
     pinentry_mac      # macOS GUI for GPG passphrase entry
     ncurses           # Terminal control library
+    postman           # API testing area
     
     # Modern CLI tools (Rust-based alternatives)
     ripgrep           # Fast text search tool (grep replacement)

@@ -25,6 +25,7 @@
     #Dev tools
     "cursor" # cursed
     "aws-vpn-client" # don't drop tables
+    "pgadmin4" # PostgreSQL admin GUI
 
     # Communication tools
     "zoom"          # Video conferencing
@@ -42,6 +43,14 @@
     priv-add = "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --add";
     priv-remove = "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --remove";
     priv-status = "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --status";
+    
+    # PostgreSQL aliases
+    psql = "/opt/homebrew/opt/postgresql@16/bin/psql";
+    pg_dump = "/opt/homebrew/opt/postgresql@16/bin/pg_dump";
+    pg_restore = "/opt/homebrew/opt/postgresql@16/bin/pg_restore";
+    createdb = "/opt/homebrew/opt/postgresql@16/bin/createdb";
+    dropdb = "/opt/homebrew/opt/postgresql@16/bin/dropdb";
+    pg_config = "/opt/homebrew/opt/postgresql@16/bin/pg_config";
   };
   
   # Universal preferences (inherited from common)

@@ -47,6 +47,16 @@ final_space = true
       shell = 'bash'
       command = '~/.config/dotfiles/vpn-status.sh'
   [[blocks.segments]]
+    template = '{{ if .Output }}🐍 {{ .Output }} {{ end }}'
+    foreground = 'cyan'
+    background = 'transparent'
+    type = 'command'
+    style = 'plain'
+    [blocks.segments.properties]
+      cache_duration = '10s'
+      shell = 'bash'
+      command = '~/.config/dotfiles/venv-status.sh'
+  [[blocks.segments]]
     template = '{{ if .Output }}👤 {{ .Output }} {{ end }}'
     foreground = 'yellow'
     background = 'transparent'
