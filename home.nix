@@ -49,6 +49,7 @@ in
     ".config/nvim".source = "${configDir}/dotfiles/nvim";
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
     ".config/alacritty/alacritty.toml".source = "${configDir}/dotfiles/alacritty.toml";
+    ".config/lazygit/config.yml".source = "${configDir}/dotfiles/lazygit.yml";
     
     # Claude Code configuration and commands
     ".claude/CLAUDE.md".source = "${configDir}/dotfiles/claude/CLAUDE.md";
@@ -168,6 +169,7 @@ in
         find = "fd";
         grep = "rg";
         cd = "z";
+        lg = "lazygit";
         
         # Doom config git management
         doom-commit = "cd ~/.config/doom && git add -A && git commit -m";

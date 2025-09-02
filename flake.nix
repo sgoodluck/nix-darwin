@@ -109,6 +109,8 @@
                 useGlobalPkgs = true;
                 # Install packages to user profile instead of system
                 useUserPackages = true;
+                # Automatically backup conflicting files with .backup extension
+                backupFileExtension = "backup";
                 # Define home configuration for our user
                 users.${hostConfig.username} =
                   { pkgs, ... }:

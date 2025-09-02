@@ -1,0 +1,112 @@
+# Lazygit configuration to avoid conflicts with Aerospace window manager
+# This file is managed by Nix and symlinked to ~/.config/lazygit/config.yml
+
+# Disable conflicting keybindings with Aerospace
+keybinding:
+  universal:
+    # Standard vim-style navigation works fine in lazygit
+    # Aerospace uses Alt+hjkl, which doesn't conflict
+    prevItem: 'k'
+    nextItem: 'j'
+    prevBlock: 'h'
+    nextBlock: 'l'
+    
+    # Arrow keys as alternatives
+    prevItem-alt: '<up>'
+    nextItem-alt: '<down>'
+    prevBlock-alt: '<left>'
+    nextBlock-alt: '<right>'
+    
+    # Keep other useful defaults
+    quit: 'q'
+    quit-alt1: '<esc>'
+    return: '<esc>'
+    quitWithoutChangingDirectory: 'Q'
+    togglePanel: '<tab>'
+    prevPage: ','
+    nextPage: '.'
+    scrollLeft: 'H'
+    scrollRight: 'L'
+    scrollUpMain: '<pgup>'
+    scrollDownMain: '<pgdown>'
+    scrollUpMain-alt1: '<c-u>'
+    scrollDownMain-alt1: '<c-d>'
+    refresh: 'R'
+    optionMenu: 'x'
+    optionMenu-alt1: '?'
+    
+  commits:
+    checkoutCommit: '<space>'
+    
+  branches:
+    checkoutBranchByName: 'c'
+    forceCheckoutBranch: 'F'
+    rebaseBranch: 'r'
+    mergeIntoCurrentBranch: 'M'
+    
+  files:
+    commitChanges: 'c'
+    commitChangesWithoutHook: 'w'
+    amendLastCommit: 'A'
+    commitChangesWithEditor: 'C'
+    stashAllChanges: 's'
+    viewStashOptions: 'S'
+    toggleStagedAll: 'a'
+    
+  stash:
+    popStash: 'g'
+
+# UI preferences
+gui:
+  # Show icons in file tree
+  showIcons: true
+  # Show file tree by default
+  showFileTree: true
+  # Mouse support
+  mouseEvents: true
+  # Skip the intro popup
+  skipDiscardChangeWarning: false
+  # Side panel width as percentage
+  sidePanelWidth: 0.3333
+  # Expand focused side panel
+  expandFocusedSidePanel: false
+  # Theme
+  theme:
+    activeBorderColor:
+      - '#8be9fd'
+      - bold
+    inactiveBorderColor:
+      - '#44475a'
+    selectedLineBgColor:
+      - '#44475a'
+
+# Git preferences
+git:
+  # Pull mode
+  pull:
+    mode: 'auto' # one of 'auto' | 'merge' | 'rebase' | 'ff-only'
+  # Auto-fetch
+  autoFetch: true
+  # Commit prefixes
+  commitPrefixes: {}
+  # Branch prefixes
+  branchPrefix: ''
+  
+# OS-specific configurations
+os:
+  # Editor
+  editCommand: 'nvim'
+  editCommandTemplate: '{{editor}} {{filename}}'
+  # Use native clipboard
+  copyToClipboardCmd: 'pbcopy'
+
+# Refresh
+refresher:
+  refreshInterval: 10 # File/submodule refresh interval in seconds
+  fetchInterval: 60 # Re-fetch interval in seconds
+
+# Confirmation on quit
+quitOnTopLevelReturn: false
+
+# Start with list view
+startWithAllBranchesLogGraph: false
