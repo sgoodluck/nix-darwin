@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     # Core development tools
     git               # Version control system
+    lazygit
     curl              # HTTP client for API requests and REST calls
     wget              # Simple file downloader for scripts and automation
     gnumake           # Build automation tool
