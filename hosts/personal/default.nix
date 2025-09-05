@@ -29,6 +29,7 @@
     
     # Productivity
     "obsidian"      # Knowledge management and note-taking
+    "pdf-expert" # for pdfs and stuff
   ];
   
   # Universal preferences (inherited from common)
