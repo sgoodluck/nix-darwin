@@ -133,6 +133,10 @@ in
         HOMEBREW_NO_AUTO_UPDATE = "1"; # Prevent auto-updates during installs
         HOMEBREW_NO_ENV_HINTS = "1"; # Suppress environment hints
 
+        # Pager configuration
+        PAGER = "moor";
+        MANPAGER = "moor";
+
         # API Keys - set your key here or use .authinfo.gpg instead
         # ANTHROPIC_API_KEY = "your-api-key-here";
       };
@@ -170,6 +174,7 @@ in
         grep = "rg";
         cd = "z";
         lg = "lazygit";
+        diff = "riff";
         
         # Doom config git management
         doom-commit = "cd ~/.config/doom && git add -A && git commit -m";

@@ -112,6 +112,8 @@
       "mas"             # Mac App Store command line interface
       "nvm"             # Node Version Manager (better shell integration than fnm)
       "markdown"        # Markdown processor for documentation
+      "moor"            # a modern pager
+      "riff"            # a better diff
       {
         name = "emacs-plus";  # Enhanced Emacs build with additional features
         args = [
