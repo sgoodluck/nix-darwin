@@ -26,7 +26,7 @@
     "cursor" # cursed
     "aws-vpn-client" # don't drop tables
     "pgadmin4" # PostgreSQL admin GUI
-
+    "linear-linear" # because tooling is cool
     # Communication tools
     "zoom"          # Video conferencing
     "slack"         # Team communication

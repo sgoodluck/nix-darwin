@@ -157,5 +157,10 @@ run = 'move-node-to-workspace 4'
 if.app-id = 'com.apple.mail'  # Mail
 run = 'move-node-to-workspace 4'
 
+# Linear
+[[on-window-detected]]
+if.app-id = 'com.linear'  # Linear
+run = 'move-node-to-workspace 5'
+
 # You can add more app assignments here
 # To find app-id, use: aerospace list-apps
