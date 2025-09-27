@@ -30,6 +30,9 @@
     # Productivity
     "obsidian"      # Knowledge management and note-taking
     "pdf-expert" # for pdfs and stuff
+
+    # Sailing
+    "opencpn"   # Chart plotter
   ];
   
   # Universal preferences (inherited from common)
