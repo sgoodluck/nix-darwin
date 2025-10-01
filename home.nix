@@ -38,6 +38,7 @@ in
     ".config/dotfiles/vpn-status.sh".source = "${configDir}/scripts/prompt/vpn-status.sh";
     ".config/dotfiles/venv-status.sh".source = "${configDir}/scripts/prompt/venv-status.sh";
     ".config/dotfiles/aws-profile-status.sh".source = "${configDir}/scripts/prompt/aws-profile-status.sh";
+    ".config/dotfiles/kube-status.sh".source = "${configDir}/scripts/prompt/kube-status.sh";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
     ".config/doom/init.el".source = "${configDir}/dotfiles/doom/init.el";
@@ -73,8 +74,8 @@ in
     #
     git = {
       enable = true;
-      userName = personal.fullName;
-      userEmail = personal.email;
+      userName = personal.gitConfig.userName;
+      userEmail = personal.gitConfig.userEmail;
       signing = {
         key = personal.gpgKey;
         signByDefault = true;
@@ -82,6 +83,7 @@ in
       extraConfig = {
         init.defaultBranch = "main";
         pull.rebase = true;
+        push.default = "simple";
         core.editor = personal.preferences.editor.default;
       };
     };
@@ -120,7 +122,11 @@ in
         # Add a blank line before each prompt (except the first)
         # This self-redefining function is elegant and minimal
         precmd() { precmd() { echo } }
+        
+        # Cursor CLI path (install manually with: curl https://cursor.com/install | bash)
+        export PATH="$HOME/.local/bin:$PATH"
       '';
+
 
       sessionVariables = {
         # XDG base directory specification
@@ -187,6 +193,10 @@ in
         
         # NPM authentication - set token from clipboard
         npm-auth = "export GH_NPM_TOKEN=\"$(pbpaste)\" && echo \"✓ NPM token set\"";
+        
+        # Kubernetes helpers
+        kube-reset = "kubectl config unset current-context && echo \"✓ Cleared current context\"";
+        kube-clear = "kubectl config unset current-context && echo \"✓ Cleared current context\"";
       } // (personal.extraAliases or {});
     };
   };

@@ -5,7 +5,7 @@
   environment.systemPackages = with pkgs; [
     # Core development tools
     git               # Version control system
-    lazygit
+    lazygit           # because sometimes I'm lazy
     curl              # HTTP client for API requests and REST calls
     wget              # Simple file downloader for scripts and automation
     gnumake           # Build automation tool
@@ -17,6 +17,7 @@
     pinentry_mac      # macOS GUI for GPG passphrase entry
     ncurses           # Terminal control library
     postman           # API testing area
+    cocogitto         # conventional commits baby!
     
     # Modern CLI tools (Rust-based alternatives)
     ripgrep           # Fast text search tool (grep replacement)
@@ -91,6 +92,12 @@
     
     # AI development tools
     claude-code       # Claude Code from overlay - AI coding assistant
+    
+    # Kubernetes tools
+    kubectl           # Kubernetes CLI for managing clusters
+    kubectx           # Fast way to switch between clusters and namespaces
+    stern             # Multi pod and container log tailing
+    k9s               # Terminal-based UI to interact with Kubernetes clusters
   ];
   
   # Homebrew configuration
@@ -110,10 +117,12 @@
     
     brews = [
       "mas"             # Mac App Store command line interface
+      "git-graph"       # show off
       "nvm"             # Node Version Manager (better shell integration than fnm)
       "markdown"        # Markdown processor for documentation
       "moor"            # a modern pager
       "riff"            # a better diff
+      "kube-ps1"        # Kubernetes prompt helper for showing current context/namespace
       {
         name = "emacs-plus";  # Enhanced Emacs build with additional features
         args = [

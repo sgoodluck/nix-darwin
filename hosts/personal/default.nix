@@ -9,6 +9,12 @@
   githubUsername = "Seth";
   gpgKey = "E322D2003CDAA1E0"; # Add your GPG key ID here if you have one
   
+  # Git configuration
+  gitConfig = {
+    userName = "Seth";
+    userEmail = "sethgoodluck@pm.me";
+  };
+  
   # Machine details
   machineName = "sgoodluck-m1air";
   

@@ -6,8 +6,14 @@
   username = "seth.martin@firstresonance.io";
   fullName = "Seth";
   email = "seth.martin@firstresonance.io";
-  githubUsername = "smartin-firstresonance";
-  gpgKey = "0727CB23E7713CFB";
+  githubUsername = "smartin-fr";
+  gpgKey = "79F5B64411A630A8";
+  
+  # Git configuration
+  gitConfig = {
+    userName = "Seth Martin";
+    userEmail = "seth.martin@firstresonance.io";
+  };
   
   # Machine details
   machineName = "Seths-MacBook-Pro";
@@ -27,6 +33,7 @@
     "aws-vpn-client" # don't drop tables
     "pgadmin4" # PostgreSQL admin GUI
     "linear-linear" # because tooling is cool
+
     # Communication tools
     "zoom"          # Video conferencing
     "slack"         # Team communication
@@ -34,6 +41,9 @@
     # Google Stuff
     "google-drive"  # File sync
     "google-chrome" # meh
+
+    # Productivity Stuff
+    "openoffice"
   ];
   
   # Work-specific shell aliases

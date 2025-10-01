@@ -67,7 +67,7 @@ gui:
   # Skip the intro popup
   skipDiscardChangeWarning: false
   # Side panel width as percentage
-  sidePanelWidth: 0.3333
+  sidePanelWidth: 0.4
   # Expand focused side panel
   expandFocusedSidePanel: false
   # Theme

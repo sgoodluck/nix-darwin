@@ -67,6 +67,16 @@ final_space = true
       shell = 'bash'
       command = '~/.config/dotfiles/aws-profile-status.sh'
   [[blocks.segments]]
+    template = '{{ if .Output }}☸ {{ .Output }} {{ end }}'
+    foreground = 'blue'
+    background = 'transparent'
+    type = 'command'
+    style = 'plain'
+    [blocks.segments.properties]
+      cache_duration = '5s'
+      shell = 'bash'
+      command = '~/.config/dotfiles/kube-status.sh'
+  [[blocks.segments]]
     template = '{{ .FormattedMs }}'
     foreground = 'yellow'
     background = 'transparent'
