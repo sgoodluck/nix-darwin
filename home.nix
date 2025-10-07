@@ -125,6 +125,9 @@ in
         
         # Cursor CLI path (install manually with: curl https://cursor.com/install | bash)
         export PATH="$HOME/.local/bin:$PATH"
+        
+        # Host-specific shell initialization
+        ${personal.extraShellInit or ""}
       '';
 
 

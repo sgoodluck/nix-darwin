@@ -63,6 +63,33 @@
     pg_config = "/opt/homebrew/opt/postgresql@16/bin/pg_config";
   };
   
+  # Work-specific shell initialization
+  extraShellInit = ''
+    # Remote PostgreSQL connection helper
+    function rpsql() {
+      pgoptions=$PGOPTIONS  # capture original value
+      NAMESPACE="ion"  # default if none is provided
+      OPTIND=1         # Reset in case getopts has been used previously in the shell.
+      while getopts "s:n:" opt; do
+        case $opt in
+          n) NAMESPACE=''${OPTARG}
+          ;;
+          s) PGOPTIONS=--search_path=''${OPTARG}
+          ;;
+          \?) echo "unknown arg -$OPTARG"
+          ;;
+        esac
+      done
+      shift $((OPTIND-1))
+      if [[ -z $1 ]]; then
+        echo "Must provide context as first argument"
+        return
+      fi
+      kubectx $1 && kubens $NAMESPACE && PGOPTIONS=$PGOPTIONS psql $(kubectl exec deploy/notifications -- bash -c "[[ -z \$SQLALCHEMY_DATABASE_URI ]] && cat /tmp/env | grep SQLALCHEMY_DATABASE_URI | cut -d\\\" -f2 || echo \$SQLALCHEMY_DATABASE_URI" 2> /dev/null)
+      PGOPTIONS=$pgoptions  # restore original value
+    }
+  '';
+  
   # Universal preferences (inherited from common)
   preferences = {
     editor = {
