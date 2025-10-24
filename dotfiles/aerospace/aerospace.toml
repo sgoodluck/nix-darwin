@@ -77,6 +77,11 @@ ctrl-alt-shift-cmd-2 = 'workspace 2'
 ctrl-alt-shift-cmd-3 = 'workspace 3'
 ctrl-alt-shift-cmd-4 = 'workspace 4'
 ctrl-alt-shift-cmd-5 = 'workspace 5'
+ctrl-alt-shift-cmd-6 = 'workspace 6'
+ctrl-alt-shift-cmd-7 = 'workspace 7'
+ctrl-alt-shift-cmd-8 = 'workspace 8'
+ctrl-alt-shift-cmd-9 = 'workspace 9'
+ctrl-alt-shift-cmd-0 = 'workspace 10'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -84,6 +89,11 @@ alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-0 = 'move-node-to-workspace 10'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 ctrl-alt-shift-cmd-tab = 'workspace-back-and-forth'
@@ -117,14 +127,18 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # App-specific workspace assignments (similar to i3's assign)
 
-# Terminal First
+# Workspace 1: Terminal
 [[on-window-detected]]
-if.app-id = 'org.alacritty'  # Alacritty terminal
+if.app-id = 'org.alacritty' 
 run = 'move-node-to-workspace 1'
 
-# Browsers Next
+# Workspace 2: Browsers (Zen, Safari, Chrome, Firefox)
 [[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'  # Firefox
+if.app-id = 'app.zen-browser.zen'  # Zen browser
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'  # Safari
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
@@ -132,35 +146,50 @@ if.app-id = 'com.google.Chrome'  # Chrome
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'  # Zen browser
+if.app-id = 'org.mozilla.firefox'  # Firefox
 run = 'move-node-to-workspace 2'
 
-# Editors
+# Workspace 3: Email (Superhuman, Mail, etc)
 [[on-window-detected]]
-if.app-id = 'org.gnu.Emacs'  # Emacs
+if.app-id = 'com.superhuman.mail'  # Superhuman
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'  # VS Code
+if.app-id = 'com.apple.mail'  # Apple Mail
 run = 'move-node-to-workspace 3'
 
-[[on-window-detected]]
-if.app-id = 'com.todesktop.230313mzl4w4u92'  # Cursor
-run = 'move-node-to-workspace 3'
-
-# Comms last
+# Workspace 4: Slack
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'  # Slack
 run = 'move-node-to-workspace 4'
 
-[[on-window-detected]]
-if.app-id = 'com.apple.mail'  # Mail
-run = 'move-node-to-workspace 4'
-
-# Linear
+# Workspace 5: Linear
 [[on-window-detected]]
 if.app-id = 'com.linear'  # Linear
 run = 'move-node-to-workspace 5'
+
+# Workspace 6: Notion
+[[on-window-detected]]
+if.app-id = 'notion.id'  # Notion
+run = 'move-node-to-workspace 6'
+
+# Workspace 7: Clockify (Time Tracking)
+[[on-window-detected]]
+if.app-id = 'coing.ClockifyDesktop'
+run = 'move-node-to-workspace 7'
+
+# Workspace 8: Editors (Emacs, VS Code, Cursor)
+[[on-window-detected]]
+if.app-id = 'org.gnu.Emacs'  # Emacs
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'  # VS Code
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'com.todesktop.230313mzl4w4u92'  # Cursor
+run = 'move-node-to-workspace 8'
 
 # You can add more app assignments here
 # To find app-id, use: aerospace list-apps

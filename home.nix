@@ -47,7 +47,8 @@ in
     ".config/doom/README.md".source = "${configDir}/dotfiles/doom/README.md";
     ".config/doom/.gitignore".source = "${configDir}/dotfiles/doom/.gitignore";
     ".local/bin/doom-git-init".source = "${configDir}/scripts/doom-git-init.sh";
-    ".config/nvim".source = "${configDir}/dotfiles/nvim";
+    # Nvim config managed manually for LazyVim compatibility
+    # ".config/nvim".source = "${configDir}/dotfiles/nvim";
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
     ".config/alacritty/alacritty.toml".source = "${configDir}/dotfiles/alacritty.toml";
     ".config/lazygit/config.yml".source = "${configDir}/dotfiles/lazygit.yml";

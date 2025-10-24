@@ -44,6 +44,9 @@
 
     # Productivity Stuff
     "openoffice"
+    "notion"
+    "clockify"
+    "superhuman"
   ];
   
   # Work-specific shell aliases
