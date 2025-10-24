@@ -22,6 +22,7 @@
   extraBrews = [];
   
   extraCasks = [
+    "zoom"          # for quality calls
     # Creative tools
     "orcaslicer"    # 3D printing slicer
     "raspberry-pi-imager"  # Raspberry Pi OS imaging tool

@@ -48,7 +48,6 @@
     clang-tools       # C/C++ development tools (includes clang-format)
     shfmt             # Shell script formatter
     gh                # GitHub CLI for repository management and workflows
-    
     # Python development
     uv                # Extremely fast Python package installer and resolver
     poetry            # Python dependency management and packaging
@@ -155,6 +154,9 @@
       # Window management & productivity
       "nikitabobko/tap/aerospace"  # i3-inspired tiling window manager for macOS
       "karabiner-elements"         # Keyboard customization tool (keep for custom key mappings)
+
+      # Music Please
+      "tidal"           # I love me some hifi
     ];
   };
 }
