@@ -90,7 +90,7 @@
     oh-my-posh        # Cross-platform prompt theme engine
     
     # AI development tools
-    claude-code       # Claude Code from overlay - AI coding assistant
+    claude-code       # Claude Code AI coding assistant
     
     # Kubernetes tools
     kubectl           # Kubernetes CLI for managing clusters
@@ -122,6 +122,7 @@
       "moor"            # a modern pager
       "riff"            # a better diff
       "kube-ps1"        # Kubernetes prompt helper for showing current context/namespace
+      "asciiquarium"    # for fun
       {
         name = "emacs-plus";  # Enhanced Emacs build with additional features
         args = [

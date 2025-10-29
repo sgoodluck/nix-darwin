@@ -36,7 +36,7 @@ doom-git-init         # Initialize git repo for Doom config
 
 The repository follows a modular structure with clear separation of concerns:
 
-1. **`flake.nix`**: Entry point defining inputs (nixpkgs 25.05 Darwin branch, nix-darwin, home-manager, nix-homebrew, mac-app-util, claude-code-nix overlay) and system configuration
+1. **`flake.nix`**: Entry point defining inputs (nixpkgs 25.05 Darwin branch, nix-darwin, home-manager, nix-homebrew, mac-app-util) and system configuration
 2. **`hosts/`**: Machine-specific configurations
    - `personal/default.nix`: Personal M1 MacBook Air (sgoodluck-m1air)
    - `work/default.nix`: Work MacBook Pro (Seths-MacBook-Pro)
@@ -70,7 +70,7 @@ The repository follows a modular structure with clear separation of concerns:
 - TouchID enabled for sudo authentication
 - Emacs installed via Homebrew emacs-plus with: ctags, mailutils, xwidgets, imagemagick
 - Custom PATH includes: `~/.config/emacs/bin`, `/opt/homebrew/bin`, `/opt/homebrew/opt/llvm/bin`
-- Claude Code available via overlay from github:sadjow/claude-code-nix
+- Claude Code available as a Nix package
 
 ## Host-Specific Packages
 

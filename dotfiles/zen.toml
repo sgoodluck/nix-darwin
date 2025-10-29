@@ -12,7 +12,7 @@ final_space = true
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
-  newline = true
+  newline = false
   [[blocks.segments]]
     template = '{{ .Path }}'
     foreground = 'blue'
@@ -88,9 +88,9 @@ final_space = true
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
-  newline = true
+  newline = false
   [[blocks.segments]]
-    template = '❯'
+    template = '{{ if gt .Code 0 }} [{{ .Code }}]{{ end }} ❯'
     background = 'transparent'
     type = 'text'
     style = 'plain'

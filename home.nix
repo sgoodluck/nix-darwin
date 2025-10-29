@@ -120,9 +120,27 @@ in
         eval "$(oh-my-posh init ${personal.preferences.shell} --config ~/.config/ohmyposh/${promptTheme}.toml)"
         eval "$(zoxide init zsh)"
         
-        # Add a blank line before each prompt (except the first)
-        # This self-redefining function is elegant and minimal
-        precmd() { precmd() { echo } }
+        # Add blank line before command output (except for clear)
+        preexec() {
+          if [[ "$1" != "clear" ]]; then
+            echo
+          fi
+        }
+
+        # Add blank line after command output before next prompt
+        # Skip blank lines after 'clear' command
+        add_newline() {
+          if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+            NEW_LINE_BEFORE_PROMPT=1
+          elif [ "$NEW_LINE_BEFORE_PROMPT" = 1 ]; then
+            # Check if last command was 'clear'
+            local last_cmd=$(fc -ln -1 | sed 's/^[[:space:]]*//')
+            if [[ "$last_cmd" != "clear" ]]; then
+              echo
+            fi
+          fi
+        }
+        precmd_functions+=(add_newline)
         
         # Cursor CLI path (install manually with: curl https://cursor.com/install | bash)
         export PATH="$HOME/.local/bin:$PATH"
