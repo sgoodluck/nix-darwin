@@ -21,6 +21,24 @@
   # Work-specific packages
   extraPackages = pkgs: [
     pkgs.awscli2  # AWS Command Line Interface version 2
+    # Prismatic CLI - Integration platform CLI tool
+    (pkgs.buildNpmPackage {
+      pname = "prism";
+      version = "9.2.2";
+
+      src = pkgs.fetchurl {
+        url = "https://registry.npmjs.org/@prismatic-io/prism/-/prism-9.2.2.tgz";
+        hash = "sha256-0000000000000000000000000000000000000000000=";
+      };
+
+      npmDepsHash = "sha256-0000000000000000000000000000000000000000000=";
+
+      meta = {
+        description = "Build, deploy, and support integrations in Prismatic";
+        homepage = "https://prismatic.io/docs/cli/";
+        mainProgram = "prism";
+      };
+    })
   ];
   
   extraBrews = [
