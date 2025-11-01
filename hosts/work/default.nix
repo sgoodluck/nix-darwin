@@ -22,16 +22,31 @@
   extraPackages = pkgs: [
     pkgs.awscli2  # AWS Command Line Interface version 2
     # Prismatic CLI - Integration platform CLI tool
-    (pkgs.buildNpmPackage {
+    # Using stdenv.mkDerivation since the package lacks package-lock.json
+    (pkgs.stdenv.mkDerivation {
       pname = "prism";
-      version = "9.2.2";
+      version = "7.10.0";
 
       src = pkgs.fetchurl {
-        url = "https://registry.npmjs.org/@prismatic-io/prism/-/prism-9.2.2.tgz";
-        hash = "sha256-0000000000000000000000000000000000000000000=";
+        url = "https://registry.npmjs.org/@prismatic-io/prism/-/prism-7.10.0.tgz";
+        hash = "sha256-pKeG8GUMjTzXMcm0HFJ6GRPdUocPC83iUDBBeRT9y1I=";
       };
 
-      npmDepsHash = "sha256-0000000000000000000000000000000000000000000=";
+      buildInputs = [ pkgs.nodejs pkgs.makeWrapper ];
+
+      unpackPhase = ''
+        tar -xzf $src
+      '';
+
+      installPhase = ''
+        mkdir -p $out/lib/node_modules/@prismatic-io/prism
+        cp -r package/* $out/lib/node_modules/@prismatic-io/prism/
+
+        mkdir -p $out/bin
+        makeWrapper ${pkgs.nodejs}/bin/node $out/bin/prism \
+          --add-flags "$out/lib/node_modules/@prismatic-io/prism/dist/index.js" \
+          --prefix NODE_PATH : "$out/lib/node_modules"
+      '';
 
       meta = {
         description = "Build, deploy, and support integrations in Prismatic";
