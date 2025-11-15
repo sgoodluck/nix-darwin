@@ -66,6 +66,7 @@
     "aws-vpn-client" # don't drop tables
     "pgadmin4" # PostgreSQL admin GUI
     "linear-linear" # because tooling is cool
+    "dbeaver-community"
 
     # Communication tools
     "zoom"          # Video conferencing
