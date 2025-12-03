@@ -81,6 +81,7 @@
     "notion"
     "clockify"
     "superhuman"
+    "bitwarden"
   ];
   
   # Work-specific shell aliases
