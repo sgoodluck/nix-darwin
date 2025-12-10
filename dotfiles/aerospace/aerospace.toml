@@ -109,8 +109,9 @@ alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app'
 # Open browser (Zen)
 alt-b = 'exec-and-forget open -n /Applications/Zen.app'
 
-# Open Emacs
-alt-shift-enter = 'exec-and-forget open -n /Applications/Emacs.app'
+# Open Zed (previously Emacs)
+alt-shift-enter = 'exec-and-forget open -n /Applications/Zed.app'
+# alt-shift-enter = 'exec-and-forget open -n /Applications/Emacs.app'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -178,10 +179,14 @@ run = 'move-node-to-workspace 6'
 if.app-id = 'coing.ClockifyDesktop'
 run = 'move-node-to-workspace 7'
 
-# Workspace 8: Editors (Emacs, VS Code, Cursor)
+# Workspace 8: Editors (Zed, VS Code, Cursor)
 [[on-window-detected]]
-if.app-id = 'org.gnu.Emacs'  # Emacs
+if.app-id = 'dev.zed.Zed'  # Zed
 run = 'move-node-to-workspace 8'
+
+# [[on-window-detected]]
+# if.app-id = 'org.gnu.Emacs'  # Emacs
+# run = 'move-node-to-workspace 8'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'  # VS Code

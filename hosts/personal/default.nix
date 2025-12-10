@@ -47,7 +47,7 @@
     editor = {
       default = "nvim";
       terminal = "nvim";
-      gui = "emacs";
+      gui = "zed";  # Previously: emacs
     };
     shell = "zsh";
     terminalEmulator = "alacritty";

@@ -148,6 +148,7 @@
       
       # Development tools
       "visual-studio-code" # Microsoft's code editor
+      "zed" # why not be a cool kid
  
       # Creative tools
       "gimp"              # GNU Image Manipulation Program

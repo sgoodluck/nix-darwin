@@ -35,7 +35,8 @@
         persistent-apps = [
           "/Applications/Alacritty.app"
           "/Applications/Zen.app/"
-          "/Applications/Emacs.app/"
+          "/Applications/Zed.app/"
+          # "/Applications/Emacs.app/"
         ];
       };
 
