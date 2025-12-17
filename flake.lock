@@ -175,6 +175,22 @@
         "type": "github"
       }
     },
+    "homebrew-supabase": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765598031,
+        "narHash": "sha256-vZQ3ecPzF1z6vmQnSIqWo+4n/pvRCwKW8OnDkoTS2Es=",
+        "owner": "supabase",
+        "repo": "homebrew-tap",
+        "rev": "5cf63f8ab79f2b49bde06f2c177326d0516d62c5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "supabase",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "mac-app-util": {
       "inputs": {
         "cl-nix-lite": "cl-nix-lite",
@@ -291,6 +307,7 @@
         "homebrew-aerospace": "homebrew-aerospace",
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-emacs-plus": "homebrew-emacs-plus",
+        "homebrew-supabase": "homebrew-supabase",
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",

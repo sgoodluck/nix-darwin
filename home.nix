@@ -123,7 +123,10 @@ in
       initContent = ''
         eval "$(oh-my-posh init ${personal.preferences.shell} --config ~/.config/ohmyposh/${promptTheme}.toml)"
         eval "$(zoxide init zsh)"
-        
+
+        # GPG configuration for commit signing
+        export GPG_TTY=$(tty)
+
         # Add blank line before command output (except for clear)
         preexec() {
           if [[ "$1" != "clear" ]]; then

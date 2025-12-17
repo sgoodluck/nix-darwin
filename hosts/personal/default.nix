@@ -19,7 +19,9 @@
   machineName = "sgoodluck-m1air";
   
   # Personal-specific packages
-  extraBrews = [];
+  extraBrews = [
+    "supabase"  # Supabase CLI from supabase/tap
+  ];
   
   extraCasks = [
     "zoom"          # for quality calls

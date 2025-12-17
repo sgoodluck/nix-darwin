@@ -37,6 +37,10 @@
       url = "github:nikitabobko/homebrew-aerospace";
       flake = false;
     };
+    homebrew-supabase = {
+      url = "github:supabase/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =
@@ -50,6 +54,7 @@
       homebrew-bundle,
       homebrew-emacs-plus,
       homebrew-aerospace,
+      homebrew-supabase,
       claude-code-nix,
     }:
     let
@@ -90,6 +95,7 @@
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "d12frosted/homebrew-emacs-plus" = homebrew-emacs-plus;
                   "nikitabobko/tap" = homebrew-aerospace;
+                  "supabase/tap" = homebrew-supabase;
                 };
               };
             }
