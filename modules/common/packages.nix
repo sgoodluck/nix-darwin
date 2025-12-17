@@ -3,6 +3,10 @@
 {
   # NOTE: Docker Desktop was installed manually outside of Nix/Homebrew
   environment.systemPackages = with pkgs; [
+   # General Bits
+   google-chrome     # because evil
+
+
     # Core development tools
     git               # Version control system
     lazygit           # because sometimes I'm lazy
@@ -137,6 +141,7 @@
     
     casks = [
       # Utilities
+      "markedit"	  # Make markdown pretty again
       "appcleaner"        # Application uninstaller and cleanup tool
       "the-unarchiver"    # Archive extraction utility
       "keycastr"          # Keystroke visualizer for presentations
@@ -148,7 +153,8 @@
       
       # Development tools
       "visual-studio-code" # Microsoft's code editor
-      "zed" # why not be a cool kid
+      "zed"               # yay zed
+      "cursor"            # yay cursor
  
       # Creative tools
       "gimp"              # GNU Image Manipulation Program

@@ -74,10 +74,8 @@
     
     # Google Stuff
     "google-drive"  # File sync
-    "google-chrome" # meh
 
     # Productivity Stuff
-    "openoffice"
     "notion"
     "clockify"
     "superhuman"
