@@ -34,9 +34,11 @@
         tilesize = 48;
         persistent-apps = [
           "/Applications/Alacritty.app"
-          "/Applications/Zen.app/"
-          "/Applications/Zed.app/"
-          # "/Applications/Emacs.app/"
+          "/Applications/Zed.app"
+          "/Applications/Zen.app"
+          "/Applications/Linear.app"
+          "/Applications/Superhuman.app"
+          "/Applications/Slack.app"
         ];
       };
 

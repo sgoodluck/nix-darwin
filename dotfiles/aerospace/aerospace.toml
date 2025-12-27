@@ -128,73 +128,74 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # App-specific workspace assignments (similar to i3's assign)
 
-# Workspace 1: Terminal
+# Workspace 1: Alacritty (Terminal)
 [[on-window-detected]]
 if.app-id = 'org.alacritty' 
 run = 'move-node-to-workspace 1'
 
-# Workspace 2: Browsers (Zen, Safari, Chrome, Firefox)
+# Workspace 2: Zed (Editor)
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'  # Zed
+run = 'move-node-to-workspace 2'
+
+# Workspace 3: Zen (Browser)
 [[on-window-detected]]
 if.app-id = 'app.zen-browser.zen'  # Zen browser
-run = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'  # Safari
-run = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'  # Chrome
-run = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'  # Firefox
-run = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 3'
 
-# Workspace 3: Email (Superhuman, Mail, etc)
+# Workspace 4: Linear
+[[on-window-detected]]
+if.app-id = 'com.linear'  # Linear
+run = 'move-node-to-workspace 4'
+
+# Workspace 5: Superhuman (Email)
 [[on-window-detected]]
 if.app-id = 'com.superhuman.mail'  # Superhuman
-run = 'move-node-to-workspace 3'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'  # Apple Mail
-run = 'move-node-to-workspace 3'
-
-# Workspace 4: Slack
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'  # Slack
-run = 'move-node-to-workspace 4'
-
-# Workspace 5: Linear
-[[on-window-detected]]
-if.app-id = 'com.linear'  # Linear
 run = 'move-node-to-workspace 5'
 
-# Workspace 6: Notion
+# Workspace 6: Slack
 [[on-window-detected]]
-if.app-id = 'notion.id'  # Notion
+if.app-id = 'com.tinyspeck.slackmacgap'  # Slack
 run = 'move-node-to-workspace 6'
 
-# Workspace 7: Clockify (Time Tracking)
+# Workspace 7: Notion
 [[on-window-detected]]
-if.app-id = 'coing.ClockifyDesktop'
+if.app-id = 'notion.id'  # Notion
 run = 'move-node-to-workspace 7'
 
-# Workspace 8: Editors (Zed, VS Code, Cursor)
+# Workspace 8: Clockify (Time Tracking)
 [[on-window-detected]]
-if.app-id = 'dev.zed.Zed'  # Zed
+if.app-id = 'coing.ClockifyDesktop'
 run = 'move-node-to-workspace 8'
 
-# [[on-window-detected]]
-# if.app-id = 'org.gnu.Emacs'  # Emacs
-# run = 'move-node-to-workspace 8'
-
+# Workspace 9: Other Editors (VS Code, Cursor)
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'  # VS Code
-run = 'move-node-to-workspace 8'
+run = 'move-node-to-workspace 9'
 
 [[on-window-detected]]
 if.app-id = 'com.todesktop.230313mzl4w4u92'  # Cursor
-run = 'move-node-to-workspace 8'
+run = 'move-node-to-workspace 9'
+
+# [[on-window-detected]]
+# if.app-id = 'org.gnu.Emacs'  # Emacs
+# run = 'move-node-to-workspace 9'
 
 # You can add more app assignments here
 # To find app-id, use: aerospace list-apps
