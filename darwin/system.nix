@@ -32,14 +32,7 @@
         orientation = "right";
         show-recents = false;
         tilesize = 48;
-        persistent-apps = [
-          "/Applications/Alacritty.app"
-          "/Applications/Zed.app"
-          "/Applications/Zen.app"
-          "/Applications/Linear.app"
-          "/Applications/Superhuman.app"
-          "/Applications/Slack.app"
-        ];
+        persistent-apps = hostConfig.dockApps or [];
       };
 
       finder = {

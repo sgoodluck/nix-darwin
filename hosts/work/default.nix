@@ -8,16 +8,26 @@
   email = "seth.martin@firstresonance.io";
   githubUsername = "smartin-fr";
   gpgKey = "79F5B64411A630A8";
-  
+
   # Git configuration
   gitConfig = {
     userName = "Seth Martin";
     userEmail = "seth.martin@firstresonance.io";
   };
-  
+
   # Machine details
   machineName = "Seths-MacBook-Pro";
-  
+
+  # Dock configuration
+  dockApps = [
+    "/Applications/Alacritty.app"
+    "/Applications/Zed.app"
+    "/Applications/Zen.app"
+    "/Applications/Linear.app"
+    "/Applications/Superhuman.app"
+    "/Applications/Slack.app"
+  ];
+
   # Work-specific packages
   extraPackages = pkgs: [
     pkgs.awscli2  # AWS Command Line Interface version 2
@@ -55,11 +65,11 @@
       };
     })
   ];
-  
+
   extraBrews = [
     "postgresql@16"  # PostgreSQL version 16 for specific project requirements
   ];
-  
+
   extraCasks = [
     #Dev tools
     "cursor" # cursed
@@ -71,7 +81,7 @@
     # Communication tools
     "zoom"          # Video conferencing
     "slack"         # Team communication
-    
+
     # Google Stuff
     "google-drive"  # File sync
 
@@ -81,7 +91,7 @@
     "superhuman"
     "bitwarden"
   ];
-  
+
   # Work-specific shell aliases
   extraAliases = {
     # Privileges CLI shortcuts (for managing admin privileges)
@@ -89,7 +99,7 @@
     priv-add = "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --add";
     priv-remove = "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --remove";
     priv-status = "/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --status";
-    
+
     # PostgreSQL aliases
     psql = "/opt/homebrew/opt/postgresql@16/bin/psql";
     pg_dump = "/opt/homebrew/opt/postgresql@16/bin/pg_dump";
@@ -98,7 +108,7 @@
     dropdb = "/opt/homebrew/opt/postgresql@16/bin/dropdb";
     pg_config = "/opt/homebrew/opt/postgresql@16/bin/pg_config";
   };
-  
+
   # Work-specific shell initialization
   extraShellInit = ''
     # Remote PostgreSQL connection helper
@@ -125,7 +135,7 @@
       PGOPTIONS=$pgoptions  # restore original value
     }
   '';
-  
+
   # Universal preferences (inherited from common)
   preferences = {
     editor = {
