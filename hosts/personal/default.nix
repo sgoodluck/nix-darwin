@@ -23,7 +23,7 @@
     "/Applications/Alacritty.app"
     "/Applications/Zed.app"
     "/Applications/Zen.app"
-    "/System/Applications/Music.app"
+    "/Applications/Tidal.app"
   ];
 
   # Personal-specific packages

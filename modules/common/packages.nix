@@ -165,6 +165,7 @@
 
       # Music Please
       "tidal"           # I love me some hifi
+      "notunes"         # Apple music is annoying
     ];
   };
 }
