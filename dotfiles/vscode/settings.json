@@ -1,9 +1,9 @@
 {
   // Editor Font Settings
-  "editor.fontFamily": "AnonymicePro Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "CaskaydiaCove Nerd Font, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 12,
-  "editor.fontLigatures": false,
-  "terminal.integrated.fontFamily": "AnonymicePro Nerd Font",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font",
   "terminal.integrated.fontSize": 12,
   
   // Theme Settings - Modus Vivendi matches available VS Code themes
