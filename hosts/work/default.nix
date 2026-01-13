@@ -22,10 +22,11 @@
   dockApps = [
     "/Applications/Alacritty.app"
     "/Applications/Zed.app"
-    "/Applications/Zen.app"
+    "/Applications/Firefox.app"
+    "/Applications/Slack.app"
     "/Applications/Linear.app"
     "/Applications/Superhuman.app"
-    "/Applications/Slack.app"
+    "/Applications/TIDAL.app"
   ];
 
   # Work-specific packages
