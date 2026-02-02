@@ -152,10 +152,8 @@
       "zen"               # Privacy-focused Firefox-based browser
       
       # Development tools
-      "visual-studio-code" # Microsoft's code editor
       "zed"               # yay zed
-      "cursor"            # yay cursor
- 
+
       # Creative tools
       "gimp"              # GNU Image Manipulation Program
       

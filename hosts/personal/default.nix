@@ -32,8 +32,8 @@
   ];
 
   extraCasks = [
+    "vlc"           # back to the pirate days I go
     "qflipper"      # yay dolphins
-    "zoom"          # for quality calls
     # Creative tools
     "orcaslicer"    # 3D printing slicer
     "raspberry-pi-imager"  # Raspberry Pi OS imaging tool
@@ -47,7 +47,6 @@
 
     # Productivity
     "obsidian"      # Knowledge management and note-taking
-    "pdf-expert" # for pdfs and stuff
 
     # Sailing
     "opencpn"   # Chart plotter
