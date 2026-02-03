@@ -22,9 +22,7 @@
   dockApps = [
     "/Applications/Alacritty.app"
     "/Applications/Zed.app"
-    "/Applications/Firefox.app"
-    "/Applications/Slack.app"
-    "/Applications/Linear.app"
+    "/Applications/Zen.app"
     "/Applications/Superhuman.app"
     "/Applications/TIDAL.app"
   ];
@@ -76,18 +74,15 @@
     "cursor" # cursed
     "aws-vpn-client" # don't drop tables
     "pgadmin4" # PostgreSQL admin GUI
-    "linear-linear" # because tooling is cool
     "dbeaver-community"
 
     # Communication tools
     "zoom"          # Video conferencing
-    "slack"         # Team communication
 
     # Google Stuff
     "google-drive"  # File sync
 
     # Productivity Stuff
-    "notion"
     "clockify"
     "superhuman"
     "bitwarden"

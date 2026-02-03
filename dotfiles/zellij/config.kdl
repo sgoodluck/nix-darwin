@@ -70,7 +70,7 @@ keybinds {
 
 // UI Configuration
 pane_frames false
-// default_layout "compact"
+default_layout "compact"  // Single bar at bottom, more screen space
 
 // Copy command
 copy_command "pbcopy"

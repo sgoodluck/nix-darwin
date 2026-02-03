@@ -155,43 +155,28 @@ run = 'move-node-to-workspace 3'
 if.app-id = 'org.mozilla.firefox'  # Firefox
 run = 'move-node-to-workspace 3'
 
-# Workspace 4: Linear
-[[on-window-detected]]
-if.app-id = 'com.linear'  # Linear
-run = 'move-node-to-workspace 4'
-
-# Workspace 5: Superhuman (Email)
+# Workspace 4: Superhuman (Email)
 [[on-window-detected]]
 if.app-id = 'com.superhuman.mail'  # Superhuman
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'  # Apple Mail
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 4'
 
-# Workspace 6: Slack
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'  # Slack
-run = 'move-node-to-workspace 6'
-
-# Workspace 7: Notion
-[[on-window-detected]]
-if.app-id = 'notion.id'  # Notion
-run = 'move-node-to-workspace 7'
-
-# Workspace 8: Clockify (Time Tracking)
+# Workspace 5: Clockify (Time Tracking)
 [[on-window-detected]]
 if.app-id = 'coing.ClockifyDesktop'
-run = 'move-node-to-workspace 8'
+run = 'move-node-to-workspace 5'
 
-# Workspace 9: Other Editors (VS Code, Cursor)
+# Workspace 6: Other Editors (VS Code, Cursor)
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'  # VS Code
-run = 'move-node-to-workspace 9'
+run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-id = 'com.todesktop.230313mzl4w4u92'  # Cursor
-run = 'move-node-to-workspace 9'
+run = 'move-node-to-workspace 6'
 
 # [[on-window-detected]]
 # if.app-id = 'org.gnu.Emacs'  # Emacs

@@ -1,0 +1,6 @@
+// Minimal layout - no tab bar, no status bar
+// Use: zellij --layout minimal
+
+layout {
+    pane
+}
