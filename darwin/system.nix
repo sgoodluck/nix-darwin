@@ -14,9 +14,22 @@
   nix.enable = false; # Handled by Determinate Systems installer
 
   # Ensure Homebrew-installed Emacs appears in /Applications
+  # Configure Claude Code statusline in user settings (merges, doesn't overwrite)
   system.activationScripts.postActivation.text = ''
     mkdir -p /Applications/Nix
     ln -sf "/opt/homebrew/opt/emacs-plus/Emacs.app" /Applications/
+
+    CLAUDE_SETTINGS="$HOME/.claude/settings.json"
+    if [ -f "$CLAUDE_SETTINGS" ]; then
+      if ! ${pkgs.jq}/bin/jq -e '.statusLine' "$CLAUDE_SETTINGS" > /dev/null 2>&1; then
+        ${pkgs.jq}/bin/jq '. + {"statusLine": {"type": "command", "command": ($ENV.HOME + "/.claude/statusline.sh")}}' \
+          "$CLAUDE_SETTINGS" > "$CLAUDE_SETTINGS.tmp" && mv "$CLAUDE_SETTINGS.tmp" "$CLAUDE_SETTINGS"
+      fi
+    else
+      mkdir -p "$HOME/.claude"
+      echo '{"statusLine":{"type":"command","command":"'"$HOME"'/.claude/statusline.sh"}}' \
+        | ${pkgs.jq}/bin/jq . > "$CLAUDE_SETTINGS"
+    fi
   '';
 
   # Security

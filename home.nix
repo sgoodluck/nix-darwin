@@ -59,7 +59,10 @@ in
     ".claude/CLAUDE.md".source = "${configDir}/dotfiles/claude/CLAUDE.md";
     ".claude/commands/screenshot.md".source = "${configDir}/dotfiles/claude/commands/screenshot.md";
     ".claude/commands/pr-review.md".source = "${configDir}/dotfiles/claude/commands/pr-review.md";
-    
+    ".claude/statusline.sh" = {
+      source = "${configDir}/dotfiles/claude/statusline.sh";
+      executable = true;
+    };
     # Claude helper scripts in PATH
     ".local/bin/screenshot-capture".source = "${configDir}/scripts/claude/screenshot-capture.sh";
     ".local/bin/pr-review".source = "${configDir}/scripts/claude/pr-review.sh";
