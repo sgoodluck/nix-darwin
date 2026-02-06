@@ -19,9 +19,6 @@
     # Declarative Homebrew management
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
-    # Claude Code Nix overlay
-    claude-code-nix.url = "github:sadjow/claude-code-nix";
-
     # macOS app linking utility
     mac-app-util.url = "github:hraban/mac-app-util";
     # Homebrew tap repositories (non-flake inputs)
@@ -55,7 +52,6 @@
       homebrew-emacs-plus,
       homebrew-aerospace,
       homebrew-supabase,
-      claude-code-nix,
     }:
     let
       # Helper function to create a Darwin configuration

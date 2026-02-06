@@ -12,7 +12,4 @@
     ./packages.nix # Package declarations and Homebrew configuration
     ./services.nix # Launch agents and services
   ];
-  
-  # Apply overlays from flake inputs
-  nixpkgs.overlays = [ inputs.claude-code-nix.overlays.default ];
 }

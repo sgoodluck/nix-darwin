@@ -93,9 +93,6 @@
     mkalias           # macOS alias creation tool
     oh-my-posh        # Cross-platform prompt theme engine
     
-    # AI development tools
-    claude-code       # Claude Code AI coding assistant
-    
     # Kubernetes tools
     kubectl           # Kubernetes CLI for managing clusters
     kubectx           # Fast way to switch between clusters and namespaces
@@ -140,6 +137,9 @@
     ];
     
     casks = [
+      # Development tools
+      "claude-code"       # Claude Code AI coding assistant
+
       # Utilities
       "markedit"	  # Make markdown pretty again
       "appcleaner"        # Application uninstaller and cleanup tool
