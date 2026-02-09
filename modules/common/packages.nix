@@ -141,6 +141,7 @@
       "claude-code"       # Claude Code AI coding assistant
 
       # Utilities
+      "tailscale"         # Mesh VPN built on WireGuard
       "markedit"	  # Make markdown pretty again
       "appcleaner"        # Application uninstaller and cleanup tool
       "the-unarchiver"    # Archive extraction utility
@@ -159,7 +160,7 @@
       
       # Window management & productivity
       "nikitabobko/tap/aerospace"  # i3-inspired tiling window manager for macOS
-      "karabiner-elements"         # Keyboard customization tool (keep for custom key mappings)
+      "karabiner-elements"         # Keyboard customizer for macOS
 
       # Music Please
       "tidal"           # I love me some hifi
