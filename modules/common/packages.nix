@@ -141,7 +141,6 @@
       "claude-code"       # Claude Code AI coding assistant
 
       # Utilities
-      "tailscale"         # Mesh VPN built on WireGuard
       "markedit"	  # Make markdown pretty again
       "appcleaner"        # Application uninstaller and cleanup tool
       "the-unarchiver"    # Archive extraction utility

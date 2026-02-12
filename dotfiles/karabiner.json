@@ -10,7 +10,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Right Option Key → Hyper Key (⌃⌥⇧⌘)",
+                        "description": "Right Option Key → Meh Key (⌃⌥⌘)",
                         "manipulators": [
                             {
                                 "from": {
@@ -21,9 +21,8 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_shift",
+                                        "key_code": "left_command",
                                         "modifiers": [
-                                            "left_command",
                                             "left_control",
                                             "left_option"
                                         ]
@@ -58,7 +57,6 @@
                                     "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"
@@ -79,7 +77,6 @@
                                     "key_code": "p",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"
@@ -100,7 +97,6 @@
                                     "key_code": "b",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"
@@ -121,7 +117,6 @@
                                     "key_code": "s",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"
@@ -179,7 +174,6 @@
                                     "key_code": "n",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"
@@ -205,7 +199,6 @@
                                     "key_code": "c",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"
@@ -226,7 +219,6 @@
                                     "key_code": "y",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"

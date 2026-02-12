@@ -24,6 +24,20 @@ default-root-container-orientation = 'auto'
 # Mouse follows focus when triggered by keyboard
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# Workspace-to-monitor assignment
+# 1-5: laptop display, 6-10: external monitor (falls back to main if not connected)
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = ['secondary', 'main']
+7 = ['secondary', 'main']
+8 = ['secondary', 'main']
+9 = ['secondary', 'main']
+10 = ['secondary', 'main']
+
 # Gaps between windows (in pixels)
 [gaps]
 inner.horizontal = 10
@@ -51,8 +65,8 @@ outer.right =      10
 
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
-# Hyper key = ctrl-alt-cmd (right option via Karabiner-Elements)
-# Hyper+shift for secondary actions
+# Meh key = ctrl-alt-cmd (right option via Karabiner-Elements)
+# Meh+shift for secondary actions (move windows, resize, etc.)
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 ctrl-alt-cmd-slash = 'layout tiles horizontal vertical'
