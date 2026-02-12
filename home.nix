@@ -113,6 +113,21 @@ in
           user = "git";
           identityFile = "~/.ssh/id_ed25519";
         };
+        "home" = {
+          hostname = "100.89.94.46";
+          user = "sgoodluck";
+          localForwards = [
+            { bind.port = 54321; host.address = "localhost"; host.port = 54321; } # Studio
+            { bind.port = 54322; host.address = "localhost"; host.port = 54322; } # PostgreSQL
+            { bind.port = 54323; host.address = "localhost"; host.port = 54323; } # REST API
+            { bind.port = 54324; host.address = "localhost"; host.port = 54324; } # Realtime
+            { bind.port = 54325; host.address = "localhost"; host.port = 54325; } # Storage
+            { bind.port = 54326; host.address = "localhost"; host.port = 54326; } # Auth
+            { bind.port = 54327; host.address = "localhost"; host.port = 54327; } # Edge Functions
+            { bind.port = 54328; host.address = "localhost"; host.port = 54328; } # Analytics
+            { bind.port = 54329; host.address = "localhost"; host.port = 54329; } # S3 Storage
+          ];
+        };
       };
     };
 
