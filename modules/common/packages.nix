@@ -32,8 +32,7 @@
     zoxide            # Smart cd replacement that learns your habits
     dust              # Modern du disk usage analyzer with tree view
     procs             # Modern ps process viewer with colored output
-    alacritty         # GPU-accelerated terminal emulator
-    
+
     # Essential utilities
     jq                # JSON processor for parsing and manipulating JSON data
     yq                # YAML processor, pairs well with jq
@@ -146,7 +145,8 @@
       "appcleaner"        # Application uninstaller and cleanup tool
       "the-unarchiver"    # Archive extraction utility
       "keycastr"          # Keystroke visualizer for presentations
-      
+      "alacritty"         # GPU-accelerated terminal emulator
+
       # Web browsers
       "firefox"           # Mozilla Firefox web browser
       "zen"               # Privacy-focused Firefox-based browser

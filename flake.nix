@@ -113,6 +113,10 @@
                 useUserPackages = true;
                 # Automatically backup conflicting files with .backup extension
                 backupFileExtension = "backup";
+                # Enable mac-app-util to create .app bundles for Nix GUI apps
+                sharedModules = [
+                  mac-app-util.homeManagerModules.default
+                ];
                 # Define home configuration for our user
                 users.${hostConfig.username} =
                   { pkgs, ... }:
