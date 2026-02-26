@@ -12,6 +12,3 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Window right" })
 -- Better indenting
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
-
--- File explorer
-vim.keymap.set("n", "-", ":Ex<CR>", { desc = "File explorer (netrw)" })
