@@ -1,3 +1,16 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: unknown
+last_updated: "2026-02-26T16:56:05.560Z"
+progress:
+  total_phases: 1
+  completed_phases: 0
+  total_plans: 3
+  completed_plans: 1
+---
+
 # Project State
 
 ## Project Reference
@@ -41,6 +54,7 @@ Recent decisions affecting current work:
 - [Pre-phase]: lazy.nvim chosen as plugin manager (already bootstrapped)
 - [Pre-phase]: Nix-managed LSP servers, no Mason
 - [Pre-phase]: Space as leader key (Spacemacs muscle memory)
+- [Phase 01-foundation]: lua-language-server and nixd added as separate Nix packages in a dedicated Lua and Nix development block; rust-analyzer placed after cargo in the Rust block
 
 ### Pending Todos
 
