@@ -43,7 +43,11 @@ Plans:
   3. Errors and warnings appear as inline virtual text and gutter signs without any manual command
   4. Saving a file automatically formats it for all configured languages
   5. The Lua language server provides Neovim API completions (e.g., `vim.` autocompletes with core functions)
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Add Nix packages (pyright, stylua, rustfmt) and create LSP, completion, and formatting plugin files
+- [ ] 02-02-PLAN.md — System rebuild and end-to-end verification of LSP, completion, and formatting
 
 ### Phase 3: Editor Experience
 **Goal**: Fuzzy finding replaces all previous finder plugins, git changes are visible in the gutter with navigable hunks, and the file tree is available on demand — all loading at zero startup cost
@@ -65,5 +69,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete    | 2026-02-26 |
-| 2. LSP + Completion | 0/? | Not started | - |
+| 2. LSP + Completion | 0/2 | In progress | - |
 | 3. Editor Experience | 0/? | Not started | - |
