@@ -26,7 +26,12 @@ Three phases build a minimal, fast Neovim IDE from the ground up. Phase 1 establ
   3. `vim.fn.exepath("gopls")` returns a non-empty path inside a running Neovim session
   4. Core options, keymaps, and autocmds live in `lua/config/` with no plugin dependencies
   5. Cold start measured via `--startuptime` is under 100ms
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Add missing LSP packages to packages.nix and rebuild system
+- [ ] 01-02-PLAN.md — Modular Lua structure, modus-themes.nvim, and nvim-treesitter plugin specs
+- [ ] 01-03-PLAN.md — PATH verification inside Neovim and startup time measurement
 
 ### Phase 2: LSP + Completion
 **Goal**: All six target languages have active LSP servers, autocompletion triggers automatically from LSP/buffer/path sources, diagnostics appear inline, and code formatting runs on save
@@ -59,6 +64,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/? | Not started | - |
+| 1. Foundation | 0/3 | Ready to execute | - |
 | 2. LSP + Completion | 0/? | Not started | - |
 | 3. Editor Experience | 0/? | Not started | - |
