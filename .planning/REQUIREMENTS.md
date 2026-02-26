@@ -27,19 +27,19 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Fuzzy Finding
 
-- [ ] **FIND-01**: fzf-lua replaces fzf.vim, telescope, and commander
-- [ ] **FIND-02**: File picker, live grep, and buffer list via leader keybinds
-- [ ] **FIND-03**: Commands/keymaps browser as toggleable command palette
+- [x] **FIND-01**: fzf-lua replaces fzf.vim, telescope, and commander
+- [x] **FIND-02**: File picker, live grep, and buffer list via leader keybinds
+- [x] **FIND-03**: Commands/keymaps browser as toggleable command palette
 
 ### Git
 
-- [ ] **GIT-01**: Gitsigns shows added/changed/deleted signs in gutter
-- [ ] **GIT-02**: Navigate between hunks with keybinds
+- [x] **GIT-01**: Gitsigns shows added/changed/deleted signs in gutter
+- [x] **GIT-02**: Navigate between hunks with keybinds
 
 ### File Explorer
 
-- [ ] **TREE-01**: Neo-tree toggleable sidebar, closed by default
-- [ ] **TREE-02**: Single keybind to toggle tree open/closed
+- [x] **TREE-01**: Neo-tree toggleable sidebar, closed by default
+- [x] **TREE-02**: Single keybind to toggle tree open/closed
 
 ## v2 Requirements
 
@@ -89,13 +89,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LSP-05 | Phase 2 | Complete |
 | LSP-06 | Phase 2 | Complete |
 | LSP-07 | Phase 2 | Complete |
-| FIND-01 | Phase 3 | Pending |
-| FIND-02 | Phase 3 | Pending |
-| FIND-03 | Phase 3 | Pending |
-| GIT-01 | Phase 3 | Pending |
-| GIT-02 | Phase 3 | Pending |
-| TREE-01 | Phase 3 | Pending |
-| TREE-02 | Phase 3 | Pending |
+| FIND-01 | Phase 3 | Complete |
+| FIND-02 | Phase 3 | Complete |
+| FIND-03 | Phase 3 | Complete |
+| GIT-01 | Phase 3 | Complete |
+| GIT-02 | Phase 3 | Complete |
+| TREE-01 | Phase 3 | Complete |
+| TREE-02 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 19 total
