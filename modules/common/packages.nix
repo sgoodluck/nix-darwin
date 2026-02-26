@@ -2,171 +2,168 @@
 { pkgs, ... }:
 {
   # NOTE: Docker Desktop was installed manually outside of Nix/Homebrew
+  # NOTE: Tailscale was manually installed outside of Nix/Homebrew
   environment.systemPackages = with pkgs; [
-   # General Bits
-   google-chrome     # because evil
-
+    # General Bits
+    google-chrome # because evil
 
     # Core development tools
-    git               # Version control system
-    lazygit           # because sometimes I'm lazy
-    curl              # HTTP client for API requests and REST calls
-    wget              # Simple file downloader for scripts and automation
-    gnumake           # Build automation tool
-    cmake             # Cross-platform build system generator
-    ninja             # Small build system focused on speed
-    neovim            # Modern Vim-based text editor
-    nixfmt-rfc-style  # Nix code formatter
-    gnupg             # GNU Privacy Guard for encryption
-    pinentry_mac      # macOS GUI for GPG passphrase entry
-    ncurses           # Terminal control library
-    postman           # API testing area
-    cocogitto         # conventional commits baby!
-    
+    git # Version control system
+    lazygit # because sometimes I'm lazy
+    curl # HTTP client for API requests and REST calls
+    wget # Simple file downloader for scripts and automation
+    gnumake # Build automation tool
+    cmake # Cross-platform build system generator
+    ninja # Small build system focused on speed
+    neovim # Modern Vim-based text editor
+    nixfmt-rfc-style # Nix code formatter
+    gnupg # GNU Privacy Guard for encryption
+    pinentry_mac # macOS GUI for GPG passphrase entry
+    ncurses # Terminal control library
+    postman # API testing area
+    cocogitto # conventional commits baby!
+
     # Modern CLI tools (Rust-based alternatives)
-    ripgrep           # Fast text search tool (grep replacement)
-    fd                # Fast and user-friendly find alternative
-    eza               # Modern ls replacement with colors and icons
-    bat               # Cat with syntax highlighting and Git integration
-    fzf               # Fuzzy finder for interactive file/command selection
-    zoxide            # Smart cd replacement that learns your habits
-    dust              # Modern du disk usage analyzer with tree view
-    procs             # Modern ps process viewer with colored output
+    ripgrep # Fast text search tool (grep replacement)
+    fd # Fast and user-friendly find alternative
+    eza # Modern ls replacement with colors and icons
+    bat # Cat with syntax highlighting and Git integration
+    fzf # Fuzzy finder for interactive file/command selection
+    zoxide # Smart cd replacement that learns your habits
+    dust # Modern du disk usage analyzer with tree view
+    procs # Modern ps process viewer with colored output
 
     # Essential utilities
-    jq                # JSON processor for parsing and manipulating JSON data
-    yq                # YAML processor, pairs well with jq
-    htop              # Interactive process viewer (better than top)
-    direnv            # Automatic environment switching per directory
-    just              # Modern alternative to make for running project commands
-    
+    jq # JSON processor for parsing and manipulating JSON data
+    yq # YAML processor, pairs well with jq
+    htop # Interactive process viewer (better than top)
+    direnv # Automatic environment switching per directory
+    just # Modern alternative to make for running project commands
+
     # System utilities and development tools
-    nmap              # Network discovery and security auditing tool
-    ffmpeg            # Multimedia framework for audio/video processing
-    aspell            # Spell checker for text processing
-    hugo              # Static site generator for websites
-    llvm              # Compiler infrastructure and toolchain
-    bear              # Build tool for generating compilation databases
-    ccls              # C/C++/Objective-C language server
-    shellcheck        # Shell script static analysis tool
-    clang-tools       # C/C++ development tools (includes clang-format)
-    shfmt             # Shell script formatter
-    gh                # GitHub CLI for repository management and workflows
+    nmap # Network discovery and security auditing tool
+    ffmpeg # Multimedia framework for audio/video processing
+    aspell # Spell checker for text processing
+    hugo # Static site generator for websites
+    llvm # Compiler infrastructure and toolchain
+    bear # Build tool for generating compilation databases
+    ccls # C/C++/Objective-C language server
+    shellcheck # Shell script static analysis tool
+    clang-tools # C/C++ development tools (includes clang-format)
+    shfmt # Shell script formatter
+    gh # GitHub CLI for repository management and workflows
     # Python development
-    uv                # Extremely fast Python package installer and resolver
-    poetry            # Python dependency management and packaging
+    uv # Extremely fast Python package installer and resolver
+    poetry # Python dependency management and packaging
     (python3.withPackages (
       ps: with ps; [
-        black                # Python code formatter
-        pyflakes             # Python syntax checker
-        isort                # Python import sorter
-        pytest               # Python testing framework
-        debugpy              # Python debugger protocol implementation
-        mypy                 # Static type checker for Python
-        python-lsp-server    # Language server for Python
+        black # Python code formatter
+        pyflakes # Python syntax checker
+        isort # Python import sorter
+        pytest # Python testing framework
+        debugpy # Python debugger protocol implementation
+        mypy # Static type checker for Python
+        python-lsp-server # Language server for Python
       ]
     ))
-    
-    pyright           # Python type checker and language server (used by Neovim LSP)
+
+    pyright # Python type checker and language server (used by Neovim LSP)
 
     # Node.js development
-    nodejs                                     # Node.js JavaScript runtime
-    nodePackages.typescript                    # TypeScript compiler
-    nodePackages.typescript-language-server    # TypeScript language server
-    nodePackages.prettier                      # Code formatter for JS/TS
-    nodePackages.eslint                        # JavaScript/TypeScript linter
-    vscode-js-debug                           # JavaScript debugger for editors
-    pnpm                                      # Fast package manager for Node.js
-    bun                                       # Fast JavaScript runtime and package manager
-    fnm                                       # Fast Node Manager - Rust-based nvm alternative
-    
+    nodejs # Node.js JavaScript runtime
+    nodePackages.typescript # TypeScript compiler
+    nodePackages.typescript-language-server # TypeScript language server
+    nodePackages.prettier # Code formatter for JS/TS
+    nodePackages.eslint # JavaScript/TypeScript linter
+    vscode-js-debug # JavaScript debugger for editors
+    pnpm # Fast package manager for Node.js
+    bun # Fast JavaScript runtime and package manager
+    fnm # Fast Node Manager - Rust-based nvm alternative
+
     # Go development
-    go                # Go programming language
-    delve             # Go debugger (dlv command)
-    gopls             # Go language server
-    golangci-lint     # Go linter aggregator
-    go-tools          # Go development tools (goimports, gorename, etc.)
+    go # Go programming language
+    delve # Go debugger (dlv command)
+    gopls # Go language server
+    golangci-lint # Go linter aggregator
+    go-tools # Go development tools (goimports, gorename, etc.)
 
     # Rust development
-    rustc             # Rust compiler
-    cargo             # Rust package manager and build system
-    rust-analyzer     # Rust language server (separate from rustc/cargo)
-    rustfmt           # Rust code formatter (used by conform.nvim)
+    rustc # Rust compiler
+    cargo # Rust package manager and build system
+    rust-analyzer # Rust language server (separate from rustc/cargo)
+    rustfmt # Rust code formatter (used by conform.nvim)
 
     # Lua and Nix development
-    lua-language-server    # Lua language server (for Neovim config editing)
-    nixd                   # Nix language server (nixpkgs-aware, replaces nil)
-    stylua                 # Lua code formatter (used by conform.nvim)
+    lua-language-server # Lua language server (for Neovim config editing)
+    nixd # Nix language server (nixpkgs-aware, replaces nil)
+    stylua # Lua code formatter (used by conform.nvim)
 
     # Terminal and shell tools
-    zellij            # Terminal multiplexer (alternative to tmux)
-    mkalias           # macOS alias creation tool
-    oh-my-posh        # Cross-platform prompt theme engine
-    
+    zellij # Terminal multiplexer (alternative to tmux)
+    mkalias # macOS alias creation tool
+    oh-my-posh # Cross-platform prompt theme engine
+
     # Kubernetes tools
-    kubectl           # Kubernetes CLI for managing clusters
-    kubectx           # Fast way to switch between clusters and namespaces
-    stern             # Multi pod and container log tailing
-    k9s               # Terminal-based UI to interact with Kubernetes clusters
+    kubectl # Kubernetes CLI for managing clusters
+    kubectx # Fast way to switch between clusters and namespaces
+    stern # Multi pod and container log tailing
+    k9s # Terminal-based UI to interact with Kubernetes clusters
   ];
-  
+
   # Homebrew configuration
   homebrew = {
     enable = true;
-    
+
     global = {
-      autoUpdate = false;   # Disable automatic updates
-      lockfiles = false;    # Don't create lockfiles
+      autoUpdate = false; # Disable automatic updates
+      lockfiles = false; # Don't create lockfiles
     };
-    
+
     onActivation = {
-      cleanup = "zap";      # Remove all formulae not listed
-      autoUpdate = true;    # Update homebrew on activation
-      upgrade = true;       # Upgrade existing packages
+      cleanup = "zap"; # Remove all formulae not listed
+      autoUpdate = true; # Update homebrew on activation
+      upgrade = true; # Upgrade existing packages
     };
-    
+
     brews = [
-      "mas"             # Mac App Store command line interface
-      "git-graph"       # show off
-      "nvm"             # Node Version Manager (better shell integration than fnm)
-      "markdown"        # Markdown processor for documentation
-      "moor"            # a modern pager
-      "riff"            # a better diff
-      "kube-ps1"        # Kubernetes prompt helper for showing current context/namespace
-      "asciiquarium"    # for fun
+      "mas" # Mac App Store command line interface
+      "git-graph" # show off
+      "nvm" # Node Version Manager (better shell integration than fnm)
+      "markdown" # Markdown processor for documentation
+      "moor" # a modern pager
+      "riff" # a better diff
+      "kube-ps1" # Kubernetes prompt helper for showing current context/namespace
+      "asciiquarium" # for fun
     ];
-    
+
     casks = [
       # Development tools
-      "claude-code"       # Claude Code AI coding assistant
+      "claude-code" # Claude Code AI coding assistant
 
       # Utilities
-      "markedit"	  # Make markdown pretty again
-      "appcleaner"        # Application uninstaller and cleanup tool
-      "the-unarchiver"    # Archive extraction utility
-      "keycastr"          # Keystroke visualizer for presentations
-      "alacritty"         # GPU-accelerated terminal emulator
+      "markedit" # Make markdown pretty again
+      "appcleaner" # Application uninstaller and cleanup tool
+      "the-unarchiver" # Archive extraction utility
+      "keycastr" # Keystroke visualizer for presentations
+      "alacritty" # GPU-accelerated terminal emulator
 
       # Web browsers
-      "firefox"           # Mozilla Firefox web browser
-      "zen"               # Privacy-focused Firefox-based browser
-      
+      "firefox" # Mozilla Firefox web browser
+      "zen" # Privacy-focused Firefox-based browser
+
       # Development tools
-      "zed"               # yay zed
+      "zed" # yay zed
 
       # Creative tools
-      "gimp"              # GNU Image Manipulation Program
-      
+      "gimp" # GNU Image Manipulation Program
+
       # Window management & productivity
-      "nikitabobko/tap/aerospace"  # i3-inspired tiling window manager for macOS
-      "karabiner-elements"         # Keyboard customizer for macOS
+      "nikitabobko/tap/aerospace" # i3-inspired tiling window manager for macOS
+      "karabiner-elements" # Keyboard customizer for macOS
 
       # Music Please
-      "tidal"           # I love me some hifi
-      "notunes"         # Apple music is annoying
-
-      # Networking
-      "tailscale"       # Mesh VPN
+      "tidal" # I love me some hifi
+      "notunes" # Apple music is annoying
     ];
   };
 }
