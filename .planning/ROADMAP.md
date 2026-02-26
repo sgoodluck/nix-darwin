@@ -10,7 +10,7 @@ Three phases build a minimal, fast Neovim IDE from the ground up. Phase 1 establ
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Foundation** - Module structure, colorscheme, treesitter, and verified Nix PATH
+- [x] **Phase 1: Foundation** - Module structure, colorscheme, treesitter, and verified Nix PATH (completed 2026-02-26)
 - [ ] **Phase 2: LSP + Completion** - Full LSP for all languages, autocompletion, diagnostics, and format-on-save
 - [ ] **Phase 3: Editor Experience** - Fuzzy finding, git signs, and toggleable file tree
 
@@ -64,6 +64,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 3/3 | In Progress (Plan 03 pending) |  |
+| 1. Foundation | 3/3 | Complete   | 2026-02-26 |
 | 2. LSP + Completion | 0/? | Not started | - |
 | 3. Editor Experience | 0/? | Not started | - |
