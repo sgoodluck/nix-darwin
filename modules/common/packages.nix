@@ -75,6 +75,7 @@
     nodePackages.eslint                        # JavaScript/TypeScript linter
     vscode-js-debug                           # JavaScript debugger for editors
     pnpm                                      # Fast package manager for Node.js
+    bun                                       # Fast JavaScript runtime and package manager
     fnm                                       # Fast Node Manager - Rust-based nvm alternative
     
     # Go development
@@ -87,7 +88,12 @@
     # Rust development
     rustc             # Rust compiler
     cargo             # Rust package manager and build system
-    
+    rust-analyzer     # Rust language server (separate from rustc/cargo)
+
+    # Lua and Nix development
+    lua-language-server    # Lua language server (for Neovim config editing)
+    nixd                   # Nix language server (nixpkgs-aware, replaces nil)
+
     # Terminal and shell tools
     zellij            # Terminal multiplexer (alternative to tmux)
     mkalias           # macOS alias creation tool
