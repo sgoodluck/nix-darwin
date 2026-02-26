@@ -69,5 +69,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete    | 2026-02-26 |
-| 2. LSP + Completion | 0/2 | In progress | - |
+| 2. LSP + Completion | 1/2 | In Progress|  |
 | 3. Editor Experience | 0/? | Not started | - |

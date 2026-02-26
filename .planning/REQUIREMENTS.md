@@ -17,13 +17,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### LSP & Completion
 
-- [ ] **LSP-01**: LSP active for Nix (nil/nixd), Python (pyright), TypeScript (ts_ls), Go (gopls), Rust (rust-analyzer), C/C++ (ccls)
-- [ ] **LSP-02**: Autocompletion via blink.cmp with LSP, buffer, and path sources
-- [ ] **LSP-03**: Inline diagnostics with signs and virtual text
-- [ ] **LSP-04**: LSP keymaps on attach (go-to-definition, references, rename, hover, code actions)
-- [ ] **LSP-05**: Format-on-save via conform.nvim for all configured languages
-- [ ] **LSP-06**: Nix PATH verified — all LSP servers resolvable from inside Neovim
-- [ ] **LSP-07**: Lua language server configured for Neovim API completions
+- [x] **LSP-01**: LSP active for Nix (nil/nixd), Python (pyright), TypeScript (ts_ls), Go (gopls), Rust (rust-analyzer), C/C++ (ccls)
+- [x] **LSP-02**: Autocompletion via blink.cmp with LSP, buffer, and path sources
+- [x] **LSP-03**: Inline diagnostics with signs and virtual text
+- [x] **LSP-04**: LSP keymaps on attach (go-to-definition, references, rename, hover, code actions)
+- [x] **LSP-05**: Format-on-save via conform.nvim for all configured languages
+- [x] **LSP-06**: Nix PATH verified — all LSP servers resolvable from inside Neovim
+- [x] **LSP-07**: Lua language server configured for Neovim API completions
 
 ### Fuzzy Finding
 
@@ -82,13 +82,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FNDN-03 | Phase 1 | Complete |
 | FNDN-04 | Phase 1 | Complete |
 | FNDN-05 | Phase 1 | Complete |
-| LSP-01 | Phase 2 | Pending |
-| LSP-02 | Phase 2 | Pending |
-| LSP-03 | Phase 2 | Pending |
-| LSP-04 | Phase 2 | Pending |
-| LSP-05 | Phase 2 | Pending |
-| LSP-06 | Phase 2 | Pending |
-| LSP-07 | Phase 2 | Pending |
+| LSP-01 | Phase 2 | Complete |
+| LSP-02 | Phase 2 | Complete |
+| LSP-03 | Phase 2 | Complete |
+| LSP-04 | Phase 2 | Complete |
+| LSP-05 | Phase 2 | Complete |
+| LSP-06 | Phase 2 | Complete |
+| LSP-07 | Phase 2 | Complete |
 | FIND-01 | Phase 3 | Pending |
 | FIND-02 | Phase 3 | Pending |
 | FIND-03 | Phase 3 | Pending |

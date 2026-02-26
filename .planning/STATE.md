@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-02-26T18:03:17.296Z"
+last_updated: "2026-02-26T18:48:54.858Z"
 progress:
-  total_phases: 1
+  total_phases: 2
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 5
+  completed_plans: 4
 ---
 
 # Project State
@@ -18,16 +18,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-02-26)
 
 **Core value:** Fast, capable editing across all development languages with the fewest plugins possible
-**Current focus:** Phase 1 — Foundation
+**Current focus:** Phase 2 — LSP Completion
 
 ## Current Position
 
-Phase: 1 of 3 (Foundation)
-Plan: 3 of 3 in current phase (all plans complete)
-Status: Phase 1 complete
-Last activity: 2026-02-26 — Plan 03 complete: phase gate verified — 34ms cold start, 6/6 LSP servers on PATH, 12 treesitter parsers active
+Phase: 2 of 3 (LSP Completion)
+Plan: 1 of 2 in current phase (plan 01 complete)
+Status: Phase 2 in progress
+Last activity: 2026-02-26 — Plan 01 complete: LSP/completion/formatting plugins created, pyright/rustfmt/stylua added to Nix
 
-Progress: [██████████] 100% (Phase 1 of 3 complete)
+Progress: [███████░░░] 70% (Phase 1 complete, Phase 2 plan 1/2 done)
 
 ## Performance Metrics
 
@@ -44,6 +44,7 @@ Progress: [██████████] 100% (Phase 1 of 3 complete)
 
 *Updated after each plan completion*
 | Phase 01-foundation P03 | 30min | 2 tasks | 1 files |
+| Phase 02-lsp-completion P01 | 2 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -61,6 +62,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: modus-themes.nvim replaces hand-rolled colorscheme; bg_main overridden to #1d2235 to match terminal
 - [Phase 01-foundation]: modus_vivendi_tinted is not a valid colorscheme command — use variant='tinted' in setup() then :colorscheme modus_vivendi
 - [Phase 01-foundation]: pyright intentionally absent at phase gate — will be added in Phase 2 Python LSP decision
+- [Phase 02-lsp-completion]: vim.lsp.config/enable (Neovim 0.11 native API) used instead of deprecated require('lspconfig') — nvim-lspconfig only for server definitions
+- [Phase 02-lsp-completion]: blink.cmp capabilities injected via vim.lsp.config('*') wildcard before enabling servers — all 7 servers inherit capabilities without per-server boilerplate
+- [Phase 02-lsp-completion]: conform.nvim in fully silent mode: notify_on_error=false, notify_no_formatters=false per user preference
 
 ### Pending Todos
 
@@ -76,5 +80,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-26
-Stopped at: Completed 01-foundation-03-PLAN.md — Phase 1 fully verified, Phase 2 unblocked
+Stopped at: Completed 02-lsp-completion-01-PLAN.md — LSP, completion, formatting plugins created, pyright/rustfmt/stylua added to Nix
 Resume file: None
