@@ -55,6 +55,7 @@ Restructure the monolithic init.lua into a modular lua/ directory structure, rep
 - The existing modus vivendi tinted colors use bg `#1d2235` — check if the plugin's tinted variant matches or needs an override
 - Keep the config feeling minimal — no unnecessary abstractions or helper functions
 - The Nix PATH verification (exepath check for gopls, pyright, etc.) should be a concrete diagnostic, not just an assumption
+- Primeagen / minimal-style philosophy: Neovim is NOT an IDE replacement. It should be fast and lightweight by default, but capable when you reach for features. Extras load on demand, core stays lean.
 
 </specifics>
 
