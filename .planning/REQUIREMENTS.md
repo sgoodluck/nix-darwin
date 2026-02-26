@@ -9,10 +9,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Foundation
 
-- [ ] **FNDN-01**: Config uses modular lua/plugins/ structure with lazy.nvim auto-scanning
-- [ ] **FNDN-02**: Modus vivendi tinted colorscheme via modus-themes.nvim with treesitter/LSP highlight support
-- [ ] **FNDN-03**: Treesitter installed with parsers for all target languages (nix, python, typescript, go, rust, c, lua, markdown, json, yaml, toml, bash)
-- [ ] **FNDN-04**: Core options, keymaps, and autocmds extracted into separate modules
+- [x] **FNDN-01**: Config uses modular lua/plugins/ structure with lazy.nvim auto-scanning
+- [x] **FNDN-02**: Modus vivendi tinted colorscheme via modus-themes.nvim with treesitter/LSP highlight support
+- [x] **FNDN-03**: Treesitter installed with parsers for all target languages (nix, python, typescript, go, rust, c, lua, markdown, json, yaml, toml, bash)
+- [x] **FNDN-04**: Core options, keymaps, and autocmds extracted into separate modules
 - [x] **FNDN-05**: Neovim cold start under 100ms measured via `--startuptime`
 
 ### LSP & Completion
@@ -77,10 +77,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FNDN-01 | Phase 1 | Pending |
-| FNDN-02 | Phase 1 | Pending |
-| FNDN-03 | Phase 1 | Pending |
-| FNDN-04 | Phase 1 | Pending |
+| FNDN-01 | Phase 1 | Complete |
+| FNDN-02 | Phase 1 | Complete |
+| FNDN-03 | Phase 1 | Complete |
+| FNDN-04 | Phase 1 | Complete |
 | FNDN-05 | Phase 1 | Complete |
 | LSP-01 | Phase 2 | Pending |
 | LSP-02 | Phase 2 | Pending |
