@@ -11,7 +11,7 @@ Three phases build a minimal, fast Neovim IDE from the ground up. Phase 1 establ
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
 - [x] **Phase 1: Foundation** - Module structure, colorscheme, treesitter, and verified Nix PATH (completed 2026-02-26)
-- [ ] **Phase 2: LSP + Completion** - Full LSP for all languages, autocompletion, diagnostics, and format-on-save
+- [x] **Phase 2: LSP + Completion** - Full LSP for all languages, autocompletion, diagnostics, and format-on-save (completed 2026-02-26)
 - [ ] **Phase 3: Editor Experience** - Fuzzy finding, git signs, and toggleable file tree
 
 ## Phase Details
@@ -30,8 +30,8 @@ Three phases build a minimal, fast Neovim IDE from the ground up. Phase 1 establ
 
 Plans:
 - [x] 01-01-PLAN.md — Add missing LSP packages to packages.nix and rebuild system
-- [ ] 01-02-PLAN.md — Modular Lua structure, modus-themes.nvim, and nvim-treesitter plugin specs
-- [ ] 01-03-PLAN.md — PATH verification inside Neovim and startup time measurement
+- [x] 01-02-PLAN.md — Modular Lua structure, modus-themes.nvim, and nvim-treesitter plugin specs
+- [x] 01-03-PLAN.md — PATH verification inside Neovim and startup time measurement
 
 ### Phase 2: LSP + Completion
 **Goal**: All six target languages have active LSP servers, autocompletion triggers automatically from LSP/buffer/path sources, diagnostics appear inline, and code formatting runs on save
@@ -46,8 +46,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Add Nix packages (pyright, stylua, rustfmt) and create LSP, completion, and formatting plugin files
-- [ ] 02-02-PLAN.md — System rebuild and end-to-end verification of LSP, completion, and formatting
+- [x] 02-01-PLAN.md — Add Nix packages (pyright, stylua, rustfmt) and create LSP, completion, and formatting plugin files
+- [x] 02-02-PLAN.md — System rebuild and end-to-end verification of LSP, completion, and formatting
 
 ### Phase 3: Editor Experience
 **Goal**: Fuzzy finding replaces all previous finder plugins, git changes are visible in the gutter with navigable hunks, and the file tree is available on demand — all loading at zero startup cost
@@ -69,5 +69,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete    | 2026-02-26 |
-| 2. LSP + Completion | 1/2 | In Progress|  |
+| 2. LSP + Completion | 2/2 | Complete    | 2026-02-26 |
 | 3. Editor Experience | 0/? | Not started | - |

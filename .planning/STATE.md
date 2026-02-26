@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-last_updated: "2026-02-26T18:48:54.858Z"
+status: phase-complete
+last_updated: "2026-02-26"
 progress:
-  total_phases: 2
-  completed_phases: 1
+  total_phases: 3
+  completed_phases: 2
   total_plans: 5
-  completed_plans: 4
+  completed_plans: 5
 ---
 
 # Project State
@@ -18,16 +18,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-02-26)
 
 **Core value:** Fast, capable editing across all development languages with the fewest plugins possible
-**Current focus:** Phase 2 — LSP Completion
+**Current focus:** Phase 3 — Editor Experience
 
 ## Current Position
 
-Phase: 2 of 3 (LSP Completion)
-Plan: 1 of 2 in current phase (plan 01 complete)
-Status: Phase 2 in progress
-Last activity: 2026-02-26 — Plan 01 complete: LSP/completion/formatting plugins created, pyright/rustfmt/stylua added to Nix
+Phase: 2 of 3 (LSP Completion) — COMPLETE
+Plan: 2 of 2 in phase 2 (plan 02 complete)
+Status: Phase 2 complete, Phase 3 not started
+Last activity: 2026-02-26 — Plan 02 complete: system rebuild, verified all 7 LSP servers, blink.cmp, conform.nvim format-on-save
 
-Progress: [███████░░░] 70% (Phase 1 complete, Phase 2 plan 1/2 done)
+Progress: [████████░░] 80% (Phase 1 complete, Phase 2 complete, Phase 3 not started)
 
 ## Performance Metrics
 
@@ -65,6 +65,7 @@ Recent decisions affecting current work:
 - [Phase 02-lsp-completion]: vim.lsp.config/enable (Neovim 0.11 native API) used instead of deprecated require('lspconfig') — nvim-lspconfig only for server definitions
 - [Phase 02-lsp-completion]: blink.cmp capabilities injected via vim.lsp.config('*') wildcard before enabling servers — all 7 servers inherit capabilities without per-server boilerplate
 - [Phase 02-lsp-completion]: conform.nvim in fully silent mode: notify_on_error=false, notify_no_formatters=false per user preference
+- [Phase 02-lsp-completion plan 02]: treesitter Python query patched for except* desync (Python 3.11+ exception groups) — Rule 1 auto-fix during verification rebuild
 
 ### Pending Todos
 
@@ -74,11 +75,11 @@ None yet.
 
 - [Phase 1 - RESOLVED]: vim.fn.exepath("gopls") verified non-empty inside Neovim — 6/6 servers confirmed (Plan 03 phase gate)
 - [Phase 1 - RESOLVED]: `pkgs.lua-language-server` confirmed to resolve in nixpkgs 25.05 (Plan 01 complete)
-- [Phase 2]: Python LSP choice (pylsp vs pyright) — validate venv detection with a real `.venv` project
-- [Phase 2]: blink.cmp Rust build may fail in Nix context (nixpkgs #386404) — fallback to nvim-cmp is pre-planned
+- [Phase 2 - RESOLVED]: Python LSP choice (pylsp vs pyright) — pyright chosen and verified working in live session
+- [Phase 2 - RESOLVED]: blink.cmp Rust build concern (nixpkgs #386404) — blink.cmp installed and verified working, no fallback needed
 
 ## Session Continuity
 
 Last session: 2026-02-26
-Stopped at: Completed 02-lsp-completion-01-PLAN.md — LSP, completion, formatting plugins created, pyright/rustfmt/stylua added to Nix
+Stopped at: Completed 02-lsp-completion-02-PLAN.md — system rebuild verified, all 7 LSP servers confirmed, blink.cmp and conform.nvim confirmed, Phase 2 complete
 Resume file: None
