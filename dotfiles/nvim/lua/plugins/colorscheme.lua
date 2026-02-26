@@ -6,6 +6,7 @@ return {
   priority = 1000,
   config = function()
     require("modus-themes").setup({
+      variant = "tinted",
       styles = {
         comments = { italic = true },
         keywords = { italic = false },
@@ -14,6 +15,6 @@ return {
         colors.bg_main = "#1d2235"
       end,
     })
-    vim.cmd("colorscheme modus_vivendi_tinted")
+    vim.cmd("colorscheme modus_vivendi")
   end,
 }
