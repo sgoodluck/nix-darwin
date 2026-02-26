@@ -77,31 +77,31 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FNDN-01 | — | Pending |
-| FNDN-02 | — | Pending |
-| FNDN-03 | — | Pending |
-| FNDN-04 | — | Pending |
-| FNDN-05 | — | Pending |
-| LSP-01 | — | Pending |
-| LSP-02 | — | Pending |
-| LSP-03 | — | Pending |
-| LSP-04 | — | Pending |
-| LSP-05 | — | Pending |
-| LSP-06 | — | Pending |
-| LSP-07 | — | Pending |
-| FIND-01 | — | Pending |
-| FIND-02 | — | Pending |
-| FIND-03 | — | Pending |
-| GIT-01 | — | Pending |
-| GIT-02 | — | Pending |
-| TREE-01 | — | Pending |
-| TREE-02 | — | Pending |
+| FNDN-01 | Phase 1 | Pending |
+| FNDN-02 | Phase 1 | Pending |
+| FNDN-03 | Phase 1 | Pending |
+| FNDN-04 | Phase 1 | Pending |
+| FNDN-05 | Phase 1 | Pending |
+| LSP-01 | Phase 2 | Pending |
+| LSP-02 | Phase 2 | Pending |
+| LSP-03 | Phase 2 | Pending |
+| LSP-04 | Phase 2 | Pending |
+| LSP-05 | Phase 2 | Pending |
+| LSP-06 | Phase 2 | Pending |
+| LSP-07 | Phase 2 | Pending |
+| FIND-01 | Phase 3 | Pending |
+| FIND-02 | Phase 3 | Pending |
+| FIND-03 | Phase 3 | Pending |
+| GIT-01 | Phase 3 | Pending |
+| GIT-02 | Phase 3 | Pending |
+| TREE-01 | Phase 3 | Pending |
+| TREE-02 | Phase 3 | Pending |
 
 **Coverage:**
 - v1 requirements: 19 total
-- Mapped to phases: 0
-- Unmapped: 19
+- Mapped to phases: 19
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-26*
-*Last updated: 2026-02-26 after initial definition*
+*Last updated: 2026-02-26 after roadmap creation*

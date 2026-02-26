@@ -1,19 +1,60 @@
-# State
-
-## Current Position
-
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements
-Last activity: 2026-02-26 — Milestone v1.0 started
+# Project State
 
 ## Project Reference
 
 See: .planning/PROJECT.md (updated 2026-02-26)
 
 **Core value:** Fast, capable editing across all development languages with the fewest plugins possible
-**Current focus:** Research and requirements definition
+**Current focus:** Phase 1 — Foundation
+
+## Current Position
+
+Phase: 1 of 3 (Foundation)
+Plan: 0 of ? in current phase
+Status: Ready to plan
+Last activity: 2026-02-26 — Roadmap created, phases derived from 19 requirements
+
+Progress: [░░░░░░░░░░] 0%
+
+## Performance Metrics
+
+**Velocity:**
+- Total plans completed: 0
+- Average duration: —
+- Total execution time: —
+
+**By Phase:**
+
+| Phase | Plans | Total | Avg/Plan |
+|-------|-------|-------|----------|
+| - | - | - | - |
+
+*Updated after each plan completion*
 
 ## Accumulated Context
 
-(First milestone — no prior context)
+### Decisions
+
+Decisions are logged in PROJECT.md Key Decisions table.
+Recent decisions affecting current work:
+
+- [Pre-phase]: lazy.nvim chosen as plugin manager (already bootstrapped)
+- [Pre-phase]: Nix-managed LSP servers, no Mason
+- [Pre-phase]: Space as leader key (Spacemacs muscle memory)
+
+### Pending Todos
+
+None yet.
+
+### Blockers/Concerns
+
+- [Phase 1]: Verify `vim.fn.exepath("gopls")` returns non-empty inside Neovim before writing any LSP config — silent failure risk
+- [Phase 1]: Confirm `pkgs.lua-language-server` resolves in nixpkgs 25.05 before auditing packages.nix
+- [Phase 2]: Python LSP choice (pylsp vs pyright) — validate venv detection with a real `.venv` project
+- [Phase 2]: blink.cmp Rust build may fail in Nix context (nixpkgs #386404) — fallback to nvim-cmp is pre-planned
+
+## Session Continuity
+
+Last session: 2026-02-26
+Stopped at: Roadmap created — ready for phase 1 planning
+Resume file: None
