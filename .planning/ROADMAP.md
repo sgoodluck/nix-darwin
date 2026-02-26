@@ -59,7 +59,11 @@ Plans:
   3. Git-modified, added, and deleted lines show as gutter signs immediately on opening a file in a git repo
   4. Navigating between git hunks forward and backward works via keybinds
   5. A single keybind toggles the file tree open and closed from any buffer, with the tree closed by default
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Create fzf-lua, gitsigns, and neo-tree plugin specs; remove netrw keymap
+- [ ] 03-02-PLAN.md — System rebuild and end-to-end verification of all Phase 3 plugins
 
 ## Progress
 
@@ -70,4 +74,4 @@ Phases execute in numeric order: 1 → 2 → 3
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete    | 2026-02-26 |
 | 2. LSP + Completion | 2/2 | Complete    | 2026-02-26 |
-| 3. Editor Experience | 0/? | Not started | - |
+| 3. Editor Experience | 0/2 | Not started | - |
