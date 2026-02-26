@@ -29,7 +29,7 @@ Three phases build a minimal, fast Neovim IDE from the ground up. Phase 1 establ
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Add missing LSP packages to packages.nix and rebuild system
+- [x] 01-01-PLAN.md — Add missing LSP packages to packages.nix and rebuild system
 - [ ] 01-02-PLAN.md — Modular Lua structure, modus-themes.nvim, and nvim-treesitter plugin specs
 - [ ] 01-03-PLAN.md — PATH verification inside Neovim and startup time measurement
 
@@ -64,6 +64,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 2/3 | In Progress|  |
+| 1. Foundation | 3/3 | In Progress (Plan 03 pending) |  |
 | 2. LSP + Completion | 0/? | Not started | - |
 | 3. Editor Experience | 0/? | Not started | - |

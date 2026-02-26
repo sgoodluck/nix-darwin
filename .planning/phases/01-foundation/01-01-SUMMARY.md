@@ -37,29 +37,30 @@ completed: 2026-02-26
 
 # Phase 1 Plan 01: Add Missing LSP Packages Summary
 
-**lua-language-server, nixd, and rust-analyzer added to packages.nix; system rebuild pending user action to make them available on PATH**
+**lua-language-server, nixd, and rust-analyzer added to packages.nix and verified on PATH after darwin-rebuild switch**
 
 ## Performance
 
-- **Duration:** ~5 min
+- **Duration:** ~20 min (including human rebuild time)
 - **Started:** 2026-02-26T16:54:45Z
-- **Completed:** 2026-02-26T16:59:00Z (Task 1); Task 2 pending user rebuild
-- **Tasks:** 1 of 2 (Task 2 is a human-action checkpoint)
+- **Completed:** 2026-02-26T17:13:29Z
+- **Tasks:** 2 of 2
 - **Files modified:** 1
 
 ## Accomplishments
 - Added rust-analyzer to the Rust development block in packages.nix
 - Added a new "Lua and Nix development" section with lua-language-server and nixd
 - Verified file parses as valid Nix syntax with nix-instantiate --parse
+- System rebuilt via darwin-rebuild switch; all three executables confirmed on PATH via `which`
 
 ## Task Commits
 
 Each task was committed atomically:
 
 1. **Task 1: Add missing LSP packages to packages.nix** - `efb00b8` (feat)
-2. **Task 2: Rebuild system with updated packages** - pending user action (checkpoint:human-action)
+2. **Task 2: Rebuild system with updated packages** - human-action checkpoint, rebuild confirmed by user
 
-**Plan metadata:** (docs commit follows after Task 2 confirmation)
+**Plan metadata:** (this summary commit)
 
 ## Files Created/Modified
 - `modules/common/packages.nix` - Added rust-analyzer, lua-language-server, and nixd to the Nix system packages list
@@ -78,30 +79,18 @@ None
 
 ## User Setup Required
 
-Task 2 requires a manual system rebuild:
-
-```bash
-# Personal machine:
-nxr
-
-# Work machine:
-darwin-rebuild switch --flake ~/nix#Seths-MacBook-Pro
-```
-
-After the rebuild, verify all three LSP executables are on PATH:
-
-```bash
-which lua-language-server
-which nixd
-which rust-analyzer
-```
-
-All three should return a path (e.g., `/run/current-system/sw/bin/lua-language-server`).
+None - rebuild completed. All three LSP executables confirmed on PATH.
 
 ## Next Phase Readiness
-- Task 1 complete: packages.nix declares all required LSP servers
-- Blocked on user rebuild for Task 2 before Phase 2 LSP config can begin
-- Once rebuild confirms executables on PATH, Plan 03 PATH verification diagnostic can proceed
+- All three LSP executables (lua-language-server, nixd, rust-analyzer) are on PATH system-wide
+- The concern "Confirm `pkgs.lua-language-server` resolves in nixpkgs 25.05" is resolved — it does
+- Plan 03 PATH verification diagnostic can now confirm visibility from inside Neovim
+
+## Self-Check: PASSED
+
+- FOUND: .planning/phases/01-foundation/01-01-SUMMARY.md
+- FOUND: modules/common/packages.nix
+- FOUND: commit efb00b8 (feat: add lua-language-server, nixd, rust-analyzer)
 
 ---
 *Phase: 01-foundation*
