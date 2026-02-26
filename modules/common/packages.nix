@@ -67,6 +67,8 @@
       ]
     ))
     
+    pyright           # Python type checker and language server (used by Neovim LSP)
+
     # Node.js development
     nodejs                                     # Node.js JavaScript runtime
     nodePackages.typescript                    # TypeScript compiler
@@ -89,10 +91,12 @@
     rustc             # Rust compiler
     cargo             # Rust package manager and build system
     rust-analyzer     # Rust language server (separate from rustc/cargo)
+    rustfmt           # Rust code formatter (used by conform.nvim)
 
     # Lua and Nix development
     lua-language-server    # Lua language server (for Neovim config editing)
     nixd                   # Nix language server (nixpkgs-aware, replaces nil)
+    stylua                 # Lua code formatter (used by conform.nvim)
 
     # Terminal and shell tools
     zellij            # Terminal multiplexer (alternative to tmux)
