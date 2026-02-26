@@ -73,7 +73,7 @@
     nodePackages.typescript-language-server    # TypeScript language server
     nodePackages.prettier                      # Code formatter for JS/TS
     nodePackages.eslint                        # JavaScript/TypeScript linter
-    vscode-js-debug                           # JavaScript debugger for editors (check if needed for Emacs DAP)
+    vscode-js-debug                           # JavaScript debugger for editors
     pnpm                                      # Fast package manager for Node.js
     fnm                                       # Fast Node Manager - Rust-based nvm alternative
     
@@ -124,16 +124,6 @@
       "riff"            # a better diff
       "kube-ps1"        # Kubernetes prompt helper for showing current context/namespace
       "asciiquarium"    # for fun
-      {
-        name = "emacs-plus";  # Enhanced Emacs build with additional features
-        args = [
-          "with-ctags"                      # Include ctags support
-          "with-mailutils"                  # Email handling capabilities
-          "with-xwidgets"                   # Web widget support
-          "with-imagemagick"                # Image processing support
-          "with-modern-black-variant-icon"  # Modern black app icon
-        ];
-      }
     ];
     
     casks = [
@@ -164,6 +154,9 @@
       # Music Please
       "tidal"           # I love me some hifi
       "notunes"         # Apple music is annoying
+
+      # Networking
+      "tailscale"       # Mesh VPN
     ];
   };
 }

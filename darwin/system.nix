@@ -13,11 +13,9 @@
   system.primaryUser = hostConfig.username;
   nix.enable = false; # Handled by Determinate Systems installer
 
-  # Ensure Homebrew-installed Emacs appears in /Applications
   # Configure Claude Code statusline in user settings (merges, doesn't overwrite)
   system.activationScripts.postActivation.text = ''
     mkdir -p /Applications/Nix
-    ln -sf "/opt/homebrew/opt/emacs-plus/Emacs.app" /Applications/
 
     CLAUDE_SETTINGS="$HOME/.claude/settings.json"
     if [ -f "$CLAUDE_SETTINGS" ]; then

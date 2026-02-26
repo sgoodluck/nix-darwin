@@ -122,22 +122,6 @@
         "type": "github"
       }
     },
-    "homebrew-emacs-plus": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1743441558,
-        "narHash": "sha256-Eepinxv05Yl79AoPVJveGDZPKHhlAes7XtUvrssflrU=",
-        "owner": "d12frosted",
-        "repo": "homebrew-emacs-plus",
-        "rev": "3e95d573d5f13aba7808193b66312b38a7c66851",
-        "type": "github"
-      },
-      "original": {
-        "owner": "d12frosted",
-        "repo": "homebrew-emacs-plus",
-        "type": "github"
-      }
-    },
     "homebrew-supabase": {
       "flake": false,
       "locked": {
@@ -252,7 +236,6 @@
         "home-manager": "home-manager",
         "homebrew-aerospace": "homebrew-aerospace",
         "homebrew-bundle": "homebrew-bundle",
-        "homebrew-emacs-plus": "homebrew-emacs-plus",
         "homebrew-supabase": "homebrew-supabase",
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",

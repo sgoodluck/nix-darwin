@@ -26,10 +26,6 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
-    homebrew-emacs-plus = {
-      url = "github:d12frosted/homebrew-emacs-plus";
-      flake = false;
-    };
     homebrew-aerospace = {
       url = "github:nikitabobko/homebrew-aerospace";
       flake = false;
@@ -49,7 +45,6 @@
       nix-homebrew,
       mac-app-util,
       homebrew-bundle,
-      homebrew-emacs-plus,
       homebrew-aerospace,
       homebrew-supabase,
     }:
@@ -89,7 +84,6 @@
                 taps = {
                   # Only manage non-core taps
                   "homebrew/homebrew-bundle" = homebrew-bundle;
-                  "d12frosted/homebrew-emacs-plus" = homebrew-emacs-plus;
                   "nikitabobko/tap" = homebrew-aerospace;
                   "supabase/tap" = homebrew-supabase;
                 };

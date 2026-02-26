@@ -41,12 +41,6 @@ in
     ".config/dotfiles/kube-status.sh".source = "${configDir}/scripts/prompt/kube-status.sh";
     ".config/karabiner/karabiner.json".source = "${configDir}/dotfiles/karabiner.json";
     ".config/amethyst/amethyst.yml".source = "${configDir}/dotfiles/amethyst.yml";
-    ".config/doom/init.el".source = "${configDir}/dotfiles/doom/init.el";
-    ".config/doom/config.el".source = "${configDir}/dotfiles/doom/config.el";
-    ".config/doom/packages.el".source = "${configDir}/dotfiles/doom/packages.el";
-    ".config/doom/README.md".source = "${configDir}/dotfiles/doom/README.md";
-    ".config/doom/.gitignore".source = "${configDir}/dotfiles/doom/.gitignore";
-    ".local/bin/doom-git-init".source = "${configDir}/scripts/doom-git-init.sh";
     # Nvim config now managed via Nix
     ".config/nvim".source = "${configDir}/dotfiles/nvim";
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
@@ -180,9 +174,6 @@ in
         # XDG base directory specification
         XDG_CONFIG_HOME = "$HOME/.config";
 
-        # Doom Emacs configuration directory
-        DOOMDIR = "$HOME/.config/doom";
-
         # Homebrew configuration
         HOMEBREW_NO_AUTO_UPDATE = "1"; # Prevent auto-updates during installs
         HOMEBREW_NO_ENV_HINTS = "1"; # Suppress environment hints
@@ -199,7 +190,6 @@ in
       envExtra = ''
         # Build PATH from list of directories
         CUSTOM_PATHS=(
-          "$HOME/.config/emacs/bin"     # Doom Emacs scripts
           "/opt/homebrew/bin"            # Homebrew binaries
           "/opt/homebrew/sbin"           # Homebrew system binaries
           "/opt/homebrew/opt/llvm/bin"  # LLVM tools from Homebrew
@@ -230,14 +220,9 @@ in
         lg = "lazygit";
         diff = "riff";
         
-        # Doom config git management
-        doom-commit = "cd ~/.config/doom && git add -A && git commit -m";
-        doom-push = "cd ~/.config/doom && git push";
-        
         # Claude Code helpers
         screenshot = "screenshot-capture";
         pr-data = "pr-review";
-        doom-status = "cd ~/.config/doom && git status";
         
         # NPM authentication - set token from clipboard
         npm-auth = "export GH_NPM_TOKEN=\"$(pbpaste)\" && echo \"✓ NPM token set\"";
