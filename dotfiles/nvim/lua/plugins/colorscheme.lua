@@ -1,0 +1,22 @@
+-- Colorscheme: modus_vivendi_tinted with background matched to terminal
+-- lazy=false + priority=1000 ensures this loads before all other plugins
+return {
+  "miikanissi/modus-themes.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("modus-themes").setup({
+      style = "modus_vivendi",
+      variant = "tinted",
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = false },
+      },
+      on_colors = function(colors)
+        -- Plugin default bg_main is #0d0e1c; override to match terminal bg
+        colors.bg_main = "#1d2235"
+      end,
+    })
+    vim.cmd("colorscheme modus_vivendi_tinted")
+  end,
+}
