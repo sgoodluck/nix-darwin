@@ -138,7 +138,9 @@
 
     casks = [
       # Development tools
-      "claude-code" # Claude Code AI coding assistant
+
+      ## Note: 2.1.62 is a stable version, 2.1.63 breaks user answers
+      # "claude-code"
 
       # Utilities
       "markedit" # Make markdown pretty again

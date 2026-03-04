@@ -34,6 +34,10 @@
       url = "github:supabase/homebrew-tap";
       flake = false;
     };
+    homebrew-skip = {
+      url = "github:skiptools/homebrew-skip";
+      flake = false;
+    };
   };
 
   outputs =
@@ -47,6 +51,7 @@
       homebrew-bundle,
       homebrew-aerospace,
       homebrew-supabase,
+      homebrew-skip,
     }:
     let
       # Helper function to create a Darwin configuration
@@ -86,6 +91,7 @@
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "nikitabobko/tap" = homebrew-aerospace;
                   "supabase/tap" = homebrew-supabase;
+                  "skiptools/skip" = homebrew-skip;
                 };
               };
             }

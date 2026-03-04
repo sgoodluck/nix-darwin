@@ -35,6 +35,7 @@
     "vlc"           # back to the pirate days I go
     "qflipper"      # yay dolphins
     # Creative tools
+    "inkscape"      # Vector graphics editor
     "orcaslicer"    # 3D printing slicer
     "raspberry-pi-imager"  # Raspberry Pi OS imaging tool
     "balenaetcher"  # OS image flasher
@@ -50,6 +51,10 @@
 
     # Sailing
     "opencpn"   # Chart plotter
+
+    # Swift/Android development
+    "skiptools/skip/skip"                          # Skip CLI
+    "skiptools/skip/swift-android-toolchain@6.2"   # Swift Android cross-compilation toolchain
   ];
 
   # Universal preferences (inherited from common)

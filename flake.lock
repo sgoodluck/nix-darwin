@@ -122,6 +122,22 @@
         "type": "github"
       }
     },
+    "homebrew-skip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772236622,
+        "narHash": "sha256-LiF5NXoDaIprBQAZWV72m0D1yGmSlYuEErD7r27K1Zo=",
+        "owner": "skiptools",
+        "repo": "homebrew-skip",
+        "rev": "4b822e8b921da574f08b30f9022c8b8ac8111a00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "skiptools",
+        "repo": "homebrew-skip",
+        "type": "github"
+      }
+    },
     "homebrew-supabase": {
       "flake": false,
       "locked": {
@@ -236,6 +252,7 @@
         "home-manager": "home-manager",
         "homebrew-aerospace": "homebrew-aerospace",
         "homebrew-bundle": "homebrew-bundle",
+        "homebrew-skip": "homebrew-skip",
         "homebrew-supabase": "homebrew-supabase",
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",
