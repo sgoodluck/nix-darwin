@@ -82,5 +82,6 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.hack
     nerd-fonts.caskaydia-cove
+    nerd-fonts.sauce-code-pro
   ];
 }

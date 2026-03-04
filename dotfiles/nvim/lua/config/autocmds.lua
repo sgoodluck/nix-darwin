@@ -7,6 +7,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- Word wrap for prose-oriented filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "Enable word wrap for markdown",
+  group = vim.api.nvim_create_augroup("markdown_wrap", { clear = true }),
+  pattern = { "markdown" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+  end,
+})
+
 -- Remove trailing whitespace on save (skip markdown — intentional trailing spaces)
 vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Remove trailing whitespace on save",

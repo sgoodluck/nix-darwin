@@ -207,7 +207,7 @@ in
         nxr-personal = "sudo darwin-rebuild switch --flake ~/nix#sgoodluck-m1air";
         
         # Modern CLI replacements
-        cat = "bat";
+        cat = "bat --style=plain";
         ls = "eza --icons";
         ll = "eza -la --icons --git";
         tree = "eza --tree --icons";
