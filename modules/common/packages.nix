@@ -148,6 +148,7 @@
       "the-unarchiver" # Archive extraction utility
       "keycastr" # Keystroke visualizer for presentations
       "alacritty" # GPU-accelerated terminal emulator
+      "ghostty" # Fast, native terminal emulator
 
       # Web browsers
       "firefox" # Mozilla Firefox web browser

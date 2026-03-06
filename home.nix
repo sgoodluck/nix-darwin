@@ -46,6 +46,7 @@ in
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
     ".config/zellij/layouts/minimal.kdl".source = "${configDir}/dotfiles/zellij/layouts/minimal.kdl";
     ".config/alacritty/alacritty.toml".source = "${configDir}/dotfiles/alacritty.toml";
+    ".config/ghostty/config".source = "${configDir}/dotfiles/ghostty/config";
     ".config/lazygit/config.yml".source = "${configDir}/dotfiles/lazygit.yml";
     ".config/zed/settings.json".source = "${configDir}/dotfiles/zed/settings.json";
 
@@ -165,6 +166,14 @@ in
         # Cursor CLI path (install manually with: curl https://cursor.com/install | bash)
         export PATH="$HOME/.local/bin:$PATH"
         
+        # NVM initialization (installed via Homebrew)
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+        # Source local environment variables (secrets, tokens, etc.)
+        [[ -f ~/.env.local ]] && source ~/.env.local
+
         # Host-specific shell initialization
         ${personal.extraShellInit or ""}
       '';
