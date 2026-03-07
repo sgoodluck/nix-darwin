@@ -121,7 +121,7 @@ ctrl-alt-cmd-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 ctrl-alt-cmd-shift-semicolon = 'mode service'
 
 # Open terminal
-ctrl-alt-cmd-enter = 'exec-and-forget open -n /Applications/Alacritty.app'
+ctrl-alt-cmd-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
 
 # Open browser (Zen)
 ctrl-alt-cmd-b = 'exec-and-forget open -n /Applications/Zen.app'
@@ -144,9 +144,9 @@ ctrl-alt-cmd-shift-l = ['join-with right', 'mode main']
 
 # App-specific workspace assignments (similar to i3's assign)
 
-# Workspace 1: Alacritty (Terminal)
+# Workspace 1: Ghostty (Terminal)
 [[on-window-detected]]
-if.app-id = 'org.alacritty' 
+if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 1'
 
 # Workspace 2: Zed (Editor)

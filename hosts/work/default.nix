@@ -20,7 +20,7 @@
 
   # Dock configuration
   dockApps = [
-    "/Applications/Alacritty.app"
+    "/Applications/Ghostty.app"
     "/Applications/Zed.app"
     "/Applications/Zen.app"
     "/Applications/Superhuman.app"
@@ -140,7 +140,7 @@
       gui = "zed";  # Previously: emacs
     };
     shell = "zsh";
-    terminalEmulator = "alacritty";
+    terminalEmulator = "ghostty";
     promptTheme = "zen";
   };
 }

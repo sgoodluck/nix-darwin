@@ -3,7 +3,7 @@
 #
 # Structure:
 # - Dotfile symlinks: Links config files from dotfiles/ to ~/.config/
-# - Program configurations: Git, Alacritty, Zsh with custom settings
+# - Program configurations: Git, Ghostty, Zsh with custom settings
 # - Shell environment: PATH, aliases, and environment variables
 {
   pkgs,
@@ -45,7 +45,6 @@ in
     ".config/nvim".source = "${configDir}/dotfiles/nvim";
     ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
     ".config/zellij/layouts/minimal.kdl".source = "${configDir}/dotfiles/zellij/layouts/minimal.kdl";
-    ".config/alacritty/alacritty.toml".source = "${configDir}/dotfiles/alacritty.toml";
     ".config/ghostty/config".source = "${configDir}/dotfiles/ghostty/config";
     ".config/lazygit/config.yml".source = "${configDir}/dotfiles/lazygit.yml";
     ".config/zed/settings.json".source = "${configDir}/dotfiles/zed/settings.json";
