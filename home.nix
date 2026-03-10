@@ -77,13 +77,13 @@ in
     #
     git = {
       enable = true;
-      userName = personal.gitConfig.userName;
-      userEmail = personal.gitConfig.userEmail;
       signing = {
         key = personal.gpgKey;
         signByDefault = true;
       };
-      extraConfig = {
+      settings = {
+        user.name = personal.gitConfig.userName;
+        user.email = personal.gitConfig.userEmail;
         init.defaultBranch = "main";
         pull.rebase = true;
         push.default = "simple";
@@ -96,12 +96,14 @@ in
     #
     ssh = {
       enable = true;
-      addKeysToAgent = "yes";
-      extraConfig = ''
-        UseKeychain yes
-        AddKeysToAgent yes
-      '';
+      enableDefaultConfig = false;
       matchBlocks = {
+        "*" = {
+          extraOptions = {
+            UseKeychain = "yes";
+            AddKeysToAgent = "yes";
+          };
+        };
         "github.com" = {
           hostname = "github.com";
           user = "git";

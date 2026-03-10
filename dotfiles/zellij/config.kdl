@@ -69,7 +69,7 @@ keybinds {
 }
 
 // UI Configuration
-pane_frames false
+pane_frames true
 default_layout "compact"  // Single bar at bottom, more screen space
 
 // Copy command
