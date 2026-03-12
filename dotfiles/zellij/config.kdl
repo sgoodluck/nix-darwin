@@ -11,7 +11,7 @@ themes {
         // ANSI colors based on Modus Vivendi Tinted
         black "#1d2235"
         red "#ff5f59"
-        green "#44bc44"
+        green "#00d3d0"  // Bright cyan - used for active pane border
         yellow "#d0bc00"
         blue "#2fafff"
         magenta "#feacd0"
