@@ -88,10 +88,7 @@
     go-tools # Go development tools (goimports, gorename, etc.)
 
     # Rust development
-    rustc # Rust compiler
-    cargo # Rust package manager and build system
-    rust-analyzer # Rust language server (separate from rustc/cargo)
-    rustfmt # Rust code formatter (used by conform.nvim)
+    rustup # Rust toolchain manager (provides rustc, cargo, rustfmt, etc.)
 
     # Lua and Nix development
     lua-language-server # Lua language server (for Neovim config editing)

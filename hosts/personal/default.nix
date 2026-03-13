@@ -25,6 +25,12 @@
     "/Applications/Tidal.app"
   ];
 
+  # Personal-specific Nix packages
+  extraPackages = pkgs: [
+    pkgs.espup      # Espressif Rust toolchain installer
+    pkgs.espflash   # Serial flasher for ESP32 chips
+  ];
+
   # Personal-specific packages
   extraBrews = [
     "supabase"  # Supabase CLI from supabase/tap
