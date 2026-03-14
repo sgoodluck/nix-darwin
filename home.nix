@@ -61,6 +61,12 @@ in
     ".local/bin/screenshot-capture".source = "${configDir}/scripts/claude/screenshot-capture.sh";
     ".local/bin/pr-review".source = "${configDir}/scripts/claude/pr-review.sh";
 
+    # Aerospace toggle script
+    ".local/bin/toggle-gaps" = {
+      source = "${configDir}/scripts/toggle-gaps.sh";
+      executable = true;
+    };
+
     # Kubernetes helper scripts (work machine)
     ".local/bin/k8s-db-password".source = "${configDir}/dotfiles/scripts/k8s-db-password";
     # VS Code settings - symlinked to Application Support

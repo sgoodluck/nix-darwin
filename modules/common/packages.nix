@@ -131,6 +131,7 @@
       "riff" # a better diff
       "kube-ps1" # Kubernetes prompt helper for showing current context/namespace
       "asciiquarium" # for fun
+      "cmatrix" # digital rain
     ];
 
     casks = [

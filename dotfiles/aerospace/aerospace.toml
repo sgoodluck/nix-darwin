@@ -120,6 +120,9 @@ ctrl-alt-cmd-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 ctrl-alt-cmd-shift-semicolon = 'mode service'
 
+# Toggle window gaps
+ctrl-alt-cmd-g = 'exec-and-forget toggle-gaps'
+
 # Open terminal
 ctrl-alt-cmd-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
 
