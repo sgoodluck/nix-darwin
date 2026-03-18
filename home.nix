@@ -62,6 +62,14 @@ in
     ".claude/CLAUDE.md".source = "${configDir}/dotfiles/claude/CLAUDE.md";
     ".claude/commands/screenshot.md".source = "${configDir}/dotfiles/claude/commands/screenshot.md";
     ".claude/commands/pr-review.md".source = "${configDir}/dotfiles/claude/commands/pr-review.md";
+    ".claude/commands/fdse/start.md".source = "${configDir}/dotfiles/claude/commands/fdse/start.md";
+    ".claude/commands/fdse/stop.md".source = "${configDir}/dotfiles/claude/commands/fdse/stop.md";
+    ".claude/commands/fdse/switch.md".source = "${configDir}/dotfiles/claude/commands/fdse/switch.md";
+    ".claude/commands/fdse/status.md".source = "${configDir}/dotfiles/claude/commands/fdse/status.md";
+    ".claude/commands/fdse/log.md".source = "${configDir}/dotfiles/claude/commands/fdse/log.md";
+    ".claude/commands/fdse/report.md".source = "${configDir}/dotfiles/claude/commands/fdse/report.md";
+    ".claude/commands/fdse/update-joby.md".source = "${configDir}/dotfiles/claude/commands/fdse/update-joby.md";
+    ".claude/commands/fdse/create.md".source = "${configDir}/dotfiles/claude/commands/fdse/create.md";
     ".claude/statusline.sh" = {
       source = "${configDir}/dotfiles/claude/statusline.sh";
       executable = true;

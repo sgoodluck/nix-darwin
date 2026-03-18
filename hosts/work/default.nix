@@ -21,9 +21,7 @@
   # Dock configuration
   dockApps = [
     "/Applications/Ghostty.app"
-    "/Applications/Zed.app"
     "/Applications/Zen.app"
-    "/Applications/Superhuman.app"
     "/Applications/TIDAL.app"
   ];
 
