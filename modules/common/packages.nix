@@ -122,48 +122,4 @@ in
     unzip
     zip
   ];
-
-  # Homebrew configuration — macOS ONLY
-  # On NixOS this entire block is ignored because nix-homebrew module is not loaded
-  homebrew = lib.mkIf isDarwin {
-    enable = true;
-
-    global = {
-      autoUpdate = false;
-      lockfiles = false;
-    };
-
-    onActivation = {
-      cleanup = "zap";
-      autoUpdate = true;
-      upgrade = true;
-    };
-
-    brews = [
-      "mas"
-      "git-graph"
-      "nvm"
-      "markdown"
-      "moor"
-      "riff"
-      "kube-ps1"
-      "asciiquarium"
-    ];
-
-    casks = [
-      "markedit"
-      "appcleaner"
-      "the-unarchiver"
-      "keycastr"
-      "ghostty"
-      "firefox"
-      "zen"
-      "zed"
-      "gimp"
-      "nikitabobko/tap/aerospace"
-      "karabiner-elements"
-      "tidal"
-      "notunes"
-    ];
-  };
 }

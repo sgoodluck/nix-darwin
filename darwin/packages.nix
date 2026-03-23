@@ -1,21 +1,12 @@
-# Package management configuration for macOS
-# Combines common packages with host-specific additions
-{
-  pkgs,
-  lib,
-  hostConfig,
-  ...
-}:
+{ pkgs, lib, hostConfig, ... }:
 {
   imports = [
     ../modules/common/packages.nix
   ];
 
-  # Add host-specific Nix packages
   environment.systemPackages =
     if (hostConfig ? extraPackages) then (hostConfig.extraPackages pkgs) else [ ];
 
-  # Homebrew configuration
   homebrew = {
     enable = true;
 
@@ -39,8 +30,7 @@
       "riff"
       "kube-ps1"
       "asciiquarium"
-      "cmatrix"
-    ] ++ (hostConfig.extraBrews or []);
+    ] ++ (hostConfig.extraBrews or [ ]);
 
     casks = [
       "markedit"
@@ -56,6 +46,6 @@
       "karabiner-elements"
       "tidal"
       "notunes"
-    ] ++ (hostConfig.extraCasks or []);
+    ] ++ (hostConfig.extraCasks or [ ]);
   };
 }
