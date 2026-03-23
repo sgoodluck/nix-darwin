@@ -49,6 +49,9 @@
       url = "github:skiptools/homebrew-skip";
       flake = false;
     };
+
+    # Zen Browser (NixOS only)
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs =
@@ -65,6 +68,7 @@
       homebrew-aerospace,
       homebrew-supabase,
       homebrew-skip,
+      zen-browser,
     }:
     let
       # ─── macOS Darwin configuration factory ───
@@ -138,6 +142,13 @@
           modules = [
             # Allow unfree packages (proprietary drivers, etc.)
             { nixpkgs.config.allowUnfree = true; }
+
+            # Zen Browser
+            {
+              environment.systemPackages = [
+                zen-browser.packages.x86_64-linux.default
+              ];
+            }
 
             # Hardware configuration (machine-specific)
             (hostPath + "/hardware-configuration.nix")
