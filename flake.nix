@@ -178,7 +178,7 @@
 
       # ─── NixOS systems ───
       nixosConfigurations = {
-        "smartin-nano" = mkNixosConfig ./hosts/nixos-laptop "smartin-nano";
+        "x1nano" = mkNixosConfig ./hosts/x1nano "x1nano";
       };
     };
 }

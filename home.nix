@@ -86,6 +86,14 @@ in
   // lib.optionalAttrs isLinux {
     # Hyprland config
     ".config/hypr/hyprland.conf".source = "${configDir}/dotfiles/hypr/hyprland.conf";
+    ".config/hypr/hypridle.conf".source = "${configDir}/dotfiles/hypr/hypridle.conf";
+    ".config/hypr/hyprlock.conf".source = "${configDir}/dotfiles/hypr/hyprlock.conf";
+    ".config/hypr/hyprpaper.conf".source = "${configDir}/dotfiles/hypr/hyprpaper.conf";
+    # Waybar status bar
+    ".config/waybar/config.jsonc".source = "${configDir}/dotfiles/waybar/config.jsonc";
+    ".config/waybar/style.css".source = "${configDir}/dotfiles/waybar/style.css";
+    # Wofi app launcher
+    ".config/wofi/style.css".source = "${configDir}/dotfiles/wofi/style.css";
     # VS Code on Linux uses XDG
     ".config/Code/User/settings.json".source = "${configDir}/dotfiles/vscode/settings.json";
   };
