@@ -10,13 +10,52 @@
   imports = [
     ../modules/common/packages.nix
   ];
+
   # Add host-specific Nix packages
   environment.systemPackages =
     if (hostConfig ? extraPackages) then (hostConfig.extraPackages pkgs) else [ ];
 
-  # Merge host-specific Homebrew packages
+  # Homebrew configuration
   homebrew = {
-    brews = hostConfig.extraBrews or [ ];
-    casks = hostConfig.extraCasks or [ ];
+    enable = true;
+
+    global = {
+      autoUpdate = false;
+      lockfiles = false;
+    };
+
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+      upgrade = true;
+    };
+
+    brews = [
+      "mas"
+      "git-graph"
+      "nvm"
+      "markdown"
+      "moor"
+      "riff"
+      "kube-ps1"
+      "asciiquarium"
+      "cmatrix"
+    ] ++ (hostConfig.extraBrews or []);
+
+    casks = [
+      "markedit"
+      "appcleaner"
+      "the-unarchiver"
+      "keycastr"
+      "ghostty"
+      "firefox"
+      "zen"
+      "zed"
+      "gimp"
+      "nikitabobko/tap/aerospace"
+      "karabiner-elements"
+      "tidal"
+      "notunes"
+    ] ++ (hostConfig.extraCasks or []);
   };
 }

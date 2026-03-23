@@ -27,8 +27,9 @@
 
   # Personal-specific Nix packages
   extraPackages = pkgs: [
-    pkgs.espup      # Espressif Rust toolchain installer
-    pkgs.espflash   # Serial flasher for ESP32 chips
+    pkgs.espup            # Espressif Rust toolchain installer
+    pkgs.espflash         # Serial flasher for ESP32 chips
+    pkgs.yubikey-manager  # YubiKey configuration (ykman CLI)
   ];
 
   # Personal-specific packages

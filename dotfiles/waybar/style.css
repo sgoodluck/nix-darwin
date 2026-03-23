@@ -1,0 +1,68 @@
+/* Waybar style - Modus Vivendi Tinted */
+
+* {
+    font-family: "SauceCodePro Nerd Font", monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(29, 34, 53, 0.9);
+    color: #ffffff;
+    border-bottom: 2px solid rgba(47, 175, 255, 0.3);
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #989898;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: #2fafff;
+    border-bottom: 2px solid #2fafff;
+}
+
+#workspaces button.urgent {
+    color: #ff5f59;
+}
+
+#workspaces button:hover {
+    background: rgba(79, 86, 102, 0.3);
+    color: #ffffff;
+}
+
+#clock,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#backlight,
+#tray {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#battery.warning {
+    color: #d0bc00;
+}
+
+#battery.critical {
+    color: #ff5f59;
+}
+
+#network.disconnected {
+    color: #4f5666;
+}
+
+#pulseaudio.muted {
+    color: #4f5666;
+}
+
+tooltip {
+    background-color: #1d2235;
+    border: 1px solid #4f5666;
+    border-radius: 4px;
+}

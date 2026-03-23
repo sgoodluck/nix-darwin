@@ -1,27 +1,38 @@
 {
-  description = "Seth's Zen Nix Flake - macOS system configuration using Nix Darwin and Home Manager";
+  description = "Seth's Zen Nix Flake - macOS and NixOS system configuration";
 
   inputs = {
-    # Main package set - using nixpkgs 25.05 Darwin branch for macOS
+    # Main package set — NixOS and Darwin share the same nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
 
-    # macOS system configuration framework - using corresponding nix-darwin branch
+    # For NixOS, we may want the NixOS-specific branch
+    nixpkgs-nixos.url = "github:NixOS/nixpkgs/nixos-25.11";
+
+    # macOS system configuration framework
     nix-darwin = {
       url = "github:LnL7/nix-darwin/nix-darwin-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # User-level dotfile and package management - using release branch
+    # User-level dotfile and package management — shared by both platforms
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Declarative Homebrew management
+
+    # Home Manager for NixOS (follows NixOS nixpkgs)
+    home-manager-nixos = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs-nixos";
+    };
+
+    # Declarative Homebrew management (macOS only)
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
     # macOS app linking utility
     mac-app-util.url = "github:hraban/mac-app-util";
-    # Homebrew tap repositories (non-flake inputs)
+
+    # Homebrew tap repositories (non-flake inputs, macOS only)
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
       flake = false;
@@ -45,7 +56,9 @@
       self,
       nix-darwin,
       nixpkgs,
+      nixpkgs-nixos,
       home-manager,
+      home-manager-nixos,
       nix-homebrew,
       mac-app-util,
       homebrew-bundle,
@@ -54,10 +67,9 @@
       homebrew-skip,
     }:
     let
-      # Helper function to create a Darwin configuration
-      mkDarwinConfig = hostPath: hostName: 
+      # ─── macOS Darwin configuration factory ───
+      mkDarwinConfig = hostPath: hostName:
         let
-          # Import the host-specific configuration
           hostConfig = import hostPath {
             inherit (nixpkgs) lib;
             pkgs = nixpkgs.legacyPackages.aarch64-darwin;
@@ -66,19 +78,10 @@
         nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           specialArgs = { inherit inputs; };
-
-          # Modules are evaluated in order and compose the final system configuration
           modules = [
-            # Core Darwin system configuration (system settings, packages)
             ./darwin
-
-            # Enable macOS app symlinking for GUI apps installed via Nix
             mac-app-util.darwinModules.default
-
-            # Declarative Homebrew management module
             nix-homebrew.darwinModules.nix-homebrew
-
-            # Configure nix-homebrew with our taps and settings
             {
               nix-homebrew = {
                 enable = true;
@@ -87,7 +90,6 @@
                 mutableTaps = true;
                 autoMigrate = true;
                 taps = {
-                  # Only manage non-core taps
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "nikitabobko/tap" = homebrew-aerospace;
                   "supabase/tap" = homebrew-supabase;
@@ -95,29 +97,16 @@
                 };
               };
             }
-
-            # Configuration module for system-level settings and home-manager integration
             {
-              # Inject host config into all Darwin and Home Manager modules
-              # This makes host settings available everywhere without explicit imports
               _module.args.hostConfig = hostConfig;
-
-              # Define user home directory (required for home-manager)
               users.users.${hostConfig.username}.home = "/Users/${hostConfig.username}";
-
-              # Configure home-manager integration
               home-manager = {
-                # Use system-level nixpkgs instead of separate instance (saves resources)
                 useGlobalPkgs = true;
-                # Install packages to user profile instead of system
                 useUserPackages = true;
-                # Automatically backup conflicting files with .backup extension
                 backupFileExtension = "backup";
-                # Enable mac-app-util to create .app bundles for Nix GUI apps
                 sharedModules = [
                   mac-app-util.homeManagerModules.default
                 ];
-                # Define home configuration for our user
                 users.${hostConfig.username} =
                   { pkgs, ... }:
                   import ./home.nix {
@@ -126,24 +115,70 @@
                     personal = hostConfig;
                     config = { };
                   };
+                extraSpecialArgs = {
+                  hostConfig = hostConfig;
+                };
+              };
+            }
+            home-manager.darwinModules.home-manager
+          ];
+        };
 
-                # Pass host config to all home-manager modules
+      # ─── NixOS configuration factory ───
+      mkNixosConfig = hostPath: hostName:
+        let
+          hostConfig = import (hostPath + "/default.nix") {
+            inherit (nixpkgs-nixos) lib;
+            pkgs = nixpkgs-nixos.legacyPackages.x86_64-linux;
+          };
+        in
+        nixpkgs-nixos.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            # Hardware configuration (machine-specific)
+            (hostPath + "/hardware-configuration.nix")
+
+            # NixOS system configuration (boot, networking, desktop, packages)
+            ./nixos
+
+            # Host config injection + Home Manager integration
+            {
+              _module.args.hostConfig = hostConfig;
+
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                users.${hostConfig.username} =
+                  { pkgs, ... }:
+                  import ./home.nix {
+                    inherit pkgs;
+                    lib = nixpkgs-nixos.lib;
+                    personal = hostConfig;
+                    config = { };
+                  };
                 extraSpecialArgs = {
                   hostConfig = hostConfig;
                 };
               };
             }
 
-            # Load home-manager's Darwin integration module
-            home-manager.darwinModules.home-manager
+            # Home Manager NixOS module
+            home-manager-nixos.nixosModules.home-manager
           ];
         };
     in
     {
-      # Define Darwin system configurations for both machines
+      # ─── Darwin systems (macOS) ───
       darwinConfigurations = {
         "Seths-MacBook-Pro" = mkDarwinConfig ./hosts/work "Seths-MacBook-Pro";
         "sgoodluck-m1air" = mkDarwinConfig ./hosts/personal "sgoodluck-m1air";
+      };
+
+      # ─── NixOS systems ───
+      nixosConfigurations = {
+        "smartin-nano" = mkNixosConfig ./hosts/nixos-laptop "smartin-nano";
       };
     };
 }
