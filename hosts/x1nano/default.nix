@@ -28,6 +28,7 @@
 
     # Browsers
     firefox
+    brave
 
     # Privacy & utilities
     protonvpn-gui
