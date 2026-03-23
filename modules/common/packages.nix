@@ -1,5 +1,5 @@
 # Common packages shared between work, personal, and NixOS configurations
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   isDarwin = pkgs.stdenv.isDarwin;
   isLinux = pkgs.stdenv.isLinux;
