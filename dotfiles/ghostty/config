@@ -47,4 +47,4 @@ selection-background = 5a5f7a
 selection-foreground = ffffff
 
 # Shell
-command = /bin/zsh
+#command = /bin/zsh
