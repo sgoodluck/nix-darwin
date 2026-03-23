@@ -24,9 +24,11 @@
 
   # Linux-specific extra packages (GUI apps that were Homebrew casks on macOS)
   extraPackages = pkgs: with pkgs; [
+    # Terminal
+    ghostty
+
     # Browsers
     firefox
-    zen-browser
 
     # Privacy & utilities
     transmission_4-gtk
@@ -35,9 +37,6 @@
     # Creative tools
     inkscape
     obsidian
-
-    # Terminal
-    ghostty
 
     # Wayland utilities
     wl-clipboard       # clipboard for Wayland (replaces pbcopy/pbpaste)
