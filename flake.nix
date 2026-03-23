@@ -136,6 +136,9 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
+            # Allow unfree packages (proprietary drivers, etc.)
+            { nixpkgs.config.allowUnfree = true; }
+
             # Hardware configuration (machine-specific)
             (hostPath + "/hardware-configuration.nix")
 
