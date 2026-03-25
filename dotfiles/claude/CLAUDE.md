@@ -235,11 +235,21 @@ FR Linear (ION-XXXX) is the source of truth. Each ticket has an `fdse-work-type`
 
 feature-dev | integrations | rules | debugging | data-request | analytics-and-dashboards | process-and-training
 
-### Clockify Projects (mirror bucket labels)
+### Client Labels
 
-feature-dev | integrations | rules | debugging | data-request | analytics-and-dashboards | process-and-training | meetings
+- `customer.joby-aviation` (id: e7b104df-12db-41d2-9a82-7cbdd7781ed4) — workspace-level label. Auto-applied when work is Joby-related.
 
-Create Clockify projects on first use if they don't exist.
+### Clockify Projects
+
+Projects are per-client per-bucket. Same bucket name can exist under different clients.
+
+Clients:
+- **Joby Aero** (id: 68e69bbbd1605947f26e5690) — use when ticket has `customer.joby-aviation` label
+- **First Resonance** (id: 68e7e0a8631c3b32395aba2f) — use for internal/non-client work
+
+Buckets: feature-dev | integrations | rules | debugging | data-request | analytics-and-dashboards | process-and-training | meetings
+
+When starting/logging time, resolve the client from the ticket's labels, then find or create the project matching bucket + client. Create on first use with `clientId`.
 
 ### FR Linear Engineering Team Statuses
 
