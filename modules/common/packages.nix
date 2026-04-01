@@ -101,6 +101,10 @@ in
     zellij
     oh-my-posh
 
+    # Database tools
+    postgresql
+    pgcli
+
     # Kubernetes tools
     kubectl
     kubectx

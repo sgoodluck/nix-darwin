@@ -30,7 +30,7 @@ return {
         "nix", "python", "typescript", "go", "rust", "c",
         "lua", "markdown", "json", "yaml", "toml", "bash",
       },
-      auto_install = false,
+      auto_install = true,
       sync_install = false,
       highlight = { enable = true },
       indent = { enable = true },

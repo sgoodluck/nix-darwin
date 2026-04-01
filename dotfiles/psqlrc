@@ -1,0 +1,30 @@
+\set QUIET on
+
+-- Prompt: user@host:port/db [txn] =#
+\set PROMPT1 '%n@%m:%>/%/%x%R%# '
+\set PROMPT2 '%R%# '
+
+-- Output
+\x auto
+\pset null '(null)'
+\pset linestyle unicode
+\pset border 2
+
+-- History (per-database, deduplicated)
+\set HISTFILE ~/.psql_history-:DBNAME
+\set HISTSIZE 10000
+\set HISTCONTROL ignoredups
+
+-- Behavior
+\timing on
+\set VERBOSITY verbose
+\set ON_ERROR_ROLLBACK interactive
+\set COMP_KEYWORD_CASE upper
+\setenv PAGER 'less -SRXF'
+
+-- Handy shortcuts: run with :running, :sizes, :conninfo
+\set running 'SELECT pid, age(clock_timestamp(), query_start), usename, state, query FROM pg_stat_activity WHERE state != \'idle\' ORDER BY query_start;'
+\set sizes 'SELECT relname AS table, pg_size_pretty(pg_total_relation_size(C.oid)) AS size FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN (\'pg_catalog\', \'information_schema\') AND C.relkind = \'r\' ORDER BY pg_total_relation_size(C.oid) DESC LIMIT 20;'
+\set conninfo 'SELECT usename, count(*) FROM pg_stat_activity GROUP BY usename ORDER BY count DESC;'
+
+\unset QUIET

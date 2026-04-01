@@ -153,6 +153,10 @@ in
     ".local/bin/screenshot-capture".source = "${configDir}/scripts/claude/screenshot-capture.sh";
     ".local/bin/pr-review".source = "${configDir}/scripts/claude/pr-review.sh";
 
+    # PostgreSQL client configs (cross-platform)
+    ".psqlrc".source = "${configDir}/dotfiles/psqlrc";
+    ".config/pgcli/config".source = "${configDir}/dotfiles/pgcli/config";
+
     # Kubernetes helper scripts (cross-platform)
     ".local/bin/k8s-db-password".source = "${configDir}/dotfiles/scripts/k8s-db-password";
   }
