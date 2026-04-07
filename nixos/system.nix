@@ -15,7 +15,10 @@
   # Nix settings
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       auto-optimise-store = true;
     };
     gc = {
@@ -62,16 +65,23 @@
     isNormalUser = true;
     description = hostConfig.fullName;
     extraGroups = [
-      "wheel"          # sudo
-      "networkmanager"  # network config
-      "video"          # backlight control
-      "audio"          # audio devices
+      "wheel" # sudo
+      "networkmanager" # network config
+      "video" # backlight control
+      "audio" # audio devices
+      "docker" # docker access without sudo
     ];
     shell = pkgs.zsh;
   };
 
+  # Docker
+  virtualisation.docker.enable = true;
+
   # Enable zsh system-wide (required for it to be a valid login shell)
   programs.zsh.enable = true;
+
+  # nix-ld for running unpatched dynamic binaries (AppImages, pre-compiled binaries, etc.)
+  programs.nix-ld.enable = true;
 
   # Security
   security = {

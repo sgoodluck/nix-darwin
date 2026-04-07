@@ -70,7 +70,6 @@ The repository follows a modular structure with clear separation of concerns:
 - TouchID enabled for sudo authentication
 - Emacs installed via Homebrew emacs-plus with: ctags, mailutils, xwidgets, imagemagick
 - Custom PATH includes: `~/.config/emacs/bin`, `/opt/homebrew/bin`, `/opt/homebrew/opt/llvm/bin`
-- Claude Code available as a Nix package
 
 ## Host-Specific Packages
 

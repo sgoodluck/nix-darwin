@@ -72,8 +72,8 @@ keybinds {
 pane_frames true
 default_layout "compact"  // Single bar at bottom, more screen space
 
-// Copy command
-copy_command "pbcopy"
+// Copy command (wl-copy for Wayland, pbcopy for macOS)
+copy_command "wl-copy"
 
 // Scrollback
 scroll_buffer_size 10000

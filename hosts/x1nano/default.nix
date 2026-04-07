@@ -7,7 +7,7 @@
   fullName = "Seth";
   email = "sethgoodluck@pm.me";
   githubUsername = "Seth";
-  gpgKey = "E322D2003CDAA1E0";
+  gpgKey = null;  # No GPG key on this machine
 
   # Git configuration
   gitConfig = {
@@ -45,11 +45,24 @@
 
     # Media
     vlc
-    tidal-hifi
+    (symlinkJoin {
+      name = "tidal-hifi-no-sandbox";
+      paths = [ tidal-hifi ];
+      buildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/tidal-hifi --add-flags "--no-sandbox"
+      '';
+    })
 
     # ESP32 development
     espup
     espflash
+
+    # Backend development
+    supabase-cli
+
+    # Tailscale GUI
+    trayscale
 
     # Wayland utilities
     wl-clipboard

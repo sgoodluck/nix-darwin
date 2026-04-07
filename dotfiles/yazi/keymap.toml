@@ -1,0 +1,6 @@
+# Yazi keymap configuration
+
+[[manager.prepend_keymap]]
+on   = ["c", "p"]
+run  = "shell 'echo -n $@ | wl-copy' --confirm"
+desc = "Copy file path to clipboard"

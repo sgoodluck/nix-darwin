@@ -33,12 +33,29 @@
   };
 
   # Audio — Pipewire (replaces PulseAudio)
+  # Hi-fi config for TIDAL/lossless audio: higher sample rate + lower latency
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
+
+    # Hi-fi audio configuration
+    extraConfig.pipewire = {
+      "10-high-quality" = {
+        "context.properties" = {
+          # Default to 96kHz (TIDAL MQA/HiFi max)
+          "default.clock.rate" = 96000;
+          # Allow dynamic rate switching based on content
+          "default.clock.allowed-rates" = [ 44100 48000 88200 96000 ];
+          # Lower quantum = lower latency (512 samples = ~5.3ms at 96kHz)
+          "default.clock.quantum" = 512;
+          "default.clock.min-quantum" = 32;
+          "default.clock.max-quantum" = 1024;
+        };
+      };
+    };
   };
   # Explicitly disable PulseAudio (conflicts with Pipewire)
   services.pulseaudio.enable = false;
@@ -97,6 +114,10 @@
 
     # Brightness
     brightnessctl
+
+    # File manager
+    yazi
+    xfce.thunar  # GUI file manager
 
     # Audio control (GUI)
     pavucontrol

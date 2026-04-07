@@ -25,36 +25,36 @@
             "critical": 15
         },
         "format": "{icon}  {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format-charging": "󰂄  {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾"]
     },
 
     "network": {
-        "format-wifi": "  {signalStrength}%",
-        "format-ethernet": "  {ifname}",
-        "format-disconnected": "  off",
+        "format-wifi": "󰖩  {signalStrength}%",
+        "format-ethernet": "󰈀  {ifname}",
+        "format-disconnected": "󰖪  off",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
     },
 
     "bluetooth": {
-        "format": "",
-        "format-connected": " {device_alias}",
-        "format-disabled": "",
+        "format": "󰂯",
+        "format-connected": "󰂱 {device_alias}",
+        "format-disabled": "󰂲",
         "tooltip-format": "{status}"
     },
 
     "pulseaudio": {
         "format": "{icon}  {volume}%",
-        "format-muted": "  muted",
+        "format-muted": "󰝟  muted",
         "format-icons": {
-            "default": ["", "", ""]
+            "default": ["󰕿", "󰖀", "󰕾"]
         },
         "on-click": "pavucontrol"
     },
 
     "backlight": {
         "format": "{icon}  {percent}%",
-        "format-icons": ["", ""]
+        "format-icons": ["󰃞", "󰃟"]
     },
 
     "tray": {

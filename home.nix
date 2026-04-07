@@ -46,7 +46,78 @@ in
     ".config/nvim".source = "${configDir}/dotfiles/nvim";
 
     # Terminal multiplexer (cross-platform)
-    ".config/zellij/config.kdl".source = "${configDir}/dotfiles/zellij/config.kdl";
+    ".config/zellij/config.kdl".text = ''
+      // Zellij configuration
+      // https://zellij.dev/documentation/configuration.html
+
+      // Theme
+      themes {
+          modus-vivendi-tinted {
+              bg "#1d2235"
+              fg "#ffffff"
+              black "#1d2235"
+              red "#ff5f59"
+              green "#00d3d0"
+              yellow "#d0bc00"
+              blue "#2fafff"
+              magenta "#feacd0"
+              cyan "#00d3d0"
+              white "#989898"
+              orange "#ef8b50"
+              gray "#4f5666"
+              silver "#a8a8a8"
+              pink "#feacd0"
+              brown "#b06240"
+          }
+      }
+
+      theme "modus-vivendi-tinted"
+
+      // Keybindings
+      keybinds {
+          normal {
+              bind "Alt h" { MoveFocus "Left"; }
+              bind "Alt l" { MoveFocus "Right"; }
+              bind "Alt j" { MoveFocus "Down"; }
+              bind "Alt k" { MoveFocus "Up"; }
+              bind "Alt n" { NewPane; }
+              bind "Alt x" { CloseFocus; }
+              bind "Alt f" { ToggleFocusFullscreen; }
+              bind "Alt s" { NewPane "Down"; }
+              bind "Alt v" { NewPane "Right"; }
+              bind "Alt t" { NewTab; }
+              bind "Alt 1" { GoToTab 1; }
+              bind "Alt 2" { GoToTab 2; }
+              bind "Alt 3" { GoToTab 3; }
+              bind "Alt 4" { GoToTab 4; }
+              bind "Alt 5" { GoToTab 5; }
+              bind "Alt 6" { GoToTab 6; }
+              bind "Alt 7" { GoToTab 7; }
+              bind "Alt 8" { GoToTab 8; }
+              bind "Alt 9" { GoToTab 9; }
+              bind "Ctrl o" { SwitchToMode "Session"; }
+          }
+      }
+
+      // UI Configuration
+      pane_frames true
+      default_layout "compact"
+
+      // Copy command (platform-specific)
+      copy_command "${if isDarwin then "pbcopy" else "wl-copy"}"
+
+      // Scrollback
+      scroll_buffer_size 10000
+
+      // Mouse mode
+      mouse_mode true
+
+      // Simplified UI
+      simplified_ui false
+
+      // Hide session name
+      hide_session_name false
+    '';
     ".config/zellij/layouts/minimal.kdl".source = "${configDir}/dotfiles/zellij/layouts/minimal.kdl";
 
     # Terminal emulator (cross-platform — Ghostty runs on Linux and macOS)
@@ -54,6 +125,9 @@ in
 
     # Git UI (cross-platform)
     ".config/lazygit/config.yml".source = "${configDir}/dotfiles/lazygit.yml";
+
+    # File manager (cross-platform)
+    ".config/yazi/keymap.toml".source = "${configDir}/dotfiles/yazi/keymap.toml";
 
     # Zed editor (cross-platform)
     ".config/zed/settings.json".source = "${configDir}/dotfiles/zed/settings.json";
@@ -116,7 +190,7 @@ in
     #
     git = {
       enable = true;
-      signing = {
+      signing = lib.mkIf (personal.gpgKey != null) {
         key = personal.gpgKey;
         signByDefault = true;
       };
