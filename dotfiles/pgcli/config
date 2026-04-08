@@ -130,7 +130,7 @@ table_format = psql
 # Syntax Style. Possible values: manni, igor, xcode, vim, autumn, vs, rrt,
 # native, perldoc, borland, tango, emacs, friendly, monokai, paraiso-dark,
 # colorful, murphy, bw, pastie, paraiso-light, trac, default, fruity
-syntax_style = default
+syntax_style = emacs
 
 # Keybindings:
 # When Vi mode is enabled you can use modal editing features offered by Vi in the REPL.
@@ -174,7 +174,7 @@ verbose_errors = False
 # \dsn_alias - name of dsn connection string alias if -D option is used (empty otherwise)
 # \x1b[...m - insert ANSI escape sequence
 # eg: prompt = '\x1b[35m\u@\x1b[32m\h:\x1b[36m\d>'
-prompt = '\u@\h:\d\T> '
+prompt = '\u@\h:\d> '
 
 # Number of lines to reserve for the suggestion menu
 min_num_menu_lines = 4
@@ -198,15 +198,15 @@ use_local_timezone = True
 # Custom colors for the completion menu, toolbar, etc.
 [colors]
 completion-menu.completion.current = 'bg:#ffffff #000000'
-completion-menu.completion = 'bg:#008888 #ffffff'
-completion-menu.meta.completion.current = 'bg:#44aaaa #000000'
-completion-menu.meta.completion = 'bg:#448888 #ffffff'
-completion-menu.multi-column-meta = 'bg:#aaffff #000000'
-scrollbar.arrow = 'bg:#003333'
-scrollbar = 'bg:#00aaaa'
-selected = '#ffffff bg:#6666aa'
-search = '#ffffff bg:#4444aa'
-search.current = '#ffffff bg:#44aa44'
+completion-menu.completion = 'bg:#5b21b6 #ffffff'
+completion-menu.meta.completion.current = 'bg:#7c3aed #000000'
+completion-menu.meta.completion = 'bg:#4c1d95 #ffffff'
+completion-menu.multi-column-meta = 'bg:#c4b5fd #000000'
+scrollbar.arrow = 'bg:#3b0764'
+scrollbar = 'bg:#7c3aed'
+selected = '#ffffff bg:#7c3aed'
+search = '#ffffff bg:#dc2626'
+search.current = '#ffffff bg:#ef4444'
 bottom-toolbar = 'bg:#222222 #aaaaaa'
 bottom-toolbar.off = 'bg:#222222 #888888'
 bottom-toolbar.on = 'bg:#222222 #ffffff'
@@ -232,9 +232,9 @@ output.null = "#808080"
 
 # Named queries are queries you can execute by name.
 [named queries]
-running = SELECT pid, age(clock_timestamp(), query_start), usename, state, query FROM pg_stat_activity WHERE state != 'idle' ORDER BY query_start
-sizes = SELECT relname AS table, pg_size_pretty(pg_total_relation_size(C.oid)) AS size FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN ('pg_catalog', 'information_schema') AND C.relkind = 'r' ORDER BY pg_total_relation_size(C.oid) DESC LIMIT 20
-conninfo = SELECT usename, count(*) FROM pg_stat_activity GROUP BY usename ORDER BY count DESC
+running = "SELECT pid, age(clock_timestamp(), query_start), usename, state, query FROM pg_stat_activity WHERE state != 'idle' ORDER BY query_start"
+sizes = "SELECT relname AS table, pg_size_pretty(pg_total_relation_size(C.oid)) AS size FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN ('pg_catalog', 'information_schema') AND C.relkind = 'r' ORDER BY pg_total_relation_size(C.oid) DESC LIMIT 20"
+conninfo = "SELECT usename, count(*) FROM pg_stat_activity GROUP BY usename ORDER BY count DESC"
 
 # Here's where you can provide a list of connection string aliases.
 # You can use it by passing the -D option. `pgcli -D example_dsn`
