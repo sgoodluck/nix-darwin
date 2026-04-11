@@ -123,6 +123,9 @@ in
     # Terminal emulator (cross-platform — Ghostty runs on Linux and macOS)
     ".config/ghostty/config".source = "${configDir}/dotfiles/ghostty/config";
 
+    # System info (cross-platform)
+    ".config/fastfetch/config.jsonc".source = "${configDir}/dotfiles/fastfetch/config.jsonc";
+
     # Git UI (cross-platform)
     ".config/lazygit/config.yml".source = "${configDir}/dotfiles/lazygit.yml";
 
@@ -294,6 +297,9 @@ in
 
         # Host-specific shell initialization
         ${personal.extraShellInit or ""}
+
+        # System info on new terminal
+        fastfetch
       '';
 
       sessionVariables = {
