@@ -1,0 +1,20 @@
+## Macchina configuration
+
+# Theme (built-in)
+theme = "Hydrogen"
+
+# Which info modules to show
+show = [
+  "Host",
+  "Machine",
+  "Kernel",
+  "OS",
+  "Uptime",
+  "Packages",
+  "Shell",
+  "Terminal",
+  "Processor",
+  "Memory",
+  "Battery",
+  "LocalIP",
+]

@@ -31,7 +31,7 @@ in
     zoxide
     dust
     procs
-    fastfetch
+    macchina
 
     # Essential utilities
     jq

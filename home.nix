@@ -124,7 +124,7 @@ in
     ".config/ghostty/config".source = "${configDir}/dotfiles/ghostty/config";
 
     # System info (cross-platform)
-    ".config/fastfetch/config.jsonc".source = "${configDir}/dotfiles/fastfetch/config.jsonc";
+    ".config/macchina/macchina.toml".source = "${configDir}/dotfiles/macchina/macchina.toml";
 
     # Git UI (cross-platform)
     ".config/lazygit/config.yml".source = "${configDir}/dotfiles/lazygit.yml";
@@ -299,7 +299,7 @@ in
         ${personal.extraShellInit or ""}
 
         # System info on new terminal
-        fastfetch
+        macchina
       '';
 
       sessionVariables = {
