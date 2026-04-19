@@ -8,7 +8,7 @@ show = [
   "Host",
   "Machine",
   "Kernel",
-  "OS",
+  "OperatingSystem",
   "Uptime",
   "Packages",
   "Shell",

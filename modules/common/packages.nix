@@ -37,7 +37,7 @@ in
     jq
     yq
     htop
-    direnv
+    (direnv.overrideAttrs { doCheck = false; })
     just
 
     # System utilities and development tools
